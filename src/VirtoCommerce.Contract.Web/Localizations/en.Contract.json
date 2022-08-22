@@ -1,0 +1,28 @@
+{
+  "Contract": {
+    "blades": {
+      "contracts-list": {
+        "title": "Contracts"
+      }
+    }
+  },
+  "permissions": {
+    "Contract:access": "Open Contract menu",
+    "Contract:create": "Create Contract related data",
+    "Contract:read": "View Contract related data",
+    "Contract:update": "Update Contract related data",
+    "Contract:delete": "Delete Contract related data"
+  },
+  "settings": {
+    "Contract": {
+      "ContractEnabled": {
+        "title": "Contract Enabled",
+        "description": "Contract Enabled setting"
+      },
+      "ContractPassword": {
+        "title": "Contract Password",
+        "description": "Contract Password setting"
+      }
+    }
+  }
+}
