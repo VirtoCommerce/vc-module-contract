@@ -1,5 +1,6 @@
 using EntityFrameworkCore.Triggers;
 using Microsoft.EntityFrameworkCore;
+using VirtoCommerce.Contract.Data.Models;
 
 namespace VirtoCommerce.Contract.Data.Repositories
 {
@@ -19,8 +20,8 @@ namespace VirtoCommerce.Contract.Data.Repositories
         {
             base.OnModelCreating(modelBuilder);
 
-            //modelBuilder.Entity<ContractEntity>().ToTable("Contract").HasKey(x => x.Id);
-            //modelBuilder.Entity<ContractEntity>().Property(x => x.Id).HasMaxLength(128).ValueGeneratedOnAdd();
+            modelBuilder.Entity<ContractEntity>().ToTable("Contract").HasKey(x => x.Id);
+            modelBuilder.Entity<ContractEntity>().Property(x => x.Id).HasMaxLength(128).ValueGeneratedOnAdd();
         }
     }
 }
