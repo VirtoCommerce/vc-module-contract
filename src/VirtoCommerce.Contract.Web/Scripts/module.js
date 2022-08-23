@@ -27,8 +27,8 @@ angular.module(moduleName, [])
                 });
         }
     ])
-    .run(['platformWebApp.mainMenuService', '$state',
-        function (mainMenuService, $state) {
+    .run(['platformWebApp.mainMenuService', '$state', 'platformWebApp.widgetService',
+        function (mainMenuService, $state, widgetService) {
             //Register module in main menu
             var menuItem = {
                 path: 'browse/Contract',
@@ -39,5 +39,25 @@ angular.module(moduleName, [])
                 permission: 'Contract:access',
             };
             mainMenuService.addMenuItem(menuItem);
+
+            widgetService.registerWidget({
+                controller: 'Contract.contractAttachmentsWidgetController',
+                template: 'Modules/$(VirtoCommerce.Contract)/Scripts/widgets/contract-attachments-widget.html'
+            }, 'contractDetail');
+
+            widgetService.registerWidget({
+                controller: 'Contract.contractCustomersWidgetController',
+                template: 'Modules/$(VirtoCommerce.Contract)/Scripts/widgets/contract-customers-widget.html'
+            }, 'contractDetail');
+
+            widgetService.registerWidget({
+                controller: 'Contract.contractDynamicPropertiesWidgetController',
+                template: 'Modules/$(VirtoCommerce.Contract)/Scripts/widgets/contract-dynamic-properties-widget.html'
+            }, 'contractDetail');
+
+            widgetService.registerWidget({
+                controller: 'Contract.contractPricesWidgetController',
+                template: 'Modules/$(VirtoCommerce.Contract)/Scripts/widgets/contract-prices-widget.html'
+            }, 'contractDetail');
         }
     ]);

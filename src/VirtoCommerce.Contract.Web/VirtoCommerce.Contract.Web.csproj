@@ -15,4 +15,8 @@
     <ProjectReference Include="..\VirtoCommerce.Contract.Data\VirtoCommerce.Contract.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Scripts\widgets\" />
+  </ItemGroup>
+
 </Project>

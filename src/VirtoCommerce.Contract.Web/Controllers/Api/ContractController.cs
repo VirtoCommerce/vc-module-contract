@@ -8,7 +8,7 @@ using VirtoCommerce.Platform.Core.GenericCrud;
 
 namespace VirtoCommerce.Contract.Web.Controllers.Api
 {
-    [Route("api/contract")]
+    [Route("api/contracts")]
     public class ContractController : Controller
     {
         private readonly ICrudService<Core.Models.Contract> _contractService;
