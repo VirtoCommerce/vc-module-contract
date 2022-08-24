@@ -4,7 +4,7 @@
     <div class="blade-inner">
         <div class="inner-block">
             <div class="table-wrapper" ng-init="setGridOptions('contracts-list-grid', {
-              enableSorting: false,
+              useExternalSorting: true,
               data: 'listEntries',
               rowTemplate: 'contract-list.row.html',
               rowHeight: 60,
@@ -36,6 +36,8 @@
          class="ui-grid-cell"
          ng-class="{'ui-grid-row-header-cell': col.isRowHeader, '__hovered': grid.appScope.contextMenuEntity === row.entity, '__selected': row.entity.id===grid.appScope.selectedNodeId }"
          role="{{ col.isRowHeader ? 'rowheader' : 'gridcell' }}"
-         ui-grid-cell>
+         ui-grid-cell
+         context-menu="grid.appScope.contextMenuEntity = row.entity"
+         data-target="contract_menu">
     </div>
 </script>

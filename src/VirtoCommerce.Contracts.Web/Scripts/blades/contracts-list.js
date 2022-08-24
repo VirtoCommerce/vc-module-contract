@@ -129,10 +129,16 @@ angular.module('Contracts')
                     $scope.gridOptions = gridOptions;
                     gridOptionExtension.tryExtendGridOptions(gridId, gridOptions);
 
+                    uiGridHelper.initialize($scope, gridOptions, function (gridApi) {
+                        uiGridHelper.bindRefreshOnSortChanged($scope);
+                    });
+
                     gridOptions.onRegisterApi = function (gridApi) {
                         $scope.gridApi = gridApi;
                     };
 
                     bladeUtils.initializePagination($scope);
+
+                    return gridOptions;
                 };
             }]);
