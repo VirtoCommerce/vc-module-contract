@@ -6,6 +6,8 @@ namespace VirtoCommerce.Contracts.Data.Repositories
 {
     public class ContractDbContext : DbContextWithTriggers
     {
+        private const int _maxLength128 = 128;
+
         public ContractDbContext(DbContextOptions<ContractDbContext> options)
             : base(options)
         {
@@ -21,7 +23,7 @@ namespace VirtoCommerce.Contracts.Data.Repositories
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<ContractEntity>().ToTable("Contract").HasKey(x => x.Id);
-            modelBuilder.Entity<ContractEntity>().Property(x => x.Id).HasMaxLength(128).ValueGeneratedOnAdd();
+            modelBuilder.Entity<ContractEntity>().Property(x => x.Id).HasMaxLength(_maxLength128).ValueGeneratedOnAdd();
         }
     }
 }

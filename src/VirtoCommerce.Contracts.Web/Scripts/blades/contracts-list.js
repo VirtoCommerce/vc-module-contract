@@ -13,7 +13,9 @@ angular.module('Contracts')
                     {
                         name: "platform.commands.refresh",
                         icon: 'fa fa-refresh',
-                        executeMethod: blade.refresh,
+                        executeMethod: function () {
+                            blade.refresh();
+                        },
                         canExecuteMethod: function () {
                             return true;
                         }

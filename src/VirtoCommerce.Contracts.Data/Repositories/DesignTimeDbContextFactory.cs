@@ -10,7 +10,7 @@ namespace VirtoCommerce.Contract.Data.Repositories
         {
             var builder = new DbContextOptionsBuilder<ContractDbContext>();
 
-            builder.UseSqlServer("Data Source=(local);Initial Catalog=VirtoCommerce3target40;Trusted_Connection=True;Connect Timeout=30");
+            builder.UseSqlServer("Data Source=(local);Initial Catalog=VirtoCommerce3;Persist Security Info=True;User ID=virto;Password=virto;MultipleActiveResultSets=True;Connect Timeout=30");
 
             return new ContractDbContext(builder.Options);
         }

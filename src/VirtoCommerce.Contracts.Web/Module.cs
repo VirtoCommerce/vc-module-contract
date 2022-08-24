@@ -58,6 +58,7 @@ namespace VirtoCommerce.Contracts.Web
 
         public void Uninstall()
         {
+            // Method intentionally left empty
         }
     }
 }
