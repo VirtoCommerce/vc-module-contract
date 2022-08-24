@@ -33,7 +33,7 @@ angular.module('Contracts')
                         name: "platform.commands.delete",
                         icon: 'fas fa-trash-alt',
                         executeMethod: function () {
-                            deleteList($scope.gridApi.selection.getSelectedRows());
+                            $scope.deleteList($scope.gridApi.selection.getSelectedRows());
                         },
                         canExecuteMethod: function () {
                             return $scope.gridApi && _.any($scope.gridApi.selection.getSelectedRows());
@@ -102,7 +102,7 @@ angular.module('Contracts')
                     bladeNavigationService.showBlade(newBlade, blade);
                 };
 
-                function deleteList(selection) {
+                $scope.deleteList = function (selection) {
                     var dialog = {
                         id: "confirmDeleteContracts",
                         title: "Contract.dialogs.notification-contract-delete.title",
