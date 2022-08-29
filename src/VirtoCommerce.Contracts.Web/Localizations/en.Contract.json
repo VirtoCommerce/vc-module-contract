@@ -1,0 +1,71 @@
+{
+  "Contract": {
+    "blades": {
+      "contracts-list": {
+        "title": "Contracts",
+        "labels": {
+          "name": "Name",
+          "start-date": "Start date",
+          "end-date": "End date"
+        }
+      },
+      "contract-details": {
+        "title-new": "Create new contract",
+        "subtitle": "Edit contract",
+        "labels": {
+          "name": "Name",
+          "description": "Description",
+          "start-date": "Start date",
+          "end-date": "End date",
+          "store": "Store"
+        },
+        "placeholders": {
+          "name": "Ender name",
+          "description": "Enter description",
+          "start-date": "Select start date",
+          "end-date": "Select end date",
+          "store": "Select store"
+        }
+      }
+    },
+    "dialogs": {
+      "notification-contract-delete": {
+        "title": "Delete contract",
+        "message": "Are you sure you want to delete selected contracts?"
+      }
+    },
+    "widgets": {
+      "contract-attachments": {
+        "title": "Attachments"
+      },
+      "contract-customers": {
+        "title": "Customers"
+      },
+      "contract-dynamic-properties": {
+        "title": "Dynamic properties"
+      },
+      "contract-prices": {
+        "title": "Prices"
+      }
+    }
+  },
+  "permissions": {
+    "Contract:access": "Open Contract menu",
+    "Contract:create": "Create Contract related data",
+    "Contract:read": "View Contract related data",
+    "Contract:update": "Update Contract related data",
+    "Contract:delete": "Delete Contract related data"
+  },
+  "settings": {
+    "Contract": {
+      "ContractEnabled": {
+        "title": "Contract Enabled",
+        "description": "Contract Enabled setting"
+      },
+      "ContractPassword": {
+        "title": "Contract Password",
+        "description": "Contract Password setting"
+      }
+    }
+  }
+}
