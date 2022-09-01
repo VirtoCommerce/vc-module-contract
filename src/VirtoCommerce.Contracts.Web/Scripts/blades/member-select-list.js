@@ -53,7 +53,9 @@ angular.module('Contracts')
                         var breadcrumbs = blade.breadcrumbs.slice(0);
 
                         //prevent duplicate items
-                        var all = _.all(breadcrumbs, function (x) { return x.id !== blade.currentEntity.id; });
+                        var all = _.all(breadcrumbs, function (x) {
+                            return x.id !== blade.currentEntity.id;
+                        });
                         if (all) {
                             var breadCrumb = generateBreadcrumb(blade.currentEntity.id, blade.currentEntity.name);
                             breadcrumbs.push(breadCrumb);
@@ -161,7 +163,9 @@ angular.module('Contracts')
                         //check already selected rows
                         $timeout(function () {
                             _.each($scope.listEntries, function (x) {
-                                var checked = _.some($scope.options.selectedItemIds, function (y) { return y === x.id; });
+                                var checked = _.some($scope.options.selectedItemIds, function (y) {
+                                        return y === x.id;
+                                    });
                                 if (checked) {
                                     gridApi.selection.selectRow(x);
                                 }

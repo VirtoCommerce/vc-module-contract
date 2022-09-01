@@ -105,13 +105,18 @@ angular.module('Contracts')
                         selectedItemIds: selection,
                         checkItemCallback: function (listItem, isSelected) {
                             if (isSelected) {
-                                var notContains = !_.find(selection, function (x) { return x === listItem.id; });
+                                var notContains = !_.find(selection, function (x) {
+                                        return x === listItem.id;
+                                    });
+
                                 if (notContains) {
                                     selection.push(listItem.id);
                                 }
                             }
                             else {
-                                selection = _.reject(selection, function (x) { return x === listItem.id; });
+                                selection = _.reject(selection, function (x) {
+                                        return x === listItem.id;
+                                    });
                             }
                         },
                         pickExecutedCallback: function (selectBlade) {
