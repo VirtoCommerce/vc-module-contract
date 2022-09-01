@@ -1,8 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
-using VirtoCommerce.Contracts.Data.Repositories;
 
-namespace VirtoCommerce.Contract.Data.Repositories
+namespace VirtoCommerce.Contracts.Data.Repositories
 {
     public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<ContractDbContext>
     {

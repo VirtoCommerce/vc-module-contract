@@ -5,9 +5,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using VirtoCommerce.Contracts.Core;
+using VirtoCommerce.Contracts.Core.Events;
+using VirtoCommerce.Contracts.Core.Models;
 using VirtoCommerce.Contracts.Core.Models.Search;
+using VirtoCommerce.Contracts.Core.Services;
+using VirtoCommerce.Contracts.Data.Handlers;
 using VirtoCommerce.Contracts.Data.Repositories;
 using VirtoCommerce.Contracts.Data.Services;
+using VirtoCommerce.Platform.Core.Bus;
 using VirtoCommerce.Platform.Core.GenericCrud;
 using VirtoCommerce.Platform.Core.Modularity;
 using VirtoCommerce.Platform.Core.Security;
@@ -32,8 +37,13 @@ namespace VirtoCommerce.Contracts.Web
             serviceCollection.AddTransient<Func<IContractRepository>>(provider => () => provider.CreateScope().ServiceProvider.GetService<IContractRepository>());
 
             // Register services
-            serviceCollection.AddTransient<ICrudService<Core.Models.Contract>, ContractService>();
-            serviceCollection.AddTransient<ISearchService<ContractSearchCriteria, ContractSearchResult, Core.Models.Contract>, ContractSearchService>();
+            serviceCollection.AddTransient<ICrudService<Contract>, ContractService>();
+            serviceCollection.AddTransient<ISearchService<ContractSearchCriteria, ContractSearchResult, Contract>, ContractSearchService>();
+
+            serviceCollection.AddTransient<IContractMembersService, ContractMembersService>();
+            serviceCollection.AddTransient<IContractMembersSearchService, ContractMembersService>();
+
+            serviceCollection.AddTransient<DeleteContractHandler>();
         }
 
         public void PostInitialize(IApplicationBuilder appBuilder)
@@ -54,6 +64,9 @@ namespace VirtoCommerce.Contracts.Web
             using var serviceScope = serviceProvider.CreateScope();
             using var dbContext = serviceScope.ServiceProvider.GetRequiredService<ContractDbContext>();
             dbContext.Database.Migrate();
+
+            var inProcessBus = appBuilder.ApplicationServices.GetService<IHandlerRegistrar>();
+            inProcessBus.RegisterHandler<ContractChangedEvent>(async (message, token) => await appBuilder.ApplicationServices.GetService<DeleteContractHandler>().Handle(message));
         }
 
         public void Uninstall()

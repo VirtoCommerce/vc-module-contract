@@ -1,6 +1,6 @@
 angular.module('Contracts')
     .controller('Contracts.contractsListController',
-        ['$scope', 'Contracts.webApi', 'platformWebApp.bladeUtils', 'platformWebApp.dialogService', 'platformWebApp.ui-grid.extension', 'platformWebApp.uiGridHelper',
+        ['$scope', 'Contracts.api', 'platformWebApp.bladeUtils', 'platformWebApp.dialogService', 'platformWebApp.ui-grid.extension', 'platformWebApp.uiGridHelper',
             function ($scope, contracts, bladeUtils, dialogService, gridOptionExtension, uiGridHelper) {
                 var blade = $scope.blade;
                 blade.headIcon = 'fa fa-list';

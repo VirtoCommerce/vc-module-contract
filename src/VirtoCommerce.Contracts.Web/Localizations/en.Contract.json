@@ -17,7 +17,8 @@
           "description": "Description",
           "start-date": "Start date",
           "end-date": "End date",
-          "store": "Store"
+          "store": "Store",
+          "code": "Code"
         },
         "placeholders": {
           "name": "Ender name",
@@ -26,12 +27,22 @@
           "end-date": "Select end date",
           "store": "Select store"
         }
+      },
+      "contract-members": {
+        "title": "Customers",
+        "labels": {
+          "name": "Name"
+        }
       }
     },
     "dialogs": {
       "notification-contract-delete": {
         "title": "Delete contract",
         "message": "Are you sure you want to delete selected contracts?"
+      },
+      "notification-contract-member-delete": {
+        "title": "Delete member",
+        "message": "Are you sure you want to delete selected members from the contract?"
       }
     },
     "widgets": {

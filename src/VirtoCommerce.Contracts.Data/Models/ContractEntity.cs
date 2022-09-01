@@ -1,14 +1,18 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using VirtoCommerce.Contracts.Core.Models;
 using VirtoCommerce.Platform.Core.Common;
 using VirtoCommerce.Platform.Core.Domain;
 
 namespace VirtoCommerce.Contracts.Data.Models
 {
-    public class ContractEntity : AuditableEntity, IDataEntity<ContractEntity, Core.Models.Contract>
+    public class ContractEntity : AuditableEntity, IDataEntity<ContractEntity, Contract>
     {
         [StringLength(128)]
         public string Name { get; set; }
+
+        [StringLength(256)]
+        public string Code { get; set; }
 
         [StringLength(1024)]
         public string Description { get; set; }
@@ -20,7 +24,7 @@ namespace VirtoCommerce.Contracts.Data.Models
 
         public DateTime? EndDate { get; set; }
 
-        public ContractEntity FromModel(Core.Models.Contract model, PrimaryKeyResolvingMap pkMap)
+        public ContractEntity FromModel(Contract model, PrimaryKeyResolvingMap pkMap)
         {
             pkMap.AddPair(model, this);
 
@@ -31,6 +35,7 @@ namespace VirtoCommerce.Contracts.Data.Models
             ModifiedDate = model.ModifiedDate;
 
             Name = model.Name;
+            Code = model.Code;
             Description = model.Description;
             StoreId = model.StoreId;
             StartDate = model.StartDate;
@@ -39,7 +44,7 @@ namespace VirtoCommerce.Contracts.Data.Models
             return this;
         }
 
-        public Core.Models.Contract ToModel(Core.Models.Contract model)
+        public Contract ToModel(Contract model)
         {
             model.Id = Id;
             model.CreatedBy = CreatedBy;
@@ -48,6 +53,7 @@ namespace VirtoCommerce.Contracts.Data.Models
             model.ModifiedDate = ModifiedDate;
 
             model.Name = Name;
+            model.Code = Code;
             model.Description = Description;
             model.StoreId = StoreId;
             model.StartDate = StartDate;
@@ -59,6 +65,7 @@ namespace VirtoCommerce.Contracts.Data.Models
         public void Patch(ContractEntity target)
         {
             target.Name = Name;
+            target.Code = Code;
             target.Description = Description;
             target.StoreId = StoreId;
             target.StartDate = StartDate;
