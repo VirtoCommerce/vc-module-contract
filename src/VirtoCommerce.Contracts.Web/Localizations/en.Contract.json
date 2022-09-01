@@ -31,7 +31,15 @@
       "contract-members": {
         "title": "Customers",
         "labels": {
-          "name": "Name"
+          "name": "Name",
+          "type": "Type"
+        }
+      },
+      "contract-members-select": {
+        "title": "Contatcs & Organizations",
+        "labels": {
+          "name": "Name",
+          "type": "Type"
         }
       }
     },

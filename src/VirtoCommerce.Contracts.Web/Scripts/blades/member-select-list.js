@@ -3,7 +3,7 @@ angular.module('Contracts')
         ['$scope', '$timeout', 'virtoCommerce.customerModule.members', 'platformWebApp.bladeUtils', 'platformWebApp.uiGridHelper', 'uiGridConstants', 'virtoCommerce.customerModule.memberTypesResolverService', 'platformWebApp.ui-grid.extension',
             function ($scope, $timeout, members, bladeUtils, uiGridHelper, uiGridConstants, memberTypesResolverService, gridOptionExtension) {
                 var blade = $scope.blade;
-                blade.title = 'customer.blades.member-list.title';
+                blade.title = 'Contract.blades.contract-members-select.title';
                 blade.headIcon = 'fa fa-user __customers';
                 blade.isNew = true;
 

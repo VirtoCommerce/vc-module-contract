@@ -15,10 +15,10 @@
                     rowTemplate: 'contract-select-member-list.row.html',
                     rowHeight: 61,
                     columnDefs: [{
-                                  name: 'memberType', displayName: 'customer.blades.member-list.labels.type', headerTooltip: 'Type of contact',
+                                  name: 'memberType', displayName: 'Contract.blades.contract-members-select.labels.type',
                                   enableColumnResizing: false, width: 60, cellTemplate: 'contract-member-list-icon.cell.html', sort: { direction: uiGridConstants.DESC }
                                 },
-                                { name: 'name', displayName: 'customer.blades.member-list.labels.name', sort: { direction: uiGridConstants.ASC } }
+                                { name: 'name', displayName: 'Contract.blades.contract-members-select.labels.name', sort: { direction: uiGridConstants.ASC } }
                         ]})">
             <div class="note" ng-if="!listEntries.length">{{ 'platform.list.no-data' | translate }}</div>
             <div class="table-wrapper" ng-if="listEntries.length">
