@@ -24,9 +24,9 @@ angular.module('Contracts')
                             $scope.pageSettings.totalItems = data.totalCount;
 
                             // precalculate icon
-                            var memberTypeDefinition;
                             _.each(data.results, function (x) {
-                                if (memberTypeDefinition = memberTypesResolverService.resolve(x.memberType)) {
+                                var memberTypeDefinition = memberTypesResolverService.resolve(x.memberType);
+                                if (memberTypeDefinition) {
                                     x._memberTypeIcon = memberTypeDefinition.icon;
                                 }
                             });
@@ -105,12 +105,13 @@ angular.module('Contracts')
                         selectedItemIds: selection,
                         checkItemCallback: function (listItem, isSelected) {
                             if (isSelected) {
-                                if (!_.find(selection, function (x) { return x == listItem.id; })) {
+                                var notContains = !_.find(selection, function (x) { return x === listItem.id; });
+                                if (notContains) {
                                     selection.push(listItem.id);
                                 }
                             }
                             else {
-                                selection = _.reject(selection, function (x) { return x == listItem.id; });
+                                selection = _.reject(selection, function (x) { return x === listItem.id; });
                             }
                         },
                         pickExecutedCallback: function (selectBlade) {
@@ -208,7 +209,7 @@ angular.module('Contracts')
                 };
 
                 function getSearchCriteria() {
-                    var searchCriteria = {
+                    return {
                         contractId: blade.contract.id,
                         keyword: filter.keyword ? filter.keyword : undefined,
                         deepSearch: true,
@@ -216,6 +217,5 @@ angular.module('Contracts')
                         skip: ($scope.pageSettings.currentPage - 1) * $scope.pageSettings.itemsPerPageCount,
                         take: $scope.pageSettings.itemsPerPageCount
                     };
-                    return searchCriteria;
                 }
             }]);
