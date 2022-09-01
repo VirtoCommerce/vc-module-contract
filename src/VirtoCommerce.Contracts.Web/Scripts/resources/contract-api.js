@@ -9,9 +9,9 @@ angular.module('Contracts')
         })
     }])
     .factory('Contracts.membersApi', ['$resource', function ($resource) {
-        return $resource('api/contracts-members/', {}, {
-            searchContractMembers: { method: 'POST', url: 'api/contracts-members/search' },
-            addContractMembers: { method: 'POST', url: 'api/contracts-members/add' },
-            deleteContractMembers: { method: 'POST', url: 'api/contracts-members/delete' }
+        return $resource('api/contracts/members/', {}, {
+            searchContractMembers: { method: 'POST', url: 'api/contracts/members/search' },
+            addContractMembers: { method: 'POST', url: 'api/contracts/members/add' },
+            deleteContractMembers: { method: 'POST', url: 'api/contracts/members/delete' }
         })
     }]);

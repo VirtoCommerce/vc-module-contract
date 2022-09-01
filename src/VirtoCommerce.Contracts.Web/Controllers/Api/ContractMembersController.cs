@@ -8,7 +8,7 @@ using VirtoCommerce.Contracts.Core.Services;
 
 namespace VirtoCommerce.Contracts.Web.Controllers.Api
 {
-    [Route("api/contracts-members")]
+    [Route("api/contracts/members")]
     public class ContractMembersController : Controller
     {
         private readonly IContractMembersService _contractMembersService;
