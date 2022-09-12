@@ -168,6 +168,5 @@ angular.module('Contracts')
                     }
                 };
 
-                // actions on load
                 blade.refresh();
             }])
