@@ -17,7 +17,7 @@ angular.module('Contracts')
                     },
                     canExecuteMethod: function () { return true; }
                 };
-             
+
                 var linkPricelistCommand = {
                     name: 'Contract.blades.contract-prices.commands.link-pricelist',
                     icon: 'fa fa-check',
@@ -88,8 +88,25 @@ angular.module('Contracts')
                                 {
                                     name: "pricing.commands.add-selected",
                                     icon: 'fas fa-plus',
-                                    executeMethod: function (blade) {
-                                        addProductsToPricelist(selectedProducts, blade);
+                                    executeMethod: function (contractBlade) {
+                                        contractBlade.isLoading = true;
+
+                                        var payload = {
+                                            contractId: blade.contract.id,
+                                            prices: _.map(selectedProducts, function (product) {
+                                                return {
+                                                    productId: product.id,
+                                                    minQuantity: 1
+                                                }
+                                            })
+                                        };
+
+                                        contractPrices.saveContractPrices(payload, function () {
+                                            bladeNavigationService.closeBlade(contractBlade);
+                                            blade.refresh();
+                                        }, function (error) {
+                                            bladeNavigationService.setError('Error ' + error.status, blade);
+                                        });
                                     },
                                     canExecuteMethod: function () {
                                         return selectedProducts.length > 0;
@@ -101,12 +118,15 @@ angular.module('Contracts')
                             allowCheckingCategory: false,
                             checkItemFn: function (listItem, isSelected) {
                                 if (isSelected) {
-                                    if (_.all(selectedProducts, function (x) { return x.id !== listItem.id; })) {
+                                    if (_.all(selectedProducts, function (x) {
+                                        return x.id !== listItem.id;
+                                    })) {
                                         selectedProducts.push(listItem);
                                     }
                                 }
                                 else {
-                                    selectedProducts = _.reject(selectedProducts, function (x) { return x.id === listItem.id; });
+                                    selectedProducts = _.reject(selectedProducts,
+                                        function (x) { return x.id === listItem.id; });
                                 }
                             }
                         };
@@ -116,28 +136,6 @@ angular.module('Contracts')
                     canExecuteMethod: function () { return true; },
                     permission: blade.updatePermission
                 };
-
-                function addProductsToPricelist(products, contractBlade) {
-                    contractBlade.isLoading = true;
-
-                    var payload = {
-                        contractId: blade.contract.id,
-                        prices: _.map(products, function (product) {
-                            return {
-                                productId: product.id,
-                                minQuantity: 1
-                            }
-                        })
-                    };
-
-                    contractPrices.saveContractPrices(payload, function () {
-                        bladeNavigationService.closeBlade(contractBlade);
-                        blade.refresh();
-                        //blade.parentWidgetRefresh(); // good idea
-                    }, function (error) {
-                        bladeNavigationService.setError('Error ' + error.status, blade);
-                    });
-                }
 
                 blade.toolbarCommands = [];
 
@@ -213,14 +211,16 @@ angular.module('Contracts')
                 $scope.getPriceRange = function (priceGroup) {
                     var min = priceGroup.minListPrice;
                     if (priceGroup.minSalePrice) {
-                        var min = Math.min(min, priceGroup.minSalePrice);
+                        min = Math.min(min, priceGroup.minSalePrice);
                     }
 
                     var max = Math.max(priceGroup.maxListPrice, priceGroup.maxSalePrice);
+
                     if (max === min) {
-                        return max;
+                        return `${max}`;
                     }
-                    return min + '-' + max;
+
+                    return `${min}-${max}`;
                 }
 
                 // ui-grid

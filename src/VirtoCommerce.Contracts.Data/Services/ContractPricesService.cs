@@ -155,7 +155,7 @@ namespace VirtoCommerce.Contracts.Data.Services
             var pricelists = await GetContractPriceLists(model.ContractId);
             if (pricelists == null)
             {
-                await Task.CompletedTask;
+                return;
             }
 
             // force change pricelist to priority
@@ -193,7 +193,7 @@ namespace VirtoCommerce.Contracts.Data.Services
             return result;
         }
 
-        private class ContractPriceListTuple
+        private sealed class ContractPriceListTuple
         {
             public string BasePriceListId { get; set; }
 

@@ -6,7 +6,6 @@ using VirtoCommerce.Contracts.Core;
 using VirtoCommerce.Contracts.Core.Models;
 using VirtoCommerce.Contracts.Core.Models.Search;
 using VirtoCommerce.Contracts.Core.Services;
-using VirtoCommerce.Platform.Core.GenericCrud;
 using VirtoCommerce.PricingModule.Core.Model.Search;
 
 namespace VirtoCommerce.Contracts.Web.Controllers.Api
@@ -14,12 +13,10 @@ namespace VirtoCommerce.Contracts.Web.Controllers.Api
     [Route("api/contracts/prices")]
     public class ContractPricesController : Controller
     {
-        private readonly ICrudService<Contract> _contractService;
         private readonly IContractPricesService _contractPricesService;
 
-        public ContractPricesController(ICrudService<Contract> contractService, IContractPricesService contractPricesService)
+        public ContractPricesController(IContractPricesService contractPricesService)
         {
-            _contractService = contractService;
             _contractPricesService = contractPricesService;
         }
 

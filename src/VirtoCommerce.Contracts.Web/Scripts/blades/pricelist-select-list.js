@@ -11,8 +11,6 @@ angular.module('Contracts')
                     selectedItemIds: []
                 }, blade.options);
 
-                var bladeNavigationService = bladeUtils.bladeNavigationService;
-
                 blade.toolbarCommands = [
                     {
                         name: "platform.commands.refresh",
