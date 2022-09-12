@@ -42,22 +42,26 @@ angular.module(moduleName, [])
 
             widgetService.registerWidget({
                 controller: 'Contracts.contractAttachmentsWidgetController',
-                template: 'Modules/$(VirtoCommerce.Contracts)/Scripts/widgets/contract-attachments-widget.html'
+                template: 'Modules/$(VirtoCommerce.Contracts)/Scripts/widgets/contract-attachments-widget.html',
+                isVisible: function (blade) { return !blade.isNew; }
             }, 'contractDetail');
 
             widgetService.registerWidget({
                 controller: 'Contracts.contractCustomersWidgetController',
-                template: 'Modules/$(VirtoCommerce.Contracts)/Scripts/widgets/contract-customers-widget.html'
+                template: 'Modules/$(VirtoCommerce.Contracts)/Scripts/widgets/contract-customers-widget.html',
+                isVisible: function (blade) { return !blade.isNew; }
             }, 'contractDetail');
 
             widgetService.registerWidget({
                 controller: 'Contracts.contractDynamicPropertiesWidgetController',
-                template: 'Modules/$(VirtoCommerce.Contracts)/Scripts/widgets/contract-dynamic-properties-widget.html'
+                template: 'Modules/$(VirtoCommerce.Contracts)/Scripts/widgets/contract-dynamic-properties-widget.html',
+                isVisible: function (blade) { return !blade.isNew; }
             }, 'contractDetail');
 
             widgetService.registerWidget({
                 controller: 'Contracts.contractPricesWidgetController',
-                template: 'Modules/$(VirtoCommerce.Contracts)/Scripts/widgets/contract-prices-widget.html'
+                template: 'Modules/$(VirtoCommerce.Contracts)/Scripts/widgets/contract-prices-widget.html',
+                isVisible: function (blade) { return !blade.isNew; }
             }, 'contractDetail');
         }
     ]);

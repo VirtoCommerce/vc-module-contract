@@ -1,0 +1,67 @@
+<div class="blade-static">
+    <div class="form-group">
+        <vc-customer-search blade="blade"></vc-customer-search>
+        <p class="form-count">{{'platform.list.count' | translate}}: <span class="count">{{pageSettings.totalItems | number:0}}</span></p>
+    </div>
+</div>
+
+<div class="blade-static __bottom" ng-if="pageSettings.itemsPerPageCount < pageSettings.totalItems" ng-include="'pagerTemplate.html'"></div>
+<div class="blade-content __medium-wide">
+    <div class="blade-inner">
+        <div class="inner-block" ng-init="setGridOptions('contract-memberlist-grid', {
+                    useExternalSorting: true,
+                    data: 'listEntries',
+                    rowTemplate: 'contract-member-list.row.html',
+                    rowHeight: 61,
+                    columnDefs: [
+                                { name: 'actions', displayName: '', enableColumnResizing: false, enableSorting: false, width: 30, cellTemplate: 'members-list-actions.cell.html', pinnedLeft:true },
+                                { name: 'memberType', displayName: 'Contract.blades.contract-members.labels.type',
+                                  enableColumnResizing: false, width: 60, cellTemplate: 'contract-member-list-icon.cell.html', sort: { direction: uiGridConstants.DESC }
+                                },
+                                { name: 'name', displayName: 'Contract.blades.contract-members.labels.name', sort: { direction: uiGridConstants.ASC } }
+                        ]})">
+            <div class="note" ng-if="!listEntries.length">{{ 'platform.list.no-data' | translate }}</div>
+            <div class="table-wrapper" ng-if="listEntries.length">
+                <div ui-grid="gridOptions" ui-grid-auto-resize ui-grid-save-state ui-grid-selection ui-grid-resize-columns ui-grid-move-columns ui-grid-pinning ui-grid-height></div>
+                <ul class="menu __context" role="menu" id="contract_member_menu">
+                    <li class="menu-item" ng-click='blade.showDetailBlade(contextMenuEntity)'>
+                        <i class="menu-ico fa fa-edit"></i> {{'platform.commands.manage' | translate}}
+                    </li>
+                    <li class="menu-item" ng-click='delete(contextMenuEntity)' va-permission="Contract:delete">
+                        <i class="menu-ico fas fa-trash-alt"></i> {{'platform.commands.delete' | translate}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/ng-template" id="contract-member-list.row.html">
+    <div ng-click="grid.appScope.selectNode(row.entity)"
+         ng-repeat="(colRenderIndex, col) in colContainer.renderedColumns track by col.uid"
+         ui-grid-one-bind-id-grid="rowRenderIndex + '-' + col.uid + '-cell'"
+         class="ui-grid-cell"
+         ng-class="{'ui-grid-row-header-cell': col.isRowHeader, '__hovered': grid.appScope.contextMenuEntity === row.entity, '__selected': row.entity.id===grid.appScope.selectedNodeId }"
+         role="{{col.isRowHeader ? 'rowheader' : 'gridcell' }}"
+         ui-grid-cell
+         context-menu="grid.appScope.contextMenuEntity = row.entity"
+         data-target="contract_member_menu">
+    </div>
+</script>
+
+<script type="text/ng-template" id="members-list-actions.cell.html">
+    <div class="ui-grid-actions" left-click-menu="grid.appScope.contextMenuEntity = row.entity" data-target="contract_member_menu">
+        <i class="fa fa-ellipsis-v"></i>
+    </div>
+</script>
+
+<script type="text/ng-template" id="contract-member-list-icon.cell.html">
+    <div class="ui-grid-cell-contents">
+        <div class="product-img" ng-attr-title="{{COL_FIELD}}">
+            <i class="table-ico" ng-if="!row.entity.iconUrl" ng-class="row.entity._memberTypeIcon ? row.entity._memberTypeIcon : 'fa-user'"></i>
+            <i class="table-ico" ng-if="row.entity.iconUrl">
+                <img class="list-icon" ng-src="{{ row.entity.iconUrl }}">
+            </i>
+        </div>
+    </div>
+</script>

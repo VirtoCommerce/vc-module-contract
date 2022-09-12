@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using VirtoCommerce.Contracts.Core.Models;
 using VirtoCommerce.Contracts.Core.Models.Search;
 using VirtoCommerce.Contracts.Data.Models;
 using VirtoCommerce.Contracts.Data.Repositories;
@@ -11,12 +12,12 @@ using VirtoCommerce.Platform.Data.GenericCrud;
 
 namespace VirtoCommerce.Contracts.Data.Services
 {
-    public class ContractSearchService : SearchService<ContractSearchCriteria, ContractSearchResult, Core.Models.Contract, ContractEntity>
+    public class ContractSearchService : SearchService<ContractSearchCriteria, ContractSearchResult, Contract, ContractEntity>
     {
         public ContractSearchService(
             Func<IContractRepository> repositoryFactory,
             IPlatformMemoryCache platformMemoryCache,
-            ICrudService<Core.Models.Contract> service)
+            ICrudService<Contract> service)
             : base(repositoryFactory, platformMemoryCache, service)
         {
         }

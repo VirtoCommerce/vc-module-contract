@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using VirtoCommerce.Contracts.Core;
+using VirtoCommerce.Contracts.Core.Models;
 using VirtoCommerce.Contracts.Core.Models.Search;
 using VirtoCommerce.Platform.Core.GenericCrud;
 
@@ -11,12 +12,12 @@ namespace VirtoCommerce.Contracts.Web.Controllers.Api
     [Route("api/contracts")]
     public class ContractController : Controller
     {
-        private readonly ICrudService<Core.Models.Contract> _contractService;
-        private readonly ISearchService<ContractSearchCriteria, ContractSearchResult, Core.Models.Contract> _contractSearchService;
+        private readonly ICrudService<Contract> _contractService;
+        private readonly ISearchService<ContractSearchCriteria, ContractSearchResult, Contract> _contractSearchService;
 
         public ContractController(
-            ICrudService<Core.Models.Contract> contractService,
-            ISearchService<ContractSearchCriteria, ContractSearchResult, Core.Models.Contract> contractSearchService)
+            ICrudService<Contract> contractService,
+            ISearchService<ContractSearchCriteria, ContractSearchResult, Contract> contractSearchService)
         {
             _contractService = contractService;
             _contractSearchService = contractSearchService;
@@ -25,7 +26,7 @@ namespace VirtoCommerce.Contracts.Web.Controllers.Api
         [HttpGet]
         [Route("{id}")]
         [Authorize(ModuleConstants.Security.Permissions.Access)]
-        public async Task<ActionResult<Core.Models.Contract>> GetContractById(string id)
+        public async Task<ActionResult<Contract>> GetContractById(string id)
         {
             var contract = await _contractService.GetByIdAsync(id);
             return Ok(contract);
@@ -43,7 +44,7 @@ namespace VirtoCommerce.Contracts.Web.Controllers.Api
         [HttpPost]
         [Route("")]
         [Authorize(ModuleConstants.Security.Permissions.Create)]
-        public async Task<ActionResult<Core.Models.Contract>> CreateContract([FromBody] Core.Models.Contract contract)
+        public async Task<ActionResult<Contract>> CreateContract([FromBody] Contract contract)
         {
             await _contractService.SaveChangesAsync(new[] { contract });
             return Ok(contract);
@@ -53,7 +54,7 @@ namespace VirtoCommerce.Contracts.Web.Controllers.Api
         [Route("")]
         [Authorize(ModuleConstants.Security.Permissions.Update)]
         [ProducesResponseType(typeof(void), StatusCodes.Status204NoContent)]
-        public async Task<ActionResult> UpdateContract([FromBody] Core.Models.Contract contract)
+        public async Task<ActionResult> UpdateContract([FromBody] Contract contract)
         {
             await _contractService.SaveChangesAsync(new[] { contract });
             return NoContent();

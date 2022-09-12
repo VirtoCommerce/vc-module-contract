@@ -1,6 +1,6 @@
 angular.module('Contracts')
     .controller('Contracts.contractController',
-        ['$scope', '$timeout', 'Contracts.webApi', 'platformWebApp.bladeNavigationService', 'virtoCommerce.storeModule.stores',
+        ['$scope', '$timeout', 'Contracts.api', 'platformWebApp.bladeNavigationService', 'virtoCommerce.storeModule.stores',
             function ($scope, $timeout, contracts, bladeNavigationService, stores) {
                 var blade = $scope.blade;
                 blade.headIcon = 'fa fa-envelope';
