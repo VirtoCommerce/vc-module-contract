@@ -14,7 +14,7 @@ angular.module('Contracts')
                         productId: blade.productId
                     }
 
-                    contractPrices.getContractProductPrices(payload, function (data) {                      
+                    contractPrices.getContractProductPrices(payload, function (data) {
                         blade.currentEntities = angular.copy(data);
                         blade.originalEntities = data;
                         priceValidatorsService.setAllPrices(blade.currentEntities);

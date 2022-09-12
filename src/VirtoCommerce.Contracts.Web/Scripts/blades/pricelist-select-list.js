@@ -79,10 +79,6 @@ angular.module('Contracts')
 
                 // ui-grid
                 $scope.setGridOptions = function (gridId, gridOptions) {
-                    //gridOptions.isRowSelectable = function (row) {
-                    //    return $scope.options.selectedItemIds.length === 0;
-                    //};
-
                     gridOptionExtension.tryExtendGridOptions(gridId, gridOptions);
 
                     uiGridHelper.initialize($scope, gridOptions, externalRegisterApiCallback);
@@ -107,8 +103,6 @@ angular.module('Contracts')
                     }, [uiGridConstants.dataChange.ROW]);
 
                     gridApi.selection.on.rowSelectionChanged($scope, function (row) {
-                        //row.isSelected = false;
-
                         if ($scope.options.checkItemCallback) {
                             $scope.options.checkItemCallback(row.entity, row.isSelected);
                         }
