@@ -1,0 +1,22 @@
+.state-label {
+    border: 1px solid #87B563;
+    border-radius: 1px;
+    width: 80px;
+    text-align: center;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 17px;
+    text-shadow: none;
+}
+
+    .state-label .state-label-updated {
+        background: #FFFFFF;
+        color: #87B563;
+    }
+
+    .state-label .state-label-new {
+        background: #87B563;
+        color: #FFFFFF;
+    }

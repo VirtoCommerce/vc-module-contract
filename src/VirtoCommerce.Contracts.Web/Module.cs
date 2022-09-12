@@ -43,6 +43,8 @@ namespace VirtoCommerce.Contracts.Web
             serviceCollection.AddTransient<IContractMembersService, ContractMembersService>();
             serviceCollection.AddTransient<IContractMembersSearchService, ContractMembersService>();
 
+            serviceCollection.AddTransient<IContractPricesService, ContractPricesService>();
+
             serviceCollection.AddTransient<DeleteContractHandler>();
         }
 

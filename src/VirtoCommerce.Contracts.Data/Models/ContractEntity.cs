@@ -24,6 +24,12 @@ namespace VirtoCommerce.Contracts.Data.Models
 
         public DateTime? EndDate { get; set; }
 
+        [StringLength(128)]
+        public string BasePricelistAssignmentId { get; set; }
+
+        [StringLength(128)]
+        public string PriorityPricelistAssignmentId { get; set; }
+
         public ContractEntity FromModel(Contract model, PrimaryKeyResolvingMap pkMap)
         {
             pkMap.AddPair(model, this);
@@ -40,6 +46,8 @@ namespace VirtoCommerce.Contracts.Data.Models
             StoreId = model.StoreId;
             StartDate = model.StartDate;
             EndDate = model.EndDate;
+            BasePricelistAssignmentId = model.BasePricelistAssignmentId;
+            PriorityPricelistAssignmentId = model.PriorityPricelistAssignmentId;
 
             return this;
         }
@@ -58,6 +66,8 @@ namespace VirtoCommerce.Contracts.Data.Models
             model.StoreId = StoreId;
             model.StartDate = StartDate;
             model.EndDate = EndDate;
+            model.BasePricelistAssignmentId = BasePricelistAssignmentId;
+            model.PriorityPricelistAssignmentId = PriorityPricelistAssignmentId;
 
             return model;
         }
@@ -70,6 +80,8 @@ namespace VirtoCommerce.Contracts.Data.Models
             target.StoreId = StoreId;
             target.StartDate = StartDate;
             target.EndDate = EndDate;
+            target.BasePricelistAssignmentId = BasePricelistAssignmentId;
+            target.PriorityPricelistAssignmentId = PriorityPricelistAssignmentId;
         }
     }
 }

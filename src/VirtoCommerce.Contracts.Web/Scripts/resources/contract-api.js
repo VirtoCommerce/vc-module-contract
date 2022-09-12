@@ -14,4 +14,12 @@ angular.module('Contracts')
             addContractMembers: { method: 'POST', url: 'api/contracts/members/add' },
             deleteContractMembers: { method: 'POST', url: 'api/contracts/members/delete' }
         })
+    }])
+    .factory('Contracts.pricesApi', ['$resource', function ($resource) {
+        return $resource('api/contracts/prices/', {}, {
+            searchContractPrices: { method: 'POST', url: 'api/contracts/prices/search' },
+            getContractProductPrices: { method: 'POST', url: 'api/contracts/prices/search/products', isArray: true },
+            linkPricelistMembers: { method: 'POST', url: 'api/contracts/prices/linkpricelist' },
+            saveContractPrices: { method: 'POST', url: 'api/contracts/prices/products' }
+        })
     }]);
