@@ -53,8 +53,9 @@
           "price-count": "Price count",
           "price-range": "Price range",
           "state": "State",
-          "state-new": "New added",
-          "state-updated": "Updated"
+          "state-new": "New",
+          "state-updated": "Updated",
+          "no-data": "There are no pricelists yet"
         },
         "commands": {
           "link-pricelist": "Link pricelist"

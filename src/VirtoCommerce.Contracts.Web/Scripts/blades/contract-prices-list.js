@@ -5,6 +5,8 @@ angular.module('Contracts')
                 var blade = $scope.blade;
                 blade.headIcon = 'fa fa-list';
                 blade.title = 'Contract.blades.contract-prices.title';
+                blade.noDataImage = 'Modules/$(VirtoCommerce.Contracts)/Content/images/pricelist.svg';
+                blade.isLoading = false;
 
                 $scope.uiGridConstants = uiGridHelper.uiGridConstants;
                 var bladeNavigationService = bladeUtils.bladeNavigationService;
@@ -20,26 +22,18 @@ angular.module('Contracts')
 
                 var linkPricelistCommand = {
                     name: 'Contract.blades.contract-prices.commands.link-pricelist',
-                    icon: 'fa fa-check',
+                    icon: 'fa fa-file-text',
                     executeMethod: function () {
-                        var selection = [];
+                        var selection = null;
 
                         var options = {
-                            selectedItemIds: selection,
+                            selectedItemId: selection,
                             checkItemCallback: function (listItem, isSelected) {
                                 if (isSelected) {
-                                    var notContains = !_.find(selection, function (x) {
-                                        return x === listItem.id;
-                                    });
-
-                                    if (notContains) {
-                                        selection.push(listItem.id);
-                                    }
+                                    selection = listItem.id;
                                 }
                                 else {
-                                    selection = _.reject(selection, function (x) {
-                                        return x === listItem.id;
-                                    });
+                                    selection = null;
                                 }
                             },
                             pickExecutedCallback: function (selectBlade) {
@@ -48,7 +42,7 @@ angular.module('Contracts')
                                 // create request
                                 var addRequest = {
                                     contractId: blade.contract.id,
-                                    pricelistId: _.first(selection)
+                                    pricelistId: selection
                                 };
 
                                 contractPrices.linkPricelistMembers(addRequest, function () {
@@ -80,7 +74,7 @@ angular.module('Contracts')
                         var selectedProducts = [];
                         var newBlade = {
                             id: "CatalogItemsSelect",
-                            title: "'Contract.blades.contract-prices.select-products-title",
+                            title: "Contract.blades.contract-prices.select-products-title",
                             controller: 'virtoCommerce.catalogModule.catalogItemSelectController',
                             template: 'Modules/$(VirtoCommerce.Catalog)/Scripts/blades/common/catalog-items-select.tpl.html',
                             breadcrumbs: [],
@@ -159,13 +153,17 @@ angular.module('Contracts')
                     };
                 }
 
-                blade.refresh = function (parentRefresh) {
+                blade.updateToolbarCommadns = function() {
                     if (blade.pricelistLinked) {
                         blade.toolbarCommands = [refreshCommand, addProductCommand];
                     }
                     else {
                         blade.toolbarCommands = [linkPricelistCommand];
                     }
+                }
+
+                blade.refresh = function (parentRefresh) {
+                    blade.updateToolbarCommadns();
 
                     blade.isLoading = true;
                     var searchCriteria = getSearchCriteria();
@@ -186,6 +184,10 @@ angular.module('Contracts')
                         blade.parentRefresh();
                     }
                 };
+
+                $scope.linkPricelist = function () {
+                    linkPricelistCommand.executeMethod();
+                }
 
                 $scope.selectNode = function (price) {
                     $scope.selectedNodeId = price.id;
@@ -240,4 +242,6 @@ angular.module('Contracts')
 
                     return gridOptions;
                 };
+
+                blade.updateToolbarCommadns();
             }]);

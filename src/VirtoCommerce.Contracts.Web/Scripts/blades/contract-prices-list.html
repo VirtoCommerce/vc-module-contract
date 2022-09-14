@@ -1,4 +1,4 @@
-<div class="blade-static">
+<div class="blade-static" ng-if="listEntries.length">
     <div class="form-group searchrow">
         <div class="form-input column">
             <input placeholder="{{ 'platform.placeholders.search-keyword' | translate }}" ng-model="filter.keyword" ng-keyup="$event.which === 13 && filter.criteriaChanged()">
@@ -11,8 +11,15 @@
 
 <div class="blade-content __medium-wide">
     <div class="blade-inner">
-        <div class="inner-block">
-            <div class="table-wrapper" ng-init="setGridOptions('contract-product-prices-grid', {
+        <div ng-if="!listEntries.length" class="no-data-centered">
+            <img class="image" ng-src="{{blade.noDataImage}}">
+            <div class="no-data-centered-bottom-text">{{ 'Contract.blades.contract-prices.labels.no-data' | translate }}</div>
+            <button class="btn" style="margin-top: 18px;" ng-click="linkPricelist()">
+                <span>{{ 'Contract.blades.contract-prices.commands.link-pricelist' | translate }} <strong>+</strong></span>
+            </button>
+        </div>
+
+        <div class="inner-block" ng-init="setGridOptions('contract-product-prices-grid', {
               useExternalSorting: false,
               data: 'listEntries',
               rowTemplate: 'contract-price-list.row.html',
@@ -42,8 +49,9 @@
                             cellTemplate: 'contract-product-state-icon.cell.html'
                         }
               ]})">
+            <div class="table-wrapper" ng-if="listEntries.length">
                 <div ui-grid="gridOptions" ui-grid-auto-resize ui-grid-save-state ui-grid-selection ui-grid-resize-columns ui-grid-move-columns ui-grid-pinning ui-grid-height></div>
-                <ul class="menu __context" role="menu" id="contract-product_prices_menu">
+                <ul class="menu __context" role="menu" id="contract-product-prices-menu">
                     <li class="menu-item" ng-click='selectNode(contextMenuEntity)'>
                         <i class="menu-ico fa fa-edit"></i> {{'platform.commands.manage' | translate}}
                     </li>
@@ -54,7 +62,7 @@
 </div>
 
 <script type="text/ng-template" id="contract-price-list-actions.cell.html">
-    <div class="ui-grid-actions" left-click-menu="grid.appScope.contextMenuEntity = row.entity" data-target="contract_prices_menu">
+    <div class="ui-grid-actions" left-click-menu="grid.appScope.contextMenuEntity = row.entity" data-target="contract-product-prices-menu">
         <i class="fa fa-ellipsis-v"></i>
     </div>
 </script>
