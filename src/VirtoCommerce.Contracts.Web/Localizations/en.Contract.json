@@ -55,6 +55,7 @@
           "state": "State",
           "state-new": "New",
           "state-updated": "Updated",
+          "state-modified": "Modified",
           "no-data": "There are no pricelists yet"
         },
         "commands": {

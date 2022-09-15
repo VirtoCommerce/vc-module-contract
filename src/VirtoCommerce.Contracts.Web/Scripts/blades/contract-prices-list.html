@@ -96,11 +96,8 @@
 <script type="text/ng-template" id="contract-product-state-icon.cell.html">
     <div ng-if="['New','Updated'].includes(row.entity.groupState)" class="ui-grid-cell-contents">
         <div class="inner-contents state-label">
-            <div class="state-label-new" ng-if="row.entity.groupState==='New'">
-                {{'Contract.blades.contract-prices.labels.state-new' | translate}}
-            </div>
-            <div class="state-label-updated" ng-if="row.entity.groupState==='Updated'">
-                {{'Contract.blades.contract-prices.labels.state-updated' | translate}}
+            <div class="state-label-updated">
+                {{'Contract.blades.contract-prices.labels.state-modified' | translate}}
             </div>
         </div>
     </div>
