@@ -1,7 +1,7 @@
 angular.module('Contracts')
     .controller('Contracts.contractController',
-        ['$scope', '$timeout', 'Contracts.api', 'platformWebApp.bladeNavigationService', 'virtoCommerce.storeModule.stores',
-            function ($scope, $timeout, contracts, bladeNavigationService, stores) {
+        ['$scope', 'Contracts.api', 'virtoCommerce.storeModule.stores',
+            function ($scope, contracts, stores) {
                 var blade = $scope.blade;
                 blade.headIcon = 'fa fa-envelope';
                 blade.updatePermission = 'Contracts:update';

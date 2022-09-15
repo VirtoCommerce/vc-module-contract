@@ -1,0 +1,102 @@
+<div class="blade-content __medium-wide">
+    <div class="blade-inner">
+        <div class="inner-block">
+            <form name="formScope" ng-init="setGridOptions('contract-product-pricelist-grid', {
+                    data: 'blade.currentEntities',
+                    rowHeight: 60,
+                    rowTemplate: 'contract-product-price-list.row.html',
+                    enableCellEdit: false,
+                    enableCellEditOnFocus: true,
+                    editableCellTemplate: 'contract-cellTextEditor',
+                    columnDefs: [
+                        {
+                            name: 'currency', displayName: 'Contract.blades.product-prices.labels.currency'
+                        },
+                        {
+                            name: 'list', displayName: 'Contract.blades.product-prices.labels.list-price', editableCellTemplate: 'contract-list-cellTextEditor',
+                            validators: {required: true, listValidator: true}, cellTemplate: 'contractPriceCellValidator', enableCellEdit: true
+                        },
+                        {
+                            name: 'sale', displayName: 'Contract.blades.product-prices.labels.sale-price', editableCellTemplate: 'contract-sale-cellTextEditor',
+                            validators: {saleValidator: true}, cellTemplate: 'contractPriceCellValidator', enableCellEdit: true
+                        },
+                        {
+                            name: 'minQuantity', displayName: 'Contract.blades.product-prices.labels.min-quantity', editableCellTemplate: 'contract-minQuantity-cellTextEditor',
+                            validators: {required: true, minQuantityValidator: true}, cellTemplate: 'contactCellValidator',
+                            enableCellEdit: true, sort: { direction: uiGridConstants.ASC }
+                        },
+                        {
+                            name: 'state', displayName: 'Contract.blades.product-prices.labels.state', cellTemplate: 'contract-price-state-icon.cell.html'
+                        }
+                    ]})">
+                <div class="table-wrapper" ng-if="blade.currentEntities.length" ng-init="setForm(formScope);">
+                    <div ui-grid="gridOptions" ui-grid-cellNav ui-grid-edit ui-grid-validate ui-grid-auto-resize ui-grid-save-state ui-grid-selection ui-grid-resize-columns ui-grid-move-columns ui-grid-height></div>
+                </div>
+            </form>
+            <div class="note" ng-if="!blade.currentEntities.length">{{ 'platform.list.no-data' | translate }}</div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/ng-template" id="contract-product-price-list.row.html">
+    <div ng-repeat="(colRenderIndex, col) in colContainer.renderedColumns track by col.uid"
+         ui-grid-one-bind-id-grid="rowRenderIndex + '-' + col.uid + '-cell'"
+         class="ui-grid-cell" ng-class="{'ui-grid-row-header-cell': col.isRowHeader }"
+         role="{{col.isRowHeader ? 'rowheader' : 'gridcell' }}"
+         ui-grid-cell>
+    </div>
+</script>
+
+<script type="text/ng-template" id="contactCellValidator">
+    <div class="ui-grid-cell-contents" title="{{grid.validate.getTitleFormattedErrors(row.entity,col.colDef)}}">
+        <div class="form-editor form-input">
+            <input class="ng-valid form-input" ng-class="{'ng-invalid' : grid.validate.isInvalid(row.entity,col.colDef)}" value="{{COL_FIELD CUSTOM_FILTERS}}" placeholder="{{'platform.placeholders.n-a' | translate}}" readonly="readonly" />
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="contractPriceCellValidator">
+    <div class="ui-grid-cell-contents" title="{{grid.validate.getTitleFormattedErrors(row.entity,col.colDef)}}">
+        <div class="form-editor form-input">
+            <input class="ng-valid form-input" money ng-model="MODEL_COL_FIELD" ng-class="{'ng-invalid' : grid.validate.isInvalid(row.entity,col.colDef)}" placeholder="{{'platform.placeholders.n-a' | translate}}" readonly="readonly" />
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="contract-cellTextEditor">
+    <div class="form-editor form-input">
+        <input class="form-input" ng-model="MODEL_COL_FIELD" ui-grid-editor placeholder="{{'platform.placeholders.n-a' | translate}}" />
+    </div>
+</script>
+
+<script type="text/ng-template" id="contract-list-cellTextEditor">
+    <div class="form-editor form-input">
+        <input class="form-input" money required ng-model="MODEL_COL_FIELD" ui-grid-editor ng-class="{'ng-invalid': !grid.appScope.isListPriceValid(row.entity)}" />
+    </div>
+</script>
+
+<script type="text/ng-template" id="contract-sale-cellTextEditor">
+    <div class="form-editor form-input">
+        <input class="form-input" money ng-model="MODEL_COL_FIELD" ui-grid-editor ng-class="{'ng-invalid': !grid.appScope.isSalePriceValid(row.entity)}" placeholder="{{'platform.placeholders.n-a' | translate}}">
+    </div>
+</script>
+
+<script type="text/ng-template" id="contract-minQuantity-cellTextEditor">
+    <div class="form-editor form-input">
+        <input class="form-input" smart-float num-type="integer" ng-readonly="row.entity.state==='Base'" required ng-model="MODEL_COL_FIELD" ui-grid-editor ng-class="{'ng-invalid': !grid.appScope.isUniqueQty(row.entity)}">
+    </div>
+</script>
+
+<script type="text/ng-template" id="contract-price-state-icon.cell.html">
+    <div ng-if="['New','Updated'].includes(row.entity.state)" class="ui-grid-cell-contents">
+        <div class="inner-contents state-label">
+            <div class="state-label-new" ng-if="row.entity.state==='New'">
+                {{'Contract.blades.product-prices.labels.state-new' | translate}}
+            </div>
+            <div class="state-label-updated" ng-if="row.entity.state==='Updated'">
+                {{'Contract.blades.product-prices.labels.state-updated' | translate}}
+            </div>
+        </div>
+    </div>
+</script>

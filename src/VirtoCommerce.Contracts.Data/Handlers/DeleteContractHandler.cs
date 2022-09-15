@@ -8,6 +8,8 @@ using VirtoCommerce.Contracts.Core.Models.Search;
 using VirtoCommerce.Contracts.Core.Services;
 using VirtoCommerce.Platform.Core.Common;
 using VirtoCommerce.Platform.Core.Events;
+using VirtoCommerce.Platform.Core.GenericCrud;
+using VirtoCommerce.PricingModule.Core.Model;
 
 namespace VirtoCommerce.Contracts.Data.Handlers
 {
@@ -18,26 +20,47 @@ namespace VirtoCommerce.Contracts.Data.Handlers
     {
         private readonly IContractMembersService _contractMembersService;
         private readonly IContractMembersSearchService _contractMembersSearchService;
+        private readonly ICrudService<PricelistAssignment> _pricelistAssignmentService;
 
-        public DeleteContractHandler(IContractMembersService contractMembersService, IContractMembersSearchService contractMembersSearchService)
+        public DeleteContractHandler(IContractMembersService contractMembersService,
+            IContractMembersSearchService contractMembersSearchService,
+            ICrudService<PricelistAssignment> pricelistAssignmentService)
         {
             _contractMembersService = contractMembersService;
             _contractMembersSearchService = contractMembersSearchService;
+            _pricelistAssignmentService = pricelistAssignmentService;
         }
 
         public Task Handle(ContractChangedEvent message)
         {
-            var contractIds = message.ChangedEntries
+            var contracts = message.ChangedEntries
                 .Where(x => x.EntryState == EntryState.Deleted)
-                .Select(x => x.OldEntry.Code)
+                .Select(x => x.OldEntry)
                 .ToList();
 
-            if (contractIds.Any())
+            if (contracts.Any())
             {
-                BackgroundJob.Enqueue(() => DeleteAllContractsMembersAsync(contractIds));
+                var priceListAssignmentIds = new List<string>();
+                var contractCodes = new List<string>();
+
+                foreach (var contract in contracts)
+                {
+                    priceListAssignmentIds.Add(contract.BasePricelistAssignmentId);
+                    priceListAssignmentIds.Add(contract.PriorityPricelistAssignmentId);
+                    contractCodes.Add(contract.Code);
+                }
+
+                BackgroundJob.Enqueue(() => DeletePricelistAssigmentsAsync(priceListAssignmentIds));
+                BackgroundJob.Enqueue(() => DeleteAllContractsMembersAsync(contractCodes));
             }
 
             return Task.CompletedTask;
+        }
+
+        [DisableConcurrentExecution(10)]
+        public async Task DeletePricelistAssigmentsAsync(List<string> priceListAssignmentIds)
+        {
+            await _pricelistAssignmentService.DeleteAsync(priceListAssignmentIds);
         }
 
         [DisableConcurrentExecution(10)]

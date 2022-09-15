@@ -17,6 +17,11 @@ namespace VirtoCommerce.Contracts.Core.Models
 
         public DateTime? EndDate { get; set; }
 
+        public string BasePricelistAssignmentId { get; set; }
+
+        public string PriorityPricelistAssignmentId { get; set; }
+
+
         public virtual object Clone()
         {
             return MemberwiseClone();

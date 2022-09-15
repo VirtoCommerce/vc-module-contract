@@ -41,6 +41,44 @@
           "name": "Name",
           "type": "Type"
         }
+      },
+      "contract-prices": {
+        "title": "Contract prices",
+        "subtitle": "Contract prices",
+        "select-products-title": "Select items",
+        "labels": {
+          "product-image": "Pic",
+          "product-name": "Item name",
+          "product-code": "Item code",
+          "price-count": "Price count",
+          "price-range": "Price range",
+          "state": "State",
+          "state-new": "New",
+          "state-updated": "Updated",
+          "state-modified": "Modified",
+          "no-data": "There are no pricelists yet"
+        },
+        "commands": {
+          "link-pricelist": "Link pricelist"
+        }
+      },
+      "product-prices": {
+        "labels": {
+          "currency": "Currency",
+          "list-price": "List price",
+          "sale-price": "Sale price",
+          "min-quantity": "Min quantity",
+          "state": "State",
+          "state-new": "New",
+          "state-updated": "Updated"
+        }
+      },
+      "contract-pricrlist-select": {
+        "title": "Available pricelists",
+        "labels": {
+          "name": "Name",
+          "currency": "Currency"
+        }
       }
     },
     "dialogs": {
@@ -51,6 +89,10 @@
       "notification-contract-member-delete": {
         "title": "Delete member",
         "message": "Are you sure you want to delete selected members from the contract?"
+      },
+      "notification-prices-save": {
+        "title": "Save changes",
+        "message": "The prices have been modified. Do you want to save changes?"
       }
     },
     "widgets": {

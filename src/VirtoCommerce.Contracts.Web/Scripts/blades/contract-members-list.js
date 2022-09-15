@@ -10,7 +10,7 @@ angular.module('Contracts')
                 $scope.uiGridConstants = uiGridHelper.uiGridConstants;
                 var bladeNavigationService = bladeUtils.bladeNavigationService;
 
-                blade.refresh = function (parentRefresh) {
+                blade.refresh = function () {
                     blade.isLoading = true;
                     var searchCriteria = getSearchCriteria();
 
@@ -33,10 +33,6 @@ angular.module('Contracts')
 
                             $scope.listEntries = data.results ? data.results : [];
                         });
-
-                    if (parentRefresh && blade.parentRefresh) {
-                        blade.parentRefresh();
-                    }
                 };
 
                 blade.showDetailBlade = function (listItem, isNew) {
@@ -80,7 +76,10 @@ angular.module('Contracts')
                                     };
 
                                     contractMembersApi.deleteContractMembers(deleteRequest, function () {
-                                        blade.refresh(true);
+                                        blade.refresh();
+                                        if (blade.parentRefresh) {
+                                            blade.parentRefresh();
+                                        }
                                     }, function (error) { bladeNavigationService.setError('Error ' + error.status, blade); });
                                 });
                             }
@@ -130,7 +129,10 @@ angular.module('Contracts')
 
                             contractMembersApi.addContractMembers(addRequest, function () {
                                 bladeNavigationService.closeBlade(selectBlade);
-                                blade.refresh(true);
+                                blade.refresh();
+                                if (blade.parentRefresh) {
+                                    blade.parentRefresh();
+                                }
                             }, function (error) { bladeNavigationService.setError('Error ' + error.status, blade); });
                         }
                     };

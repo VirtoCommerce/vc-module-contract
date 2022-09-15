@@ -1,0 +1,48 @@
+.state-label {
+    width: 80px;
+    text-align: center;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 17px;
+    text-shadow: none;
+}
+
+    .state-label .state-label-updated {
+        border: 1px solid #87B563;
+        border-radius: 1px;
+        background: #FFFFFF;
+        color: #87B563;
+    }
+
+    .state-label .state-label-new {
+        background: #87B563;
+        color: #FFFFFF;
+    }
+
+.no-data-centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+    .no-data-centered img,
+    .no-data-centered button {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+.no-data-centered-bottom-text {
+    margin-top: 18px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 20px;
+    text-align: center;
+    color: #333333;
+}

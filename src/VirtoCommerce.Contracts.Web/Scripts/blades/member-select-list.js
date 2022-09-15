@@ -91,6 +91,7 @@ angular.module('Contracts')
                         var newBlade = {
                             id: blade.id,
                             breadcrumbs: blade.breadcrumbs,
+                            contract: blade.contract,
                             subtitle: 'customer.blades.member-list.subtitle',
                             subtitleValues: { name: listItem.name },
                             currentEntity: listItem,
@@ -122,7 +123,7 @@ angular.module('Contracts')
                         canExecuteMethod: function () {
                             return _.any($scope.options.selectedItemIds);
                         }
-                    },
+                    }
                 ];
 
                 var filter = blade.filter = { keyword: null };
