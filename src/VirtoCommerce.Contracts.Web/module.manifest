@@ -1,34 +1,28 @@
-<?xml version="1.0" encoding="utf-8"?>
-<module>
-    <id>VirtoCommerce.Contracts</id>
-    <version>3.200.0</version>
-    <version-tag></version-tag>
-
-    <platformVersion>3.240.0</platformVersion>
-    <dependencies>
-        <dependency id="VirtoCommerce.Pricing" version="3.210.0" />
-        <dependency id="VirtoCommerce.Customer" version="3.212.0" />
-    </dependencies>
-
-    <title>VirtoCommerce Contracts extension module</title>
-    <description>VirtoCommerce Contracts extension module</description>
-
-    <authors>
-        <author>Konstantin Savosteev</author>
-    </authors>
-    <owners>
-        <owner>VirtoCommerce</owner>
-    </owners>
-
-    <projectUrl>https://github.com/VirtoCommerce/vc-module-contract</projectUrl>
-    <iconUrl>Modules/$(VirtoCommerce.Contracts)/Content/logo.png</iconUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-
-    <assemblyFile>VirtoCommerce.Contracts.Web.dll</assemblyFile>
-    <moduleType>VirtoCommerce.Contracts.Web.Module, VirtoCommerce.Contracts.Web</moduleType>
-
-    <releaseNotes>First version.</releaseNotes>
-    <copyright>Copyright © 2022 VirtoCommerce. All rights reserved</copyright>
-    <tags>extension module</tags>
-    <useFullTypeNameInSwagger>false</useFullTypeNameInSwagger>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <id>VirtoCommerce.Contracts</id>
+  <version>3.201.0</version>
+  <version-tag />
+  <platformVersion>3.240.0</platformVersion>
+  <title>VirtoCommerce Contracts extension module</title>
+  <description>VirtoCommerce Contracts extension module</description>
+  <authors>
+    <author>Konstantin Savosteev</author>
+  </authors>
+  <owners>
+    <owner>VirtoCommerce</owner>
+  </owners>
+  <projectUrl>https://github.com/VirtoCommerce/vc-module-contract</projectUrl>
+  <iconUrl>Modules/$(VirtoCommerce.Contracts)/Content/logo.png</iconUrl>
+  <requireLicenseAcceptance>false</requireLicenseAcceptance>
+  <releaseNotes>First version.</releaseNotes>
+  <copyright>Copyright © 2022 VirtoCommerce. All rights reserved</copyright>
+  <tags>extension module</tags>
+  <assemblyFile>VirtoCommerce.Contracts.Web.dll</assemblyFile>
+  <moduleType>VirtoCommerce.Contracts.Web.Module, VirtoCommerce.Contracts.Web</moduleType>
+  <dependencies>
+    <dependency id="VirtoCommerce.Pricing" version="3.210.0" />
+    <dependency id="VirtoCommerce.Customer" version="3.212.0" />
+  </dependencies>
+  <useFullTypeNameInSwagger>false</useFullTypeNameInSwagger>
 </module>
