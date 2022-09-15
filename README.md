@@ -22,8 +22,8 @@ The *Contract* module allows you to leverage both the *Pricing* and *Customers* 
 
 ## Documentation
 
- [Contract Module Documentation](/docs/index.md)
- [GitHub](https://github.com/VirtoCommerce/vc-module-contract)
+- [Contract Module Documentation](/docs/index.md)
+- [GitHub](https://github.com/VirtoCommerce/vc-module-contract)
 
 
 ## Web API
@@ -32,11 +32,11 @@ Web API documentation for each module is built automatically and can be accessed
 
 ## References
 
-Deployment: https://virtocommerce.com/docs/latest/developer-guide/deploy-module-from-source-code/
-Installation: https://www.virtocommerce.com/docs/latest/user-guide/modules/
-Home: https://virtocommerce.com
-Community: https://www.virtocommerce.org
-Download Latest Release: https://github.com/VirtoCommerce/vc-module-contract/releases
+- Deployment: https://virtocommerce.com/docs/latest/developer-guide/deploy-module-from-source-code/
+- Installation: https://www.virtocommerce.com/docs/latest/user-guide/modules/
+- Home: https://virtocommerce.com
+- Community: https://www.virtocommerce.org
+- Download Latest Release: https://github.com/VirtoCommerce/vc-module-contract/releases
 
 ## License
 
