@@ -20,11 +20,15 @@ angular.module('Contracts')
                 var newBlade = {
                     id: 'contractPricesList',
                     contract: blade.currentEntity,
-                    pricelistLinked: !!blade.currentEntity.basePricelistAssignmentId, //show "link pricelist" button only if no assigment was created
+                    pricelistLinked: !!blade.currentEntity.basePricelistAssignmentId || blade.pricelistLinked, //show "link pricelist" button only if no assigment was created
                     controller: 'Contracts.contractPricesListController',
                     template: 'Modules/$(VirtoCommerce.Contracts)/Scripts/blades/contract-prices-list.html',
-                    parentRefresh: function () {
+                    parentRefresh: function (parentRefresh) {
                         refresh();
+
+                        if (parentRefresh) {
+                            blade.parentBlade.refresh();
+                        }
                     }
                 };
                 bladeNavigationService.showBlade(newBlade, blade);

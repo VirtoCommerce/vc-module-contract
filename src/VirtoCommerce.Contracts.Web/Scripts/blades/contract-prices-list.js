@@ -48,7 +48,14 @@ angular.module('Contracts')
                                 contractPrices.linkPricelistMembers(addRequest, function () {
                                     bladeNavigationService.closeBlade(selectBlade);
                                     blade.pricelistLinked = true;
-                                    blade.refresh(true);
+
+                                    blade.refresh();
+
+                                    // call parent refresh separately because paging directive always passes calls "blade.refresh" with parentRefresh = 1
+                                    if (blade.parentRefresh) {
+                                        blade.parentBlade.pricelistLinked = true;
+                                        blade.parentRefresh();
+                                    }
                                 }, function (error) { bladeNavigationService.setError('Error ' + error.status, blade); });
                             }
                         };
@@ -162,7 +169,7 @@ angular.module('Contracts')
                     }
                 }
 
-                blade.refresh = function (parentRefresh) {
+                blade.refresh = function () {
                     blade.updateToolbarCommadns();
 
                     blade.isLoading = true;
@@ -179,10 +186,6 @@ angular.module('Contracts')
 
                             $scope.listEntries = data.results ? data.results : [];
                         });
-
-                    if (parentRefresh && blade.parentRefresh) {
-                        blade.parentRefresh();
-                    }
                 };
 
                 $scope.linkPricelist = function () {
