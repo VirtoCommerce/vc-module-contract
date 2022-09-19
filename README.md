@@ -1,4 +1,5 @@
-# Contract Module
+# Contract Module - Preview
+THIS A PREVIEW VERSION - NOT TESTED IN PRODUCTION
 
 ## Overview
 
