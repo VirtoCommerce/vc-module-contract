@@ -1,7 +1,5 @@
-# Contract Module
+# Overview
 This guide will explain you the basics of the *Contract* module.
-
-## Overview
 
 The *Contract* module enables simple personalization for customers.
 
