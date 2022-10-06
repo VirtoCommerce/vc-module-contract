@@ -90,7 +90,7 @@ namespace VirtoCommerce.Contracts.Web.Controllers.Api
         }
 
 
-        private dynamic GetErrorMessage(ValidationException ex)
+        private static dynamic GetErrorMessage(ValidationException ex)
         {
             var message = string.Join(Environment.NewLine, ex.Errors.Select(x => x.ErrorMessage));
             return new { message };

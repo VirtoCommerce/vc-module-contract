@@ -126,9 +126,11 @@ angular.module('Contracts')
                     blade.currentEntity.code = contractCode;
                 }
 
-                var debounceCreateAndSetContractCode = _.debounce(function ($scope) {
+                var debounceCreateAndSetContractCode = _.debounce(function () {
                     // need to $apply model modifications so that it would happen inside $digest cycle
-                    $scope.$apply(function () { createAndSetContractCode(); });
+                    $scope.$apply(function () {
+                        createAndSetContractCode();
+                    });
                 }, 800);
 
                 $scope.$watch('blade.currentEntity.name', function () {
@@ -148,9 +150,7 @@ angular.module('Contracts')
 
                 blade.codeValidator = function (value) {
                     var pattern = /[^\w_-]/;
-                    var result = !pattern.test(value);
-
-                    return result;
+                    return !pattern.test(value);
                 };
 
                 blade.refresh(false);
