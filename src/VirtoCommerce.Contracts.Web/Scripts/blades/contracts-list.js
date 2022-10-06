@@ -3,7 +3,7 @@ angular.module('Contracts')
         ['$scope', 'Contracts.api', 'platformWebApp.bladeUtils', 'platformWebApp.dialogService', 'platformWebApp.ui-grid.extension', 'platformWebApp.uiGridHelper',
             function ($scope, contracts, bladeUtils, dialogService, gridOptionExtension, uiGridHelper) {
                 var blade = $scope.blade;
-                blade.headIcon = 'fa fa-list';
+                blade.headIcon = 'fas fa-file-contract';
                 blade.title = 'Contract.blades.contracts-list.title';
 
                 $scope.uiGridConstants = uiGridHelper.uiGridConstants;

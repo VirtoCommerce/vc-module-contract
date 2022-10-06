@@ -32,7 +32,7 @@ angular.module(moduleName, [])
             //Register module in main menu
             var menuItem = {
                 path: 'browse/Contracts',
-                icon: 'fa fa-cube',
+                icon: 'fas fa-file-contract',
                 title: 'Contracts',
                 priority: 100,
                 action: function () { $state.go('workspace.ContractState'); },

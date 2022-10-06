@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using FluentValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -12,6 +13,7 @@ using VirtoCommerce.Contracts.Core.Services;
 using VirtoCommerce.Contracts.Data.Handlers;
 using VirtoCommerce.Contracts.Data.Repositories;
 using VirtoCommerce.Contracts.Data.Services;
+using VirtoCommerce.Contracts.Data.Validation;
 using VirtoCommerce.Platform.Core.Bus;
 using VirtoCommerce.Platform.Core.GenericCrud;
 using VirtoCommerce.Platform.Core.Modularity;
@@ -40,12 +42,19 @@ namespace VirtoCommerce.Contracts.Web
             serviceCollection.AddTransient<ICrudService<Contract>, ContractService>();
             serviceCollection.AddTransient<ISearchService<ContractSearchCriteria, ContractSearchResult, Contract>, ContractSearchService>();
 
+            // register search service like a 
+            serviceCollection.AddTransient<Func<ISearchService<ContractSearchCriteria, ContractSearchResult, Contract>>>(provider => ()
+                => provider.CreateScope().ServiceProvider.GetRequiredService<ISearchService<ContractSearchCriteria, ContractSearchResult, Contract>>());
+
             serviceCollection.AddTransient<IContractMembersService, ContractMembersService>();
             serviceCollection.AddTransient<IContractMembersSearchService, ContractMembersService>();
 
             serviceCollection.AddTransient<IContractPricesService, ContractPricesService>();
 
             serviceCollection.AddTransient<DeleteContractHandler>();
+
+            // Validation services
+            serviceCollection.AddTransient<AbstractValidator<Contract>, ContractValidator>();
         }
 
         public void PostInitialize(IApplicationBuilder appBuilder)

@@ -1,4 +1,7 @@
+using System;
+using System.Linq;
 using System.Threading.Tasks;
+using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -46,7 +49,15 @@ namespace VirtoCommerce.Contracts.Web.Controllers.Api
         [Authorize(ModuleConstants.Security.Permissions.Create)]
         public async Task<ActionResult<Contract>> CreateContract([FromBody] Contract contract)
         {
-            await _contractService.SaveChangesAsync(new[] { contract });
+            try
+            {
+                await _contractService.SaveChangesAsync(new[] { contract });
+            }
+            catch (ValidationException ex)
+            {
+                return BadRequest(GetErrorMessage(ex));
+            }
+
             return Ok(contract);
         }
 
@@ -56,7 +67,15 @@ namespace VirtoCommerce.Contracts.Web.Controllers.Api
         [ProducesResponseType(typeof(void), StatusCodes.Status204NoContent)]
         public async Task<ActionResult> UpdateContract([FromBody] Contract contract)
         {
-            await _contractService.SaveChangesAsync(new[] { contract });
+            try
+            {
+                await _contractService.SaveChangesAsync(new[] { contract });
+            }
+            catch (ValidationException ex)
+            {
+                return BadRequest(GetErrorMessage(ex));
+            }
+
             return NoContent();
         }
 
@@ -68,6 +87,13 @@ namespace VirtoCommerce.Contracts.Web.Controllers.Api
         {
             await _contractService.DeleteAsync(ids);
             return NoContent();
+        }
+
+
+        private dynamic GetErrorMessage(ValidationException ex)
+        {
+            var message = string.Join(Environment.NewLine, ex.Errors.Select(x => x.ErrorMessage));
+            return new { message };
         }
     }
 }
