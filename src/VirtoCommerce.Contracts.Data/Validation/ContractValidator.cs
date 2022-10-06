@@ -9,6 +9,7 @@ namespace VirtoCommerce.Contracts.Data.Validation
 {
     public class ContractValidator : AbstractValidator<Contract>
     {
+        // Inject search service like a factory to avoid circular dependencies errors
         public ContractValidator(
             Func<ISearchService<ContractSearchCriteria, ContractSearchResult, Contract>> contractSearchServiceFactory)
         {

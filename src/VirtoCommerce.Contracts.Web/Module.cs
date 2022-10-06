@@ -42,7 +42,7 @@ namespace VirtoCommerce.Contracts.Web
             serviceCollection.AddTransient<ICrudService<Contract>, ContractService>();
             serviceCollection.AddTransient<ISearchService<ContractSearchCriteria, ContractSearchResult, Contract>, ContractSearchService>();
 
-            // register search service like a 
+            // register search service like a factory to avoid circular dependencies errors
             serviceCollection.AddTransient<Func<ISearchService<ContractSearchCriteria, ContractSearchResult, Contract>>>(provider => ()
                 => provider.CreateScope().ServiceProvider.GetRequiredService<ISearchService<ContractSearchCriteria, ContractSearchResult, Contract>>());
 
