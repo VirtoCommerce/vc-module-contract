@@ -29,7 +29,7 @@
           "code": "Enter custom code or leave empty for auto code generation"
         },
         "validation": {
-          "code": "Code cannot contais special symbols except hyphen and underscore"
+          "code": "Contract code can't contain special symbols except hyphens and underscores"
         }
       },
       "contract-members": {
