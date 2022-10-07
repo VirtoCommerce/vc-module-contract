@@ -36,11 +36,28 @@ namespace VirtoCommerce.Contracts.Data.Services
 
         protected override async Task BeforeSaveChanges(IEnumerable<Contract> models)
         {
+            // override code for existing contracts to prevent code changes via api
+            using (var repository = _repositoryFactory())
+            {
+                var dataExistEntities = await LoadExistingEntities(repository, models);
+
+                foreach (var model in models)
+                {
+                    var originalEntity = FindExistingEntity(dataExistEntities, model);
+                    if (originalEntity != null)
+                    {
+                        model.Code = originalEntity.Code;
+                    }
+                }
+            }
+
+            // auto generate code for empty contract codes
             foreach (var model in models.Where(x => string.IsNullOrWhiteSpace(x.Code)))
             {
                 model.Code = model.Name.ToContractCode();
             }
 
+            // validate contract before save
             foreach (var model in models)
             {
                 await _contractValidator.ValidateAndThrowAsync(model);

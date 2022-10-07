@@ -26,6 +26,11 @@ namespace VirtoCommerce.Contracts.Data.Validation
 
             RuleFor(x => x).CustomAsync(async (contract, context, token) =>
             {
+                if (!contract.IsTransient())
+                {
+                    return;
+                }
+
                 var searchCriteria = new ContractSearchCriteria()
                 {
                     Code = contract.Code,
