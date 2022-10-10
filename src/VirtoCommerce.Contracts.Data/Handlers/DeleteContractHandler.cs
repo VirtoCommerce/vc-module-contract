@@ -20,14 +20,17 @@ namespace VirtoCommerce.Contracts.Data.Handlers
     {
         private readonly IContractMembersService _contractMembersService;
         private readonly IContractMembersSearchService _contractMembersSearchService;
+        private readonly ICrudService<Pricelist> _pricelistService;
         private readonly ICrudService<PricelistAssignment> _pricelistAssignmentService;
 
         public DeleteContractHandler(IContractMembersService contractMembersService,
             IContractMembersSearchService contractMembersSearchService,
+            ICrudService<Pricelist> pricelistService,
             ICrudService<PricelistAssignment> pricelistAssignmentService)
         {
             _contractMembersService = contractMembersService;
             _contractMembersSearchService = contractMembersSearchService;
+            _pricelistService = pricelistService;
             _pricelistAssignmentService = pricelistAssignmentService;
         }
 
@@ -40,17 +43,18 @@ namespace VirtoCommerce.Contracts.Data.Handlers
 
             if (contracts.Any())
             {
-                var priceListAssignmentIds = new List<string>();
+                var basePricelistAssignmentIds = new List<string>();
+                var priorityPricelistAssignmentIds = new List<string>();
                 var contractCodes = new List<string>();
 
                 foreach (var contract in contracts)
                 {
-                    priceListAssignmentIds.Add(contract.BasePricelistAssignmentId);
-                    priceListAssignmentIds.Add(contract.PriorityPricelistAssignmentId);
+                    basePricelistAssignmentIds.Add(contract.BasePricelistAssignmentId);
+                    priorityPricelistAssignmentIds.Add(contract.PriorityPricelistAssignmentId);
                     contractCodes.Add(contract.Code);
                 }
 
-                BackgroundJob.Enqueue(() => DeletePricelistAssigmentsAsync(priceListAssignmentIds));
+                BackgroundJob.Enqueue(() => DeletePricelistAssigmentsAsync(basePricelistAssignmentIds, priorityPricelistAssignmentIds));
                 BackgroundJob.Enqueue(() => DeleteAllContractsMembersAsync(contractCodes));
             }
 
@@ -58,9 +62,29 @@ namespace VirtoCommerce.Contracts.Data.Handlers
         }
 
         [DisableConcurrentExecution(10)]
-        public async Task DeletePricelistAssigmentsAsync(List<string> priceListAssignmentIds)
+        public async Task DeletePricelistAssigmentsAsync(List<string> basePricelistAssignmentIds, List<string> priorityPricelistAssignmentIds)
         {
-            await _pricelistAssignmentService.DeleteAsync(priceListAssignmentIds);
+            // remove base assignments
+            var pageSize = 20;
+
+            for (var i = 0; i < basePricelistAssignmentIds.Count; i += pageSize)
+            {
+                var priceListAssignmentIds = basePricelistAssignmentIds.OrderBy(x => x).Skip(i).Take(pageSize).ToList();
+
+                await _pricelistAssignmentService.DeleteAsync(priceListAssignmentIds);
+            }
+
+            // remove priority assignments and remove priority pricelists
+            for (var i = 0; i < priorityPricelistAssignmentIds.Count; i += pageSize)
+            {
+                var priceListAssignmentIds = priorityPricelistAssignmentIds.OrderBy(x => x).Skip(i).Take(pageSize).ToList();
+                var priceListAssignment = await _pricelistAssignmentService.GetAsync(priceListAssignmentIds);
+
+                var pricelistIds = priceListAssignment.Select(x => x.PricelistId).ToList();
+
+                await _pricelistAssignmentService.DeleteAsync(priceListAssignmentIds);
+                await _pricelistService.DeleteAsync(pricelistIds);
+            }
         }
 
         [DisableConcurrentExecution(10)]
