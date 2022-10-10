@@ -8,9 +8,10 @@ namespace VirtoCommerce.Contracts.Core.Services
 {
     public interface IContractPricesService
     {
-        Task<Contract> LinkPricelist(ContractPricelist request);
+        Task<Contract> LinkPricelist(ContractPricelist contractPricelist);
         Task<ContractPricesSearchResult> SearchContractGroupedPrices(ContractPricesSearchCriteria searchCriteria);
         Task<IEnumerable<MergedPrice>> GetContractProductPrices(ContractProduct contractProduct);
-        Task SaveContractPrice(ContractProductPrices model);
+        Task SaveContractPrice(ContractProductPrices contractProductPrices);
+        Task RestoreContractPrices(RestoreContractProductPrices contractProductPrices);
     }
 }

@@ -37,10 +37,10 @@ namespace VirtoCommerce.Contracts.Data.Services
             _mergedPriceSearchService = mergedPriceSearchService;
         }
 
-        public async Task<Contract> LinkPricelist(ContractPricelist request)
+        public async Task<Contract> LinkPricelist(ContractPricelist contractPricelist)
         {
-            var contract = await _contractService.GetByIdAsync(request.ContractId);
-            var basePricelist = await _pricelistService.GetByIdAsync(request.PricelistId, PriceListResponseGroup.NoDetails.ToString());
+            var contract = await _contractService.GetByIdAsync(contractPricelist.ContractId);
+            var basePricelist = await _pricelistService.GetByIdAsync(contractPricelist.PricelistId, PriceListResponseGroup.NoDetails.ToString());
 
             if (contract == null || basePricelist == null)
             {
@@ -150,21 +150,21 @@ namespace VirtoCommerce.Contracts.Data.Services
             return result.Results;
         }
 
-        public async Task SaveContractPrice(ContractProductPrices model)
+        public async Task SaveContractPrice(ContractProductPrices contractProductPrices)
         {
-            var pricelists = await GetContractPriceLists(model.ContractId);
+            var pricelists = await GetContractPriceLists(contractProductPrices.ContractId);
             if (pricelists == null)
             {
                 return;
             }
 
             // force change pricelist to priority
-            foreach (var price in model.Prices)
+            foreach (var price in contractProductPrices.Prices)
             {
                 price.PricelistId = pricelists.PriorityPriceListId;
             }
 
-            await _priceService.SaveChangesAsync(model.Prices);
+            await _priceService.SaveChangesAsync(contractProductPrices.Prices);
         }
 
         private async Task<ContractPriceListTuple> GetContractPriceLists(string contractId)
@@ -191,6 +191,35 @@ namespace VirtoCommerce.Contracts.Data.Services
             };
 
             return result;
+        }
+
+        public async Task RestoreContractPrices(RestoreContractProductPrices contractProductPrices)
+        {
+            var pricelists = await GetContractPriceLists(contractProductPrices.ContractId);
+            if (pricelists == null)
+            {
+                return;
+            }
+
+            var criteria = new MergedPriceSearchCriteria
+            {
+                All = true,
+                BasePriceListId = pricelists.BasePriceListId,
+                PriorityPriceListId = pricelists.PriorityPriceListId,
+                ProductIds = contractProductPrices.ProductIds,
+            };
+
+            var result = await _mergedPriceSearchService.SearchGroupPricesAsync(criteria);
+
+            // filter out Base prices if any
+            var changedPriceIds = result.Results.Where(x => x.State != MergedPriceState.Base).Select(x => x.Id);
+
+            if (!contractProductPrices.PriceIds.IsNullOrEmpty())
+            {
+                changedPriceIds = changedPriceIds.Intersect(contractProductPrices.PriceIds);
+            }
+
+            await _priceService.DeleteAsync(changedPriceIds);
         }
 
         private sealed class ContractPriceListTuple

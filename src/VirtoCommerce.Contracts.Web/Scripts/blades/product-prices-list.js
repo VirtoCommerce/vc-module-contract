@@ -1,7 +1,7 @@
 angular.module('Contracts')
     .controller('Contracts.pricesListController',
-        ['$scope', 'Contracts.pricesApi', 'platformWebApp.objCompareService', 'platformWebApp.bladeNavigationService', 'platformWebApp.uiGridHelper', 'virtoCommerce.pricingModule.priceValidatorsService', 'platformWebApp.ui-grid.extension',
-            function ($scope, contractPrices, objCompareService, bladeNavigationService, uiGridHelper, priceValidatorsService, gridOptionExtension) {
+        ['$scope', 'Contracts.pricesApi', 'platformWebApp.objCompareService', 'platformWebApp.bladeNavigationService', 'platformWebApp.uiGridHelper', 'virtoCommerce.pricingModule.priceValidatorsService', 'platformWebApp.ui-grid.extension', 'platformWebApp.dialogService',
+            function ($scope, contractPrices, objCompareService, bladeNavigationService, uiGridHelper, priceValidatorsService, gridOptionExtension, dialogService) {
                 $scope.uiGridConstants = uiGridHelper.uiGridConstants;
                 var blade = $scope.blade;
                 blade.updatePermission = 'Contracts:update';
@@ -103,26 +103,56 @@ angular.module('Contracts')
 
                 blade.toolbarCommands = [
                     {
-                        name: "platform.commands.save",
+                        name: 'platform.commands.save',
                         icon: 'fas fa-save',
                         executeMethod: $scope.saveChanges,
                         canExecuteMethod: canSave,
                         permission: blade.updatePermission
                     },
                     {
-                        name: "platform.commands.reset",
-                        icon: 'fa fa-undo',
-                        executeMethod: function () {
-                            angular.copy(blade.originalEntities, blade.currentEntities);
-                        },
-                        canExecuteMethod: isDirty,
-                        permission: blade.updatePermission
-                    },
-                    {
-                        name: "platform.commands.add",
+                        name: 'platform.commands.add',
                         icon: 'fas fa-plus',
                         executeMethod: function () { addNewPrice(blade.currentEntities); },
                         canExecuteMethod: function () { return true; },
+                        permission: blade.updatePermission
+                    },
+                    {
+                        name: 'Contract.blades.product-prices.commands.restore',
+                        icon: 'fa fa-undo',
+                        executeMethod: function () {
+                            var selection = $scope.gridApi.selection.getSelectedRows();
+
+                            var dialog = {
+                                id: "confirmRestoreProductPrices",
+                                title: "Contract.dialogs.notification-product-prices-restore.title",
+                                message: "Contract.dialogs.notification-product-prices-restore.message",
+                                callback: function (remove) {
+                                    if (remove) {
+                                        bladeNavigationService.closeChildrenBlades(blade, function () {
+                                            var payload = {
+                                                contractId: blade.contract.id,
+                                                productIds: [blade.productId],
+                                                priceIds: _.pluck(selection, 'id'),
+                                            };
+
+                                            contractPrices.restoreContractPrices(payload,
+                                                function () {
+                                                    blade.parentBlade.refresh();
+                                                    $scope.bladeClose();
+                                                },
+                                                function (error) {
+                                                    bladeNavigationService.setError('Error ' + error.status, blade);
+                                                });
+                                        });
+                                    }
+                                }
+                            };
+
+                            dialogService.showWarningDialog(dialog);
+                        },
+                        canExecuteMethod: function () {
+                            return $scope.gridApi && _.any($scope.gridApi.selection.getSelectedRows());
+                        },
                         permission: blade.updatePermission
                     }
                 ];
@@ -139,6 +169,10 @@ angular.module('Contracts')
 
                 // ui-grid
                 $scope.setGridOptions = function (gridId, gridOptions) {
+                    gridOptions.isRowSelectable = function (row) {
+                        return row.entity.state !== 'Base';
+                    };
+
                     gridOptions.onRegisterApi = function (gridApi) {
                         $scope.gridApi = gridApi;
 

@@ -63,7 +63,8 @@
           "no-data": "There are no pricelists yet"
         },
         "commands": {
-          "link-pricelist": "Link pricelist"
+          "link-pricelist": "Link pricelist",
+          "restore": "Restore"
         }
       },
       "product-prices": {
@@ -75,6 +76,9 @@
           "state": "State",
           "state-new": "New",
           "state-updated": "Updated"
+        },
+        "commands": {
+          "restore": "Restore"
         }
       },
       "contract-pricrlist-select": {
@@ -97,6 +101,14 @@
       "notification-prices-save": {
         "title": "Save changes",
         "message": "The prices have been modified. Do you want to save changes?"
+      },
+      "notification-contract-prices-restore": {
+        "title": "Restore confirmation",
+        "message": "Are you sure you want to restore these products with price to the initial state?"
+      },
+      "notification-product-prices-restore": {
+        "title": "Restore confirmation",
+        "message": "You are going to restore selected price line to the initial state?"
       }
     },
     "widgets": {
