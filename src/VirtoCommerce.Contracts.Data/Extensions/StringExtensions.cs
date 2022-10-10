@@ -8,7 +8,7 @@ namespace VirtoCommerce.Contracts.Data.Extensions
         {
             var contractCode = name.ToLowerInvariant();
 
-            contractCode = Regex.Replace(contractCode, @"\W", "-");
+            contractCode = Regex.Replace(contractCode, @"\W+", "-", RegexOptions.Compiled);
 
             contractCode = $"contract-{contractCode}";
 

@@ -25,7 +25,11 @@
           "description": "Enter description",
           "start-date": "Select start date",
           "end-date": "Select end date",
-          "store": "Select store"
+          "store": "Select store",
+          "code": "Enter custom code or leave empty for auto code generation"
+        },
+        "validation": {
+          "code": "Contract code can't contain special symbols except hyphens and underscores"
         }
       },
       "contract-members": {

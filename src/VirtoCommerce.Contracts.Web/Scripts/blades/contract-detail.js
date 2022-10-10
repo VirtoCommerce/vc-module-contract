@@ -3,7 +3,7 @@ angular.module('Contracts')
         ['$scope', 'Contracts.api', 'virtoCommerce.storeModule.stores',
             function ($scope, contracts, stores) {
                 var blade = $scope.blade;
-                blade.headIcon = 'fa fa-envelope';
+                blade.headIcon = 'fas fa-file-contract';
                 blade.updatePermission = 'Contracts:update';
 
                 if (blade.isNew) {
@@ -44,7 +44,7 @@ angular.module('Contracts')
                 }
 
                 $scope.setForm = function (form) {
-                    $scope.formScope = form;
+                    $scope.formScope = blade.formScope = form;
                 }
 
                 $scope.saveChanges = function () {
@@ -107,6 +107,51 @@ angular.module('Contracts')
                 function isDirty() {
                     return !angular.equals(blade.currentEntity, blade.originalEntity) && blade.hasUpdatePermission();
                 }
+
+                // handle contract code modifications via debounce
+                var createAndSetContractCode = function () {
+                    if (!blade.currentEntity.name) {
+                        return;
+                    }
+
+                    var contractCode = blade.currentEntity.name.trim();
+                    if (contractCode.length === 0) {
+                        return;
+                    }
+
+                    contractCode = contractCode.toLowerCase();
+                    contractCode = contractCode.replace(/\W+/g, '-');
+                    contractCode = "contract-" + contractCode;
+
+                    blade.currentEntity.code = contractCode;
+                }
+
+                var debounceCreateAndSetContractCode = _.debounce(function () {
+                    // need to $apply model modifications so that it would happen inside $digest cycle
+                    $scope.$apply(function () {
+                        createAndSetContractCode();
+                    });
+                }, 800);
+
+                $scope.$watch('blade.currentEntity.name', function () {
+                    // disable automatic code handling if Code field was modified by user
+                    if (isCodeModifiedByUser() || !blade.isNew) {
+                        return;
+                    }
+
+                    debounceCreateAndSetContractCode($scope);
+                });
+
+                function isCodeModifiedByUser() {
+                    return $scope.formScope &&
+                        $scope.formScope.code &&
+                        $scope.formScope.code.$dirty;
+                }
+
+                blade.codeValidator = function (value) {
+                    var pattern = /[^\w_-]/;
+                    return !pattern.test(value);
+                };
 
                 blade.refresh(false);
             }]);

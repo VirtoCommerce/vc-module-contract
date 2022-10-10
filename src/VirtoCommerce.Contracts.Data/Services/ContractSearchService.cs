@@ -41,6 +41,11 @@ namespace VirtoCommerce.Contracts.Data.Services
                 query = query.Where(x => x.StoreId == criteria.StoreId);
             }
 
+            if (!string.IsNullOrEmpty(criteria.Code))
+            {
+                query = query.Where(x => x.Code == criteria.Code);
+            }
+
             if (criteria.OnlyActive)
             {
                 var now = DateTime.UtcNow;
