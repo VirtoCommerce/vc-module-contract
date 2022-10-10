@@ -120,7 +120,7 @@ angular.module('Contracts')
                     }
 
                     contractCode = contractCode.toLowerCase();
-                    contractCode = contractCode.replace(/\W/g, '-');
+                    contractCode = contractCode.replace(/\W+/g, '-');
                     contractCode = "contract-" + contractCode;
 
                     blade.currentEntity.code = contractCode;
