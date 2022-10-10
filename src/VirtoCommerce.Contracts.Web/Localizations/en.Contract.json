@@ -108,7 +108,7 @@
       },
       "notification-product-prices-restore": {
         "title": "Restore confirmation",
-        "message": "You are going to restore selected price line to the initial state?"
+        "message": "You are going to restore selected price line to the initial state"
       }
     },
     "widgets": {
