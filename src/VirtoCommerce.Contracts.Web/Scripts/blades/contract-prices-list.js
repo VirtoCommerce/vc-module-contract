@@ -1,7 +1,7 @@
 angular.module('Contracts')
     .controller('Contracts.contractPricesListController',
-        ['$scope', 'Contracts.pricesApi', 'platformWebApp.bladeUtils', 'platformWebApp.ui-grid.extension', 'platformWebApp.uiGridHelper',
-            function ($scope, contractPrices, bladeUtils, gridOptionExtension, uiGridHelper) {
+        ['$scope', 'Contracts.pricesApi', 'platformWebApp.bladeUtils', 'platformWebApp.ui-grid.extension', 'platformWebApp.uiGridHelper', 'platformWebApp.dialogService',
+            function ($scope, contractPrices, bladeUtils, gridOptionExtension, uiGridHelper, dialogService) {
                 var blade = $scope.blade;
                 blade.headIcon = 'fa fa-list';
                 blade.title = 'Contract.blades.contract-prices.title';
@@ -74,7 +74,7 @@ angular.module('Contracts')
                 };
 
                 var addProductCommand = {
-                    name: "platform.commands.add",
+                    name: 'platform.commands.add',
                     icon: 'fas fa-plus',
                     executeMethod: function () {
                         $scope.selectedNodeId = null;
@@ -105,6 +105,10 @@ angular.module('Contracts')
                                         contractPrices.saveContractPrices(payload, function () {
                                             bladeNavigationService.closeBlade(contractBlade);
                                             blade.refresh();
+                                            // call parent refresh separately because paging directive always passes calls "blade.refresh" with parentRefresh = 1
+                                            if (blade.parentRefresh) {
+                                                blade.parentRefresh();
+                                            }
                                         }, function (error) {
                                             bladeNavigationService.setError('Error ' + error.status, blade);
                                         });
@@ -138,6 +142,48 @@ angular.module('Contracts')
                     permission: blade.updatePermission
                 };
 
+                var resetProductCommand = {
+                    name: 'Contract.blades.contract-prices.commands.restore',
+                    icon: 'fa fa-undo',
+                    executeMethod: function () {
+                        var selection = $scope.gridApi.selection.getSelectedRows();
+
+                        var dialog = {
+                            id: "confirmRestoreContractPrices",
+                            title: "Contract.dialogs.notification-contract-prices-restore.title",
+                            message: "Contract.dialogs.notification-contract-prices-restore.message",
+                            callback: function (remove) {
+                                if (remove) {
+                                    bladeNavigationService.closeChildrenBlades(blade, function () {
+                                        var payload = {
+                                            contractId: blade.contract.id,
+                                            productIds: _.pluck(selection, 'productId')
+                                        };
+
+                                        contractPrices.restoreContractPrices(payload,
+                                            function () {
+                                                blade.refresh();
+                                                // call parent refresh separately because paging directive always passes calls "blade.refresh" with parentRefresh = 1
+                                                if (blade.parentRefresh) {
+                                                    blade.parentRefresh();
+                                                }
+                                            },
+                                            function (error) {
+                                                bladeNavigationService.setError('Error ' + error.status, blade);
+                                            });
+                                    });
+                                }
+                            }
+                        };
+
+                        dialogService.showWarningDialog(dialog);
+                    },
+                    canExecuteMethod: function () {
+                        return $scope.gridApi && _.any($scope.gridApi.selection.getSelectedRows());
+                    },
+                    permission: blade.updatePermission
+                }
+
                 blade.toolbarCommands = [];
 
                 // filtering
@@ -162,7 +208,7 @@ angular.module('Contracts')
 
                 blade.updateToolbarCommadns = function() {
                     if (blade.pricelistLinked) {
-                        blade.toolbarCommands = [refreshCommand, addProductCommand];
+                        blade.toolbarCommands = [refreshCommand, addProductCommand, resetProductCommand];
                     }
                     else {
                         blade.toolbarCommands = [linkPricelistCommand];
@@ -231,6 +277,11 @@ angular.module('Contracts')
                 // ui-grid
                 $scope.setGridOptions = function (gridId, gridOptions) {
                     $scope.gridOptions = gridOptions;
+
+                    gridOptions.isRowSelectable = function (row) {
+                        return row.entity.groupState !== 'Base';
+                    };
+
                     gridOptionExtension.tryExtendGridOptions(gridId, gridOptions);
 
                     uiGridHelper.initialize($scope, gridOptions, function (gridApi) {

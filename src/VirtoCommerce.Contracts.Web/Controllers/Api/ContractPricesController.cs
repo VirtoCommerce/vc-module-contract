@@ -60,5 +60,16 @@ namespace VirtoCommerce.Contracts.Web.Controllers.Api
 
             return NoContent();
         }
+
+        [HttpPost]
+        [Route("restore")]
+        [ProducesResponseType(typeof(void), StatusCodes.Status204NoContent)]
+        [Authorize(ModuleConstants.Security.Permissions.Update)]
+        public async Task<ActionResult> RestoreContractPrices([FromBody] RestoreContractProductPrices contractProducts)
+        {
+            await _contractPricesService.RestoreContractPrices(contractProducts);
+
+            return NoContent();
+        }
     }
 }

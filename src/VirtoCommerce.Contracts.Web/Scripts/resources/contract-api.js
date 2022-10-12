@@ -20,6 +20,7 @@ angular.module('Contracts')
             searchContractPrices: { method: 'POST', url: 'api/contracts/prices/search' },
             getContractProductPrices: { method: 'POST', url: 'api/contracts/prices/search/products', isArray: true },
             linkPricelistMembers: { method: 'POST', url: 'api/contracts/prices/linkpricelist' },
-            saveContractPrices: { method: 'POST', url: 'api/contracts/prices/products' }
+            saveContractPrices: { method: 'POST', url: 'api/contracts/prices/products' },
+            restoreContractPrices: { method: 'POST', url: 'api/contracts/prices/restore' }
         })
     }]);
