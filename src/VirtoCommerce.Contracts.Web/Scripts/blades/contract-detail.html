@@ -58,6 +58,7 @@
                             <div class="form-group __info list">
                                 <label class="form-label" style="margin:0">{{'Contract.blades.contract-details.labels.store' | translate}}</label>
                                 <ui-scroll-drop-down required
+                                                     disabled="!blade.isNew"
                                                      page-size="50"
                                                      ng-model="blade.currentEntity.storeId"
                                                      data="searchStores(criteria)"
