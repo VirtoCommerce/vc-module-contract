@@ -1,10 +1,12 @@
 angular.module('Contracts')
     .controller('Contracts.contractController',
-        ['$scope', 'Contracts.api', 'virtoCommerce.storeModule.stores',
-            function ($scope, contracts, stores) {
+        ['$scope', 'Contracts.api', 'virtoCommerce.storeModule.stores', 'platformWebApp.dialogService', 'platformWebApp.bladeUtils',
+            function ($scope, contracts, stores, dialogService, bladeUtils) {
                 var blade = $scope.blade;
                 blade.headIcon = 'fas fa-file-contract';
                 blade.updatePermission = 'Contracts:update';
+
+                var bladeNavigationService = bladeUtils.bladeNavigationService;
 
                 if (blade.isNew) {
                     blade.title = 'Contract.blades.contract-details.title-new';
@@ -55,6 +57,16 @@ angular.module('Contracts')
                             function () {
                                 blade.parentBlade.refresh(true);
                                 $scope.bladeClose();
+                            },
+                            function (error) {
+                                bladeNavigationService.setError(`${error.status}: ${error.statusText}`, blade);
+
+                                var errorDialog = {
+                                    id: "errorDetails",
+                                    title: 'platform.dialogs.error-details.title',
+                                    message: error.data.message
+                                }
+                                dialogService.showErrorDialog(errorDialog);
                             });
                     } else {
                         contracts.updateContract(blade.currentEntity,

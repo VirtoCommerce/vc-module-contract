@@ -47,6 +47,7 @@ namespace VirtoCommerce.Contracts.Data.Services
                     if (originalEntity != null)
                     {
                         model.Code = originalEntity.Code;
+                        model.StoreId = originalEntity.StoreId;
                     }
                 }
             }
