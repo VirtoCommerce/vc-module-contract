@@ -59,7 +59,7 @@ angular.module('Contracts')
                                 $scope.bladeClose();
                             },
                             function (error) {
-                                bladeNavigationService.setError(error.status + ': ' + error.statusText, blade);
+                                bladeNavigationService.setError(`${error.status}: ${error.statusText}`, blade);
 
                                 var errorDialog = {
                                     id: "errorDetails",
