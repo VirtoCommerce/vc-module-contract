@@ -30,28 +30,11 @@ namespace VirtoCommerce.Contracts.Core
         {
             public static class General
             {
-                public static SettingDescriptor ContractEnabled { get; } = new SettingDescriptor
-                {
-                    Name = "Contract.ContractEnabled",
-                    GroupName = "Contract|General",
-                    ValueType = SettingValueType.Boolean,
-                    DefaultValue = false,
-                };
-
-                public static SettingDescriptor ContractPassword { get; } = new SettingDescriptor
-                {
-                    Name = "Contract.ContractPassword",
-                    GroupName = "Contract|Advanced",
-                    ValueType = SettingValueType.SecureString,
-                    DefaultValue = "qwerty",
-                };
-
                 public static IEnumerable<SettingDescriptor> AllGeneralSettings
                 {
                     get
                     {
-                        yield return ContractEnabled;
-                        yield return ContractPassword;
+                        return new List<SettingDescriptor>();
                     }
                 }
             }
