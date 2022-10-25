@@ -1,4 +1,4 @@
-<div class="blade-static" ng-if="listEntries.length">
+<div class="blade-static" ng-if="blade.pricelistLinked">
     <div class="form-group searchrow">
         <div class="form-input column">
             <input placeholder="{{ 'platform.placeholders.search-keyword' | translate }}" ng-model="filter.keyword" ng-keyup="$event.which === 13 && filter.criteriaChanged()">
@@ -11,7 +11,8 @@
 
 <div class="blade-content __medium-wide">
     <div class="blade-inner">
-        <div ng-if="!listEntries.length" class="no-data-centered">
+        <div class="note" ng-if="!listEntries.length && blade.pricelistLinked">{{ 'platform.list.no-data' | translate }}</div>
+        <div ng-if="!listEntries.length && !blade.pricelistLinked" class="no-data-centered">
             <img class="image" ng-src="{{blade.noDataImage}}">
             <div class="no-data-centered-bottom-text">{{ 'Contract.blades.contract-prices.labels.no-data' | translate }}</div>
             <button class="btn" style="margin-top: 18px;" ng-click="linkPricelist()">

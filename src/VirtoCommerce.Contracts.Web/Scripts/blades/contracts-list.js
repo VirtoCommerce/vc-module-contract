@@ -55,6 +55,7 @@ angular.module('Contracts')
 
                 function getSearchCriteria() {
                     return {
+                        keyword: filter.keyword ? filter.keyword : undefined,
                         sort: uiGridHelper.getSortExpression($scope),
                         skip: ($scope.pageSettings.currentPage - 1) * $scope.pageSettings.itemsPerPageCount,
                         take: $scope.pageSettings.itemsPerPageCount
