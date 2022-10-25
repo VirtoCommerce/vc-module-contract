@@ -27,8 +27,8 @@ angular.module(moduleName, [])
                 });
         }
     ])
-    .run(['platformWebApp.mainMenuService', '$state', 'platformWebApp.widgetService',
-        function (mainMenuService, $state, widgetService) {
+    .run(['platformWebApp.mainMenuService', '$state', 'platformWebApp.widgetService', 'platformWebApp.authService',
+        function (mainMenuService, $state, widgetService, authService) {
             //Register module in main menu
             var menuItem = {
                 path: 'browse/Contracts',
@@ -53,9 +53,9 @@ angular.module(moduleName, [])
             }, 'contractDetail');
 
             widgetService.registerWidget({
-                controller: 'Contracts.contractDynamicPropertiesWidgetController',
-                template: 'Modules/$(VirtoCommerce.Contracts)/Scripts/widgets/contract-dynamic-properties-widget.html',
-                isVisible: function (blade) { return !blade.isNew; }
+                controller: 'platformWebApp.dynamicPropertyWidgetController',
+                template: '$(Platform)/Scripts/app/dynamicProperties/widgets/dynamicPropertyWidget.tpl.html',
+                isVisible: function (blade) { return !blade.isNew && authService.checkPermission('platform:dynamic_properties:read'); }
             }, 'contractDetail');
 
             widgetService.registerWidget({

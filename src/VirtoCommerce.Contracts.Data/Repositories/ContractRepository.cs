@@ -16,10 +16,16 @@ namespace VirtoCommerce.Contracts.Data.Repositories
         }
 
         public IQueryable<ContractEntity> Contracts => DbContext.Set<ContractEntity>();
+        public IQueryable<ContractDynamicPropertyObjectValueEntity> DynamicPropertyObjectValues => DbContext.Set<ContractDynamicPropertyObjectValueEntity>();
 
         public async Task<IEnumerable<ContractEntity>> GetContractsByIdsAsync(IEnumerable<string> ids)
         {
-            return await Contracts.Where(x => ids.Contains(x.Id)).ToListAsync();
+            var contacts = await Contracts.Where(x => ids.Contains(x.Id)).ToListAsync();
+
+            var contactIds = contacts.Select(x => x.Id).ToList();
+            await DynamicPropertyObjectValues.Where(x => contactIds.Contains(x.ObjectId)).LoadAsync();
+
+            return contacts;
         }
     }
 }

@@ -1,9 +1,12 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using VirtoCommerce.Platform.Core.Common;
+using VirtoCommerce.Platform.Core.DynamicProperties;
 
 namespace VirtoCommerce.Contracts.Core.Models
 {
-    public class Contract : AuditableEntity, ICloneable
+    public class Contract : AuditableEntity, IHasDynamicProperties, ICloneable
     {
         public string Name { get; set; }
 
@@ -21,10 +24,17 @@ namespace VirtoCommerce.Contracts.Core.Models
 
         public string PriorityPricelistAssignmentId { get; set; }
 
+        public string ObjectType => typeof(Contract).FullName;
+
+        public ICollection<DynamicObjectProperty> DynamicProperties { get; set; } = new List<DynamicObjectProperty>();
 
         public virtual object Clone()
         {
-            return MemberwiseClone();
+            var clone = MemberwiseClone() as Contract;
+
+            clone.DynamicProperties = DynamicProperties?.Select(x => x.Clone()).OfType<DynamicObjectProperty>().ToList();
+
+            return clone;
         }
     }
 }
