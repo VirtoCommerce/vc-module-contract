@@ -1,8 +1,11 @@
 using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using VirtoCommerce.Contracts.Core.Models;
 using VirtoCommerce.Platform.Core.Common;
 using VirtoCommerce.Platform.Core.Domain;
+using VirtoCommerce.Platform.Core.DynamicProperties;
 
 namespace VirtoCommerce.Contracts.Data.Models
 {
@@ -30,6 +33,9 @@ namespace VirtoCommerce.Contracts.Data.Models
         [StringLength(128)]
         public string PriorityPricelistAssignmentId { get; set; }
 
+        public virtual ObservableCollection<ContractDynamicPropertyObjectValueEntity> DynamicPropertyObjectValues { get; set; }
+            = new NullCollection<ContractDynamicPropertyObjectValueEntity>();
+
         public ContractEntity FromModel(Contract model, PrimaryKeyResolvingMap pkMap)
         {
             pkMap.AddPair(model, this);
@@ -48,6 +54,14 @@ namespace VirtoCommerce.Contracts.Data.Models
             EndDate = model.EndDate;
             BasePricelistAssignmentId = model.BasePricelistAssignmentId;
             PriorityPricelistAssignmentId = model.PriorityPricelistAssignmentId;
+
+            if (model.DynamicProperties != null)
+            {
+                DynamicPropertyObjectValues = new ObservableCollection<ContractDynamicPropertyObjectValueEntity>(model
+                    .DynamicProperties
+                    .SelectMany(x => x.Values.Select(y => AbstractTypeFactory<ContractDynamicPropertyObjectValueEntity>.TryCreateInstance().FromModel(y, model, x)))
+                    .OfType<ContractDynamicPropertyObjectValueEntity>());
+            }
 
             return this;
         }
@@ -69,6 +83,16 @@ namespace VirtoCommerce.Contracts.Data.Models
             model.BasePricelistAssignmentId = BasePricelistAssignmentId;
             model.PriorityPricelistAssignmentId = PriorityPricelistAssignmentId;
 
+            model.DynamicProperties = DynamicPropertyObjectValues.GroupBy(x => x.PropertyId ?? x.PropertyName)
+                .Select(x =>
+                {
+                    var property = AbstractTypeFactory<DynamicObjectProperty>.TryCreateInstance();
+                    property.Id = x.First()?.PropertyId;
+                    property.Name = x.FirstOrDefault()?.PropertyName;
+                    property.Values = x.Select(y => y.ToModel(AbstractTypeFactory<DynamicPropertyObjectValue>.TryCreateInstance())).ToArray();
+                    return property;
+                }).ToArray();
+
             return model;
         }
 
@@ -82,6 +106,11 @@ namespace VirtoCommerce.Contracts.Data.Models
             target.EndDate = EndDate;
             target.BasePricelistAssignmentId = BasePricelistAssignmentId;
             target.PriorityPricelistAssignmentId = PriorityPricelistAssignmentId;
+
+            if (!DynamicPropertyObjectValues.IsNullCollection())
+            {
+                DynamicPropertyObjectValues.Patch(target.DynamicPropertyObjectValues, (sourceDynamicPropertyObjectValues, targetDynamicPropertyObjectValues) => sourceDynamicPropertyObjectValues.Patch(targetDynamicPropertyObjectValues));
+            }
         }
     }
 }

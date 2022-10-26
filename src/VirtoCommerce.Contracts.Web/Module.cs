@@ -15,6 +15,7 @@ using VirtoCommerce.Contracts.Data.Repositories;
 using VirtoCommerce.Contracts.Data.Services;
 using VirtoCommerce.Contracts.Data.Validation;
 using VirtoCommerce.Platform.Core.Bus;
+using VirtoCommerce.Platform.Core.DynamicProperties;
 using VirtoCommerce.Platform.Core.GenericCrud;
 using VirtoCommerce.Platform.Core.Modularity;
 using VirtoCommerce.Platform.Core.Security;
@@ -64,6 +65,10 @@ namespace VirtoCommerce.Contracts.Web
             // Register settings
             var settingsRegistrar = serviceProvider.GetRequiredService<ISettingsRegistrar>();
             settingsRegistrar.RegisterSettings(ModuleConstants.Settings.AllSettings, ModuleInfo.Id);
+
+            // register dynamic properties
+            var dynamicPropertyRegistrar = appBuilder.ApplicationServices.GetRequiredService<IDynamicPropertyRegistrar>();
+            dynamicPropertyRegistrar.RegisterType<Contract>();
 
             // Register permissions
             var permissionsRegistrar = serviceProvider.GetRequiredService<IPermissionsRegistrar>();
