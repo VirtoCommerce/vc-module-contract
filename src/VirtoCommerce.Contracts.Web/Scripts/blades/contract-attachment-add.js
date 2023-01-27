@@ -11,8 +11,9 @@ angular.module('Contracts')
         }
 
         $scope.saveChanges = function () {
-            if (blade.onSelect)
+            if (blade.onSelect) {
                 blade.onSelect(blade.currentEntities);
+            }
 
             $scope.bladeClose();
         };
@@ -46,11 +47,12 @@ angular.module('Contracts')
                 };
 
                 uploader.onErrorItem = function (item, response, status, headers) {
-                    bladeNavigationService.setError(item._file.name + ' failed: ' + (response.message ? response.message : status), blade);
+                    var message = response.message ? response.message : status;
+                    bladeNavigationService.setError(`${item._file.name} failed: ${message}`, blade);
                 };
             }
             blade.currentEntities = [];
-        };
+        }
 
         $scope.removeAction = function (attachment) {
             var index = blade.currentEntities.indexOf(attachment);
