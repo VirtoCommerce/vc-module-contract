@@ -28,11 +28,14 @@ namespace VirtoCommerce.Contracts.Core.Models
 
         public ICollection<DynamicObjectProperty> DynamicProperties { get; set; } = new List<DynamicObjectProperty>();
 
+        public ICollection<ContractAttachment> Attachments { get; set; } = new List<ContractAttachment>();
+
         public virtual object Clone()
         {
             var clone = MemberwiseClone() as Contract;
 
             clone.DynamicProperties = DynamicProperties?.Select(x => x.Clone()).OfType<DynamicObjectProperty>().ToList();
+            clone.Attachments = Attachments?.Select(x => x.Clone()).OfType<ContractAttachment>().ToList();
 
             return clone;
         }

@@ -9,6 +9,7 @@ namespace VirtoCommerce.Contracts.Data.Repositories
     public interface IContractRepository : IRepository
     {
         IQueryable<ContractEntity> Contracts { get; }
+        IQueryable<ContractAttachmentEntity> ContractAttachments { get; }
 
         Task<IEnumerable<ContractEntity>> GetContractsByIdsAsync(IEnumerable<string> ids);
     }
