@@ -6,7 +6,6 @@ angular.module('Contracts')
                 blade.headIcon = 'fas fa-file-contract';
                 blade.title = 'Contract.blades.contract-attachments-list.title';
                 blade.isLoading = false;
-                $scope.isValid = true;
 
                 $scope.uiGridConstants = uiGridHelper.uiGridConstants;
                 var bladeNavigationService = bladeUtils.bladeNavigationService;
@@ -51,10 +50,10 @@ angular.module('Contracts')
                     initialize(item);
                 }
 
-                function initialize(contract) {
-                    blade.subtitle = contract.name;
+                function initialize() {
+                    blade.subtitle = blade.contract.name;
 
-                    blade.currentEntities = contract.attachments ? angular.copy(contract.attachments) : [];
+                    blade.currentEntities = blade.contract.attachments ? angular.copy(blade.contract.attachments) : [];
                 }
 
                 $scope.selectNode = function (contract) {
@@ -71,6 +70,16 @@ angular.module('Contracts')
                     }
 
                     $scope.bladeClose();
+                };
+
+                $scope.cancelChanges = function () {
+                    angular.copy(blade.contract.attachments, blade.currentEntities);
+
+                    $scope.bladeClose();
+                }
+
+                $scope.isValid = function () {
+                    return !angular.equals(blade.currentEntities, blade.contract.attachments);
                 };
 
                 $scope.deleteAttachments = function (selection) {
@@ -126,5 +135,5 @@ angular.module('Contracts')
                     uiGridHelper.initialize($scope, gridOptions);
                 };
 
-                initialize(blade.contract);
+                initialize();
             }]);

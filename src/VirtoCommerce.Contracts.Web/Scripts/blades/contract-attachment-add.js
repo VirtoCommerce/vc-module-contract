@@ -18,6 +18,15 @@ angular.module('Contracts')
             $scope.bladeClose();
         };
 
+        $scope.cancelChanges = function () {
+            blade.currentEntities = [];
+            $scope.bladeClose();
+        }
+
+        $scope.isValid = function () {
+            return blade.currentEntities && blade.currentEntities.length;
+        };
+
         function initialize(contract) {
             blade.item = contract;
             if (!$scope.uploader && blade.hasUpdatePermission()) {
