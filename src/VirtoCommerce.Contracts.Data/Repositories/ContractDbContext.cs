@@ -34,6 +34,11 @@ namespace VirtoCommerce.Contracts.Data.Repositories
             modelBuilder.Entity<ContractDynamicPropertyObjectValueEntity>().HasIndex(x => new { x.ObjectType, x.ObjectId })
                 .IsUnique(false)
                 .HasDatabaseName("IX_ObjectType_ObjectId");
+
+            modelBuilder.Entity<ContractAttachmentEntity>().ToTable("ContractAttachment").HasKey(x => x.Id);
+            modelBuilder.Entity<ContractAttachmentEntity>().Property(x => x.Id).HasMaxLength(128).ValueGeneratedOnAdd();
+            modelBuilder.Entity<ContractAttachmentEntity>().HasOne(x => x.Contract).WithMany(x => x.Attachments)
+                        .HasForeignKey(x => x.ContractId).IsRequired().OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

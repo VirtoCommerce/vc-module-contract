@@ -36,6 +36,9 @@ namespace VirtoCommerce.Contracts.Data.Models
         public virtual ObservableCollection<ContractDynamicPropertyObjectValueEntity> DynamicPropertyObjectValues { get; set; }
             = new NullCollection<ContractDynamicPropertyObjectValueEntity>();
 
+        public ObservableCollection<ContractAttachmentEntity> Attachments { get; set; } =
+            new NullCollection<ContractAttachmentEntity>();
+
         public ContractEntity FromModel(Contract model, PrimaryKeyResolvingMap pkMap)
         {
             pkMap.AddPair(model, this);
@@ -61,6 +64,11 @@ namespace VirtoCommerce.Contracts.Data.Models
                     .DynamicProperties
                     .SelectMany(x => x.Values.Select(y => AbstractTypeFactory<ContractDynamicPropertyObjectValueEntity>.TryCreateInstance().FromModel(y, model, x)))
                     .OfType<ContractDynamicPropertyObjectValueEntity>());
+            }
+
+            if (model.Attachments != null)
+            {
+                Attachments = new ObservableCollection<ContractAttachmentEntity>(model.Attachments.Select(x => AbstractTypeFactory<ContractAttachmentEntity>.TryCreateInstance().FromModel(x, pkMap)));
             }
 
             return this;
@@ -93,6 +101,8 @@ namespace VirtoCommerce.Contracts.Data.Models
                     return property;
                 }).ToArray();
 
+            model.Attachments = Attachments.Select(x => x.ToModel(AbstractTypeFactory<ContractAttachment>.TryCreateInstance())).ToList();
+
             return model;
         }
 
@@ -110,6 +120,11 @@ namespace VirtoCommerce.Contracts.Data.Models
             if (!DynamicPropertyObjectValues.IsNullCollection())
             {
                 DynamicPropertyObjectValues.Patch(target.DynamicPropertyObjectValues, (sourceDynamicPropertyObjectValues, targetDynamicPropertyObjectValues) => sourceDynamicPropertyObjectValues.Patch(targetDynamicPropertyObjectValues));
+            }
+
+            if (!Attachments.IsNullCollection())
+            {
+                Attachments.Patch(target.Attachments, (sourceAttachment, targetAttachment) => { sourceAttachment.Patch(targetAttachment); });
             }
         }
     }

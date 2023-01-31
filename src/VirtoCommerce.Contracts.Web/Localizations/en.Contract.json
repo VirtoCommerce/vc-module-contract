@@ -87,6 +87,24 @@
           "name": "Name",
           "currency": "Currency"
         }
+      },
+      "contract-attachments-list": {
+        "title": "Attachments",
+        "labels": {
+          "name": "Name",
+          "copy-url-prompt": "Copy to clipboard: Ctrl+C, Enter"
+        }
+      },
+      "contract-attachment-add": {
+        "title": "Upload attachment",
+        "labels": {
+          "name": "Name",
+          "type": "Type",
+          "actions": "Actions",
+          "select": "Select files",
+          "drag-drop-comment": "Drag and drop your files here",
+          "progress": "Progress"
+        }
       }
     },
     "dialogs": {
@@ -109,6 +127,10 @@
       "notification-product-prices-restore": {
         "title": "Restore confirmation",
         "message": "You are going to restore selected price line to the initial state"
+      },
+      "notification-attachement-delete": {
+        "title": "Delete confirmation",
+        "message": "Are you sure you want to delete selected attachments?"
       }
     },
     "widgets": {
