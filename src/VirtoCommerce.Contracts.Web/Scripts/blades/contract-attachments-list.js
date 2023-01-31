@@ -46,11 +46,7 @@ angular.module('Contracts')
                     }
                 ];
 
-                blade.refresh = function (item) {
-                    initialize(item);
-                }
-
-                function initialize() {
+                blade.refresh = function () {
                     blade.subtitle = blade.contract.name;
 
                     blade.currentEntities = blade.contract.attachments ? angular.copy(blade.contract.attachments) : [];
@@ -135,5 +131,5 @@ angular.module('Contracts')
                     uiGridHelper.initialize($scope, gridOptions);
                 };
 
-                initialize();
+                blade.refresh();
             }]);
