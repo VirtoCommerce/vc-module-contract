@@ -1,5 +1,4 @@
-# Contract Module - Preview
-THIS A PREVIEW VERSION - NOT TESTED IN PRODUCTION
+# Contract Module
 
 ## Overview
 
@@ -14,6 +13,7 @@ The *Contract* module allows you to leverage both the *Pricing* and *Customers* 
 1. Support for multiple contracts for a single user
 2. Maintaining the *one contract to one store* relation
 3. Support for contracts based on the user group feature
+4. Attachments
 
 ## User Scenarios
 
@@ -29,7 +29,7 @@ The *Contract* module allows you to leverage both the *Pricing* and *Customers* 
 
 ## Web API
 
-Web API documentation for each module is built automatically and can be accessed [here](https://link-to-swager-api).
+Web API documentation for each module is built automatically and can be accessed via Swagger UI.
 
 ## References
 
