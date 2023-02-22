@@ -9,11 +9,11 @@ using VirtoCommerce.Contracts.Data.Repositories;
 
 #nullable disable
 
-namespace VirtoCommerce.Contracts.Data.Migrations
+namespace VirtoCommerce.Contracts.Data.SqlServer.Migrations
 {
     [DbContext(typeof(ContractDbContext))]
-    [Migration("20230126135844_AddContractAttachments")]
-    partial class AddContractAttachments
+    [Migration("20230222095204_RenameIndex")]
+    partial class RenameIndex
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -138,7 +138,7 @@ namespace VirtoCommerce.Contracts.Data.Migrations
                     b.HasIndex("ObjectId");
 
                     b.HasIndex("ObjectType", "ObjectId")
-                        .HasDatabaseName("IX_ObjectType_ObjectId");
+                        .HasDatabaseName("IX_ContractDynamicPropertyObjectValueEntity_ObjectType_ObjectId");
 
                     b.ToTable("ContractDynamicPropertyObjectValue", (string)null);
                 });

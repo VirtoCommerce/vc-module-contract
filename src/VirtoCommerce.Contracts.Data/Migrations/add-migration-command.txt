@@ -1,1 +1,0 @@
-Add-Migration <<Name>> -Context VirtoCommerce.Contracts.Data.Repositories.ContractDbContext -Verbose -OutputDir Migrations -Project VirtoCommerce.Contracts.Data -StartupProject VirtoCommerce.Contracts.Data -Debug
