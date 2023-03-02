@@ -12,6 +12,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\VirtoCommerce.Contracts.Core\VirtoCommerce.Contracts.Core.csproj" />
+    <ProjectReference Include="..\VirtoCommerce.Contracts.Data.MySql\VirtoCommerce.Contracts.Data.MySql.csproj" />
+    <ProjectReference Include="..\VirtoCommerce.Contracts.Data.PostgreSql\VirtoCommerce.Contracts.Data.PostgreSql.csproj" />
+    <ProjectReference Include="..\VirtoCommerce.Contracts.Data.SqlServer\VirtoCommerce.Contracts.Data.SqlServer.csproj" />
     <ProjectReference Include="..\VirtoCommerce.Contracts.Data\VirtoCommerce.Contracts.Data.csproj" />
   </ItemGroup>
 

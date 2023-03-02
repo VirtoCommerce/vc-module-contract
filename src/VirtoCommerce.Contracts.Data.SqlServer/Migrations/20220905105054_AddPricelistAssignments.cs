@@ -1,8 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace VirtoCommerce.Contracts.Data.Migrations
+namespace VirtoCommerce.Contracts.Data.SqlServer.Migrations
 {
     public partial class AddPricelistAssignments : Migration
     {

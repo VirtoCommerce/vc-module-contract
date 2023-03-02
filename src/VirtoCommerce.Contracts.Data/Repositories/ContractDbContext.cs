@@ -1,3 +1,4 @@
+using System.Reflection;
 using EntityFrameworkCore.Triggers;
 using Microsoft.EntityFrameworkCore;
 using VirtoCommerce.Contracts.Data.Models;
@@ -33,12 +34,28 @@ namespace VirtoCommerce.Contracts.Data.Repositories
                 .OnDelete(DeleteBehavior.Cascade);
             modelBuilder.Entity<ContractDynamicPropertyObjectValueEntity>().HasIndex(x => new { x.ObjectType, x.ObjectId })
                 .IsUnique(false)
-                .HasDatabaseName("IX_ObjectType_ObjectId");
+                .HasDatabaseName("IX_ContractDynamicPropertyObjectValueEntity_ObjectType_ObjectId");
 
             modelBuilder.Entity<ContractAttachmentEntity>().ToTable("ContractAttachment").HasKey(x => x.Id);
             modelBuilder.Entity<ContractAttachmentEntity>().Property(x => x.Id).HasMaxLength(128).ValueGeneratedOnAdd();
             modelBuilder.Entity<ContractAttachmentEntity>().HasOne(x => x.Contract).WithMany(x => x.Attachments)
                         .HasForeignKey(x => x.ContractId).IsRequired().OnDelete(DeleteBehavior.Cascade);
+
+            // Allows configuration for an entity type for different database types.
+            // Applies configuration from all <see cref="IEntityTypeConfiguration{TEntity}" in VirtoCommerce.Contracts.Data.XXX project. /> 
+            switch (this.Database.ProviderName)
+            {
+                case "Pomelo.EntityFrameworkCore.MySql":
+                    modelBuilder.ApplyConfigurationsFromAssembly(Assembly.Load("VirtoCommerce.Contracts.Data.MySql"));
+                    break;
+                case "Npgsql.EntityFrameworkCore.PostgreSQL":
+                    modelBuilder.ApplyConfigurationsFromAssembly(Assembly.Load("VirtoCommerce.Contracts.Data.PostgreSql"));
+                    break;
+                case "Microsoft.EntityFrameworkCore.SqlServer":
+                    modelBuilder.ApplyConfigurationsFromAssembly(Assembly.Load("VirtoCommerce.Contracts.Data.SqlServer"));
+                    break;
+            }
+
         }
     }
 }

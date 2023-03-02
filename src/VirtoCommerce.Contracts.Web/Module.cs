@@ -11,8 +11,11 @@ using VirtoCommerce.Contracts.Core.Models;
 using VirtoCommerce.Contracts.Core.Models.Search;
 using VirtoCommerce.Contracts.Core.Services;
 using VirtoCommerce.Contracts.Data.Handlers;
+using VirtoCommerce.Contracts.Data.MySql;
+using VirtoCommerce.Contracts.Data.PostgreSql;
 using VirtoCommerce.Contracts.Data.Repositories;
 using VirtoCommerce.Contracts.Data.Services;
+using VirtoCommerce.Contracts.Data.SqlServer;
 using VirtoCommerce.Contracts.Data.Validation;
 using VirtoCommerce.Platform.Core.Bus;
 using VirtoCommerce.Platform.Core.DynamicProperties;
@@ -31,10 +34,25 @@ namespace VirtoCommerce.Contracts.Web
         public void Initialize(IServiceCollection serviceCollection)
         {
             // Initialize database
-            var connectionString = Configuration.GetConnectionString(ModuleInfo.Id) ??
-                                   Configuration.GetConnectionString("VirtoCommerce");
+            serviceCollection.AddDbContext<ContractDbContext>((provider, options) =>
+            {
+                var databaseProvider = Configuration.GetValue("DatabaseProvider", "SqlServer");
+                var connectionString = Configuration.GetConnectionString(ModuleInfo.Id) ?? Configuration.GetConnectionString("VirtoCommerce");
 
-            serviceCollection.AddDbContext<ContractDbContext>(options => options.UseSqlServer(connectionString));
+                switch (databaseProvider)
+                {
+                    case "MySql":
+                        options.UseMySqlDatabase(connectionString);
+                        break;
+                    case "PostgreSql":
+                        options.UsePostgreSqlDatabase(connectionString);
+                        break;
+                    default:
+                        options.UseSqlServerDatabase(connectionString);
+                        break;
+                }
+            });
+
 
             serviceCollection.AddTransient<IContractRepository, ContractRepository>();
             serviceCollection.AddTransient<Func<IContractRepository>>(provider => () => provider.CreateScope().ServiceProvider.GetService<IContractRepository>());

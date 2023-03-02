@@ -1,10 +1,10 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <id>VirtoCommerce.Contracts</id>
   <version>3.205.0</version>
   <version-tag />
   <platformVersion>3.240.0</platformVersion>
-  <title>Contracts module</title>
+  <title>Contracts</title>
   <description>Cotract based price personalization for customers and organisations</description>
   <authors>
     <author>Konstantin Savosteev</author>
@@ -16,7 +16,7 @@
   <iconUrl>Modules/$(VirtoCommerce.Contracts)/Content/logo.svg</iconUrl>
   <requireLicenseAcceptance>false</requireLicenseAcceptance>
   <releaseNotes>First version.</releaseNotes>
-  <copyright>Copyright © 2022 VirtoCommerce. All rights reserved</copyright>
+  <copyright>Copyright © 2023 VirtoCommerce. All rights reserved</copyright>
   <tags>extension module</tags>
   <assemblyFile>VirtoCommerce.Contracts.Web.dll</assemblyFile>
   <moduleType>VirtoCommerce.Contracts.Web.Module, VirtoCommerce.Contracts.Web</moduleType>
