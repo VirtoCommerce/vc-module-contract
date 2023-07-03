@@ -1,15 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <OutputType>Library</OutputType>
   </PropertyGroup>
-
   <PropertyGroup>
-      <!-- Project is not a test project -->
-      <SonarQubeTestProject>false</SonarQubeTestProject>
+    <!-- Project is not a test project -->
+    <SonarQubeTestProject>false</SonarQubeTestProject>
   </PropertyGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\VirtoCommerce.Contracts.Core\VirtoCommerce.Contracts.Core.csproj" />
     <ProjectReference Include="..\VirtoCommerce.Contracts.Data.MySql\VirtoCommerce.Contracts.Data.MySql.csproj" />
@@ -17,9 +14,4 @@
     <ProjectReference Include="..\VirtoCommerce.Contracts.Data.SqlServer\VirtoCommerce.Contracts.Data.SqlServer.csproj" />
     <ProjectReference Include="..\VirtoCommerce.Contracts.Data\VirtoCommerce.Contracts.Data.csproj" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Scripts\widgets\" />
-  </ItemGroup>
-
 </Project>

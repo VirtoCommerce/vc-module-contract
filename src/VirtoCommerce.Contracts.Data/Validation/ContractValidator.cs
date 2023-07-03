@@ -3,7 +3,8 @@ using System.Text.RegularExpressions;
 using FluentValidation;
 using VirtoCommerce.Contracts.Core.Models;
 using VirtoCommerce.Contracts.Core.Models.Search;
-using VirtoCommerce.Platform.Core.GenericCrud;
+using VirtoCommerce.Contracts.Core.Services;
+using VirtoCommerce.Platform.Core.Common;
 
 namespace VirtoCommerce.Contracts.Data.Validation
 {
@@ -11,7 +12,7 @@ namespace VirtoCommerce.Contracts.Data.Validation
     {
         // Inject search service like a factory to avoid circular dependencies errors
         public ContractValidator(
-            Func<ISearchService<ContractSearchCriteria, ContractSearchResult, Contract>> contractSearchServiceFactory)
+            Func<IContractSearchService> contractSearchServiceFactory)
         {
             RuleFor(association => association.Name).NotNull().NotEmpty().WithMessage("Name cannot be empty");
             RuleFor(association => association.Code).NotNull().NotEmpty().WithMessage("Code cannot be empty")
@@ -20,7 +21,7 @@ namespace VirtoCommerce.Contracts.Data.Validation
                     var rx = new Regex(@"/[^\w_-]/;", RegexOptions.Compiled);
                     if (rx.IsMatch(code))
                     {
-                        context.AddFailure($"Code cannot contais special symbols except hyphen and underscore.");
+                        context.AddFailure("Code cannot contain special symbols except hyphen and underscore.");
                     }
                 });
 
@@ -38,7 +39,7 @@ namespace VirtoCommerce.Contracts.Data.Validation
                 };
 
                 var contractSearchService = contractSearchServiceFactory();
-                var searchResult = await contractSearchService.SearchAsync(searchCriteria);
+                var searchResult = await contractSearchService.SearchNoCloneAsync(searchCriteria);
 
                 if (searchResult.TotalCount > 0)
                 {

@@ -11,6 +11,6 @@ namespace VirtoCommerce.Contracts.Data.Repositories
         IQueryable<ContractEntity> Contracts { get; }
         IQueryable<ContractAttachmentEntity> ContractAttachments { get; }
 
-        Task<IEnumerable<ContractEntity>> GetContractsByIdsAsync(IEnumerable<string> ids);
+        Task<IList<ContractEntity>> GetContractsByIdsAsync(IList<string> ids);
     }
 }

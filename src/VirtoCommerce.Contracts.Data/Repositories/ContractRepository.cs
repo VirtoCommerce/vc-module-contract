@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,15 +18,18 @@ namespace VirtoCommerce.Contracts.Data.Repositories
         public IQueryable<ContractDynamicPropertyObjectValueEntity> DynamicPropertyObjectValues => DbContext.Set<ContractDynamicPropertyObjectValueEntity>();
         public IQueryable<ContractAttachmentEntity> ContractAttachments => DbContext.Set<ContractAttachmentEntity>();
 
-        public async Task<IEnumerable<ContractEntity>> GetContractsByIdsAsync(IEnumerable<string> ids)
+        public async Task<IList<ContractEntity>> GetContractsByIdsAsync(IList<string> ids)
         {
-            var contacts = await Contracts.Where(x => ids.Contains(x.Id)).ToListAsync();
+            var contracts = await Contracts.Where(x => ids.Contains(x.Id)).ToListAsync();
 
-            var contactIds = contacts.Select(x => x.Id).ToList();
-            await DynamicPropertyObjectValues.Where(x => contactIds.Contains(x.ObjectId)).LoadAsync();
-            await ContractAttachments.Where(x => contactIds.Contains(x.ContractId)).LoadAsync();
+            if (contracts.Any())
+            {
+                var contractIds = contracts.Select(x => x.Id).ToList();
+                await DynamicPropertyObjectValues.Where(x => contractIds.Contains(x.ObjectId)).LoadAsync();
+                await ContractAttachments.Where(x => contractIds.Contains(x.ContractId)).LoadAsync();
+            }
 
-            return contacts;
+            return contracts;
         }
     }
 }

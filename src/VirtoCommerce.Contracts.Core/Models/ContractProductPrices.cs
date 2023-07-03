@@ -7,6 +7,6 @@ namespace VirtoCommerce.Contracts.Core.Models
     {
         public string ContractId { get; set; }
 
-        public IEnumerable<Price> Prices { get; set; } = new List<Price>();
+        public IList<Price> Prices { get; set; } = new List<Price>();
     }
 }
