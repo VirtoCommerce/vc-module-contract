@@ -6,18 +6,18 @@ using VirtoCommerce.Contracts.Core.Services;
 using VirtoCommerce.CustomerModule.Core.Model;
 using VirtoCommerce.CustomerModule.Core.Model.Search;
 using VirtoCommerce.CustomerModule.Core.Services;
-using VirtoCommerce.Platform.Core.GenericCrud;
+using VirtoCommerce.Platform.Core.Common;
 
 namespace VirtoCommerce.Contracts.Data.Services
 {
     public sealed class ContractMembersService : IContractMembersService, IContractMembersSearchService
     {
-        private readonly ICrudService<Contract> _contractService;
+        private readonly IContractService _contractService;
         private readonly IMemberService _membersService;
         private readonly IMemberSearchService _memberSearchService;
 
         public ContractMembersService(
-            ICrudService<Contract> contractService,
+            IContractService contractService,
             IMemberService membersService,
             IMemberSearchService memberSearchService)
         {
@@ -101,7 +101,7 @@ namespace VirtoCommerce.Contracts.Data.Services
 
             if (!string.IsNullOrEmpty(id))
             {
-                var contract = await _contractService.GetByIdAsync(id);
+                var contract = await _contractService.GetNoCloneAsync(id);
                 return contract?.Code;
             }
 

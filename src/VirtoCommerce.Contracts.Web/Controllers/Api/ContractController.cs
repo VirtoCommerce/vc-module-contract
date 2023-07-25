@@ -8,19 +8,20 @@ using Microsoft.AspNetCore.Mvc;
 using VirtoCommerce.Contracts.Core;
 using VirtoCommerce.Contracts.Core.Models;
 using VirtoCommerce.Contracts.Core.Models.Search;
-using VirtoCommerce.Platform.Core.GenericCrud;
+using VirtoCommerce.Contracts.Core.Services;
+using VirtoCommerce.Platform.Core.Common;
 
 namespace VirtoCommerce.Contracts.Web.Controllers.Api
 {
     [Route("api/contracts")]
     public class ContractController : Controller
     {
-        private readonly ICrudService<Contract> _contractService;
-        private readonly ISearchService<ContractSearchCriteria, ContractSearchResult, Contract> _contractSearchService;
+        private readonly IContractService _contractService;
+        private readonly IContractSearchService _contractSearchService;
 
         public ContractController(
-            ICrudService<Contract> contractService,
-            ISearchService<ContractSearchCriteria, ContractSearchResult, Contract> contractSearchService)
+            IContractService contractService,
+            IContractSearchService contractSearchService)
         {
             _contractService = contractService;
             _contractSearchService = contractSearchService;
@@ -31,7 +32,7 @@ namespace VirtoCommerce.Contracts.Web.Controllers.Api
         [Authorize(ModuleConstants.Security.Permissions.Access)]
         public async Task<ActionResult<Contract>> GetContractById(string id)
         {
-            var contract = await _contractService.GetByIdAsync(id);
+            var contract = await _contractService.GetNoCloneAsync(id);
             return Ok(contract);
         }
 
@@ -40,7 +41,7 @@ namespace VirtoCommerce.Contracts.Web.Controllers.Api
         [Authorize(ModuleConstants.Security.Permissions.Read)]
         public async Task<ActionResult<ContractSearchResult>> SearchContracts([FromBody] ContractSearchCriteria searchCriteria)
         {
-            var searchResult = await _contractSearchService.SearchAsync(searchCriteria);
+            var searchResult = await _contractSearchService.SearchNoCloneAsync(searchCriteria);
             return Ok(searchResult);
         }
 

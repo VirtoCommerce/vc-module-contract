@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using FluentValidation;
 using VirtoCommerce.Contracts.Core.Events;
 using VirtoCommerce.Contracts.Core.Models;
+using VirtoCommerce.Contracts.Core.Services;
 using VirtoCommerce.Contracts.Data.Extensions;
 using VirtoCommerce.Contracts.Data.Models;
 using VirtoCommerce.Contracts.Data.Repositories;
@@ -15,8 +16,9 @@ using VirtoCommerce.Platform.Data.GenericCrud;
 
 namespace VirtoCommerce.Contracts.Data.Services
 {
-    public class ContractService : CrudService<Contract, ContractEntity, ContractChangingEvent, ContractChangedEvent>
+    public class ContractService : CrudService<Contract, ContractEntity, ContractChangingEvent, ContractChangedEvent>, IContractService
     {
+        private readonly Func<IContractRepository> _repositoryFactory;
         private readonly AbstractValidator<Contract> _contractValidator;
 
         public ContractService(
@@ -26,15 +28,16 @@ namespace VirtoCommerce.Contracts.Data.Services
             AbstractValidator<Contract> contractValidator)
             : base(repositoryFactory, platformMemoryCache, eventPublisher)
         {
+            _repositoryFactory = repositoryFactory;
             _contractValidator = contractValidator;
         }
 
-        protected override Task<IEnumerable<ContractEntity>> LoadEntities(IRepository repository, IEnumerable<string> ids, string responseGroup)
+        protected override Task<IList<ContractEntity>> LoadEntities(IRepository repository, IList<string> ids, string responseGroup)
         {
             return ((IContractRepository)repository).GetContractsByIdsAsync(ids);
         }
 
-        protected override async Task BeforeSaveChanges(IEnumerable<Contract> models)
+        protected override async Task BeforeSaveChanges(IList<Contract> models)
         {
             // override code for existing contracts to prevent code changes via api
             using (var repository = _repositoryFactory())

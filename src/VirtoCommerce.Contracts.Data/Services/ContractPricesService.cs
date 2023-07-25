@@ -6,7 +6,6 @@ using VirtoCommerce.Contracts.Core.Models.Search;
 using VirtoCommerce.Contracts.Core.Services;
 using VirtoCommerce.CoreModule.Core.Conditions;
 using VirtoCommerce.Platform.Core.Common;
-using VirtoCommerce.Platform.Core.GenericCrud;
 using VirtoCommerce.PricingModule.Core.Model;
 using VirtoCommerce.PricingModule.Core.Model.Conditions;
 using VirtoCommerce.PricingModule.Core.Model.Search;
@@ -18,16 +17,17 @@ namespace VirtoCommerce.Contracts.Data.Services
     {
         private const int _maxPriority = 10000;
 
-        private readonly ICrudService<Contract> _contractService;
-        private readonly ICrudService<Price> _priceService;
-        private readonly ICrudService<Pricelist> _pricelistService;
-        private readonly ICrudService<PricelistAssignment> _pricelistAssignmentService;
+        private readonly IContractService _contractService;
+        private readonly IPriceService _priceService;
+        private readonly IPricelistService _pricelistService;
+        private readonly IPricelistAssignmentService _pricelistAssignmentService;
         private readonly IMergedPriceSearchService _mergedPriceSearchService;
 
-        public ContractPricesService(ICrudService<Contract> contractService,
-            ICrudService<Price> priceService,
-            ICrudService<Pricelist> pricelistService,
-            ICrudService<PricelistAssignment> pricelistAssignmentService,
+        public ContractPricesService(
+            IContractService contractService,
+            IPriceService priceService,
+            IPricelistService pricelistService,
+            IPricelistAssignmentService pricelistAssignmentService,
             IMergedPriceSearchService mergedPriceSearchService)
         {
             _contractService = contractService;
@@ -40,7 +40,7 @@ namespace VirtoCommerce.Contracts.Data.Services
         public async Task<Contract> LinkPricelist(ContractPricelist contractPricelist)
         {
             var contract = await _contractService.GetByIdAsync(contractPricelist.ContractId);
-            var basePricelist = await _pricelistService.GetByIdAsync(contractPricelist.PricelistId, PriceListResponseGroup.NoDetails.ToString());
+            var basePricelist = await _pricelistService.GetNoCloneAsync(contractPricelist.PricelistId, PriceListResponseGroup.NoDetails.ToString());
 
             if (contract == null || basePricelist == null)
             {
@@ -48,7 +48,7 @@ namespace VirtoCommerce.Contracts.Data.Services
             }
 
             // empty price list for modified prices
-            var priorityPriceList = new Pricelist()
+            var priorityPriceList = new Pricelist
             {
                 Name = $"Contract-{contract.Name}-{basePricelist.Name}",
                 Currency = basePricelist.Currency,
@@ -57,7 +57,7 @@ namespace VirtoCommerce.Contracts.Data.Services
             await _pricelistService.SaveChangesAsync(new List<Pricelist> { priorityPriceList });
 
             // assignments
-            var basePriceListAssigment = new PricelistAssignment
+            var basePricelistAssignment = new PricelistAssignment
             {
                 Name = $"Contract-{contract.Name}-{basePricelist.Name}-Base",
                 StoreId = contract.StoreId,
@@ -67,7 +67,7 @@ namespace VirtoCommerce.Contracts.Data.Services
                 Priority = _maxPriority,
             };
 
-            var priorityPriceListAssigment = new PricelistAssignment
+            var priorityPricelistAssignment = new PricelistAssignment
             {
                 Name = $"{priorityPriceList.Name}-Priority",
                 StoreId = contract.StoreId,
@@ -89,13 +89,13 @@ namespace VirtoCommerce.Contracts.Data.Services
             blockPricingCondition.Children.Add(userGroupsCondition);
             conditionTree.Children.Add(blockPricingCondition);
 
-            basePriceListAssigment.DynamicExpression = conditionTree;
-            priorityPriceListAssigment.DynamicExpression = conditionTree;
+            basePricelistAssignment.DynamicExpression = conditionTree;
+            priorityPricelistAssignment.DynamicExpression = conditionTree;
 
-            await _pricelistAssignmentService.SaveChangesAsync(new List<PricelistAssignment> { basePriceListAssigment, priorityPriceListAssigment });
+            await _pricelistAssignmentService.SaveChangesAsync(new List<PricelistAssignment> { basePricelistAssignment, priorityPricelistAssignment });
 
-            contract.BasePricelistAssignmentId = basePriceListAssigment.Id;
-            contract.PriorityPricelistAssignmentId = priorityPriceListAssigment.Id;
+            contract.BasePricelistAssignmentId = basePricelistAssignment.Id;
+            contract.PriorityPricelistAssignmentId = priorityPricelistAssignment.Id;
 
             await _contractService.SaveChangesAsync(new List<Contract> { contract });
 
@@ -169,13 +169,13 @@ namespace VirtoCommerce.Contracts.Data.Services
 
         private async Task<ContractPriceListTuple> GetContractPriceLists(string contractId)
         {
-            var contract = await _contractService.GetByIdAsync(contractId);
+            var contract = await _contractService.GetNoCloneAsync(contractId);
             if (contract == null)
             {
                 return null;
             }
 
-            var pricelistAssignments = await _pricelistAssignmentService.GetAsync(new List<string> { contract.BasePricelistAssignmentId, contract.PriorityPricelistAssignmentId });
+            var pricelistAssignments = await _pricelistAssignmentService.GetNoCloneAsync(new[] { contract.BasePricelistAssignmentId, contract.PriorityPricelistAssignmentId });
             var basePriceListId = pricelistAssignments.FirstOrDefault(x => x.Id == contract.BasePricelistAssignmentId)?.PricelistId;
             var priorityPriceListId = pricelistAssignments.FirstOrDefault(x => x.Id == contract.PriorityPricelistAssignmentId)?.PricelistId;
 
@@ -219,14 +219,14 @@ namespace VirtoCommerce.Contracts.Data.Services
                 changedPriceIds = changedPriceIds.Intersect(contractProductPrices.PriceIds);
             }
 
-            await _priceService.DeleteAsync(changedPriceIds);
+            await _priceService.DeleteAsync(changedPriceIds.ToList());
         }
 
         private sealed class ContractPriceListTuple
         {
-            public string BasePriceListId { get; set; }
+            public string BasePriceListId { get; init; }
 
-            public string PriorityPriceListId { get; set; }
+            public string PriorityPriceListId { get; init; }
         }
     }
 }

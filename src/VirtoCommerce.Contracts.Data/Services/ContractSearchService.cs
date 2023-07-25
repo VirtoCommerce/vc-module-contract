@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using Microsoft.Extensions.Options;
 using VirtoCommerce.Contracts.Core.Models;
 using VirtoCommerce.Contracts.Core.Models.Search;
+using VirtoCommerce.Contracts.Core.Services;
 using VirtoCommerce.Contracts.Data.Models;
 using VirtoCommerce.Contracts.Data.Repositories;
 using VirtoCommerce.Platform.Core.Caching;
@@ -12,20 +14,21 @@ using VirtoCommerce.Platform.Core.GenericCrud;
 using VirtoCommerce.Platform.Data.GenericCrud;
 using VirtoCommerce.StoreModule.Core.Model;
 using VirtoCommerce.StoreModule.Core.Model.Search;
-using PredicateBuilder = VirtoCommerce.Platform.Core.Common.PredicateBuilder;
+using VirtoCommerce.StoreModule.Core.Services;
 
 namespace VirtoCommerce.Contracts.Data.Services
 {
-    public class ContractSearchService : SearchService<ContractSearchCriteria, ContractSearchResult, Contract, ContractEntity>
+    public class ContractSearchService : SearchService<ContractSearchCriteria, ContractSearchResult, Contract, ContractEntity>, IContractSearchService
     {
-        readonly ISearchService<StoreSearchCriteria, StoreSearchResult, Store> _storeSearchService;
+        readonly IStoreSearchService _storeSearchService;
 
         public ContractSearchService(
             Func<IContractRepository> repositoryFactory,
             IPlatformMemoryCache platformMemoryCache,
-            ICrudService<Contract> service,
-            ISearchService<StoreSearchCriteria, StoreSearchResult, Store> storeSearchService)
-            : base(repositoryFactory, platformMemoryCache, service)
+            IContractService crudService,
+            IOptions<CrudOptions> crudOptions,
+            IStoreSearchService storeSearchService)
+            : base(repositoryFactory, platformMemoryCache, crudService, crudOptions)
         {
             _storeSearchService = storeSearchService;
         }
@@ -72,8 +75,8 @@ namespace VirtoCommerce.Contracts.Data.Services
         {
             var predicate = PredicateBuilder.False<ContractEntity>();
 
-            predicate = PredicateBuilder.Or(predicate, x => x.Name.Contains(keyword));
-            predicate = PredicateBuilder.Or(predicate, x => x.Code.Contains(keyword));
+            predicate = predicate.Or(x => x.Name.Contains(keyword));
+            predicate = predicate.Or(x => x.Code.Contains(keyword));
 
             // find storeIds by keyword and add them to the predicate
             var storeSearchCriteria = AbstractTypeFactory<StoreSearchCriteria>.TryCreateInstance();
@@ -81,15 +84,15 @@ namespace VirtoCommerce.Contracts.Data.Services
             storeSearchCriteria.ResponseGroup = StoreResponseGroup.StoreInfo.ToString();
             storeSearchCriteria.Take = 0;
 
-            var storeCountResult = _storeSearchService.SearchAsync(storeSearchCriteria).GetAwaiter().GetResult();
+            var storeCountResult = _storeSearchService.SearchNoCloneAsync(storeSearchCriteria).GetAwaiter().GetResult();
 
             if (storeCountResult.TotalCount > 0)
             {
                 storeSearchCriteria.Take = storeCountResult.TotalCount;
-                var storeSearchResult = _storeSearchService.SearchAsync(storeSearchCriteria).GetAwaiter().GetResult();
+                var storeSearchResult = _storeSearchService.SearchNoCloneAsync(storeSearchCriteria).GetAwaiter().GetResult();
 
                 var storeIds = storeSearchResult.Results.Select(x => x.Id).ToList();
-                predicate = PredicateBuilder.Or(predicate, x => storeIds.Contains(x.StoreId));
+                predicate = predicate.Or(x => storeIds.Contains(x.StoreId));
             }
 
             return predicate;
