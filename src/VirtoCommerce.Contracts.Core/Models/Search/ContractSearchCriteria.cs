@@ -15,8 +15,8 @@ namespace VirtoCommerce.Contracts.Core.Models.Search
 
         public string Status { get; set; }
 
-        public DateTime? StartDate { get; set; }
+        public DateTime? ActiveStartDate { get; set; }
 
-        public DateTime? EndDate { get; set; }
+        public DateTime? ActiveEndDate { get; set; }
     }
 }

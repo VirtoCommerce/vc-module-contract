@@ -69,12 +69,7 @@ namespace VirtoCommerce.Contracts.Data.Services
                 query = query.Where(x => x.Status == criteria.Status);
             }
 
-            if (criteria.OnlyActive)
-            {
-                var now = DateTime.UtcNow;
-                query = query.Where(x => (x.StartDate == null || now >= x.StartDate) && (x.EndDate == null || x.EndDate >= now));
-            }
-
+            query = WithOnlyActiveCondition(query, criteria);
             query = WithDateConditions(query, criteria);
 
 
@@ -129,16 +124,27 @@ namespace VirtoCommerce.Contracts.Data.Services
             return sortInfos;
         }
 
-        private static IQueryable<ContractEntity> WithDateConditions(IQueryable<ContractEntity> query, ContractSearchCriteria criteria)
+        private static IQueryable<ContractEntity> WithOnlyActiveCondition(IQueryable<ContractEntity> query, ContractSearchCriteria criteria)
         {
-            if (criteria.StartDate != null)
+            if (criteria.OnlyActive)
             {
-                query = query.Where(x => x.StartDate >= criteria.StartDate || x.StartDate == null);
+                var now = DateTime.UtcNow;
+                query = query.Where(x => (x.StartDate == null || now >= x.StartDate) && (x.EndDate == null || x.EndDate >= now));
             }
 
-            if (criteria.EndDate != null)
+            return query;
+        }
+
+        private static IQueryable<ContractEntity> WithDateConditions(IQueryable<ContractEntity> query, ContractSearchCriteria criteria)
+        {
+            if (criteria.ActiveStartDate != null)
             {
-                query = query.Where(x => x.EndDate <= criteria.EndDate || x.EndDate == null);
+                query = query.Where(x => x.StartDate >= criteria.ActiveStartDate || x.StartDate == null);
+            }
+
+            if (criteria.ActiveEndDate != null)
+            {
+                query = query.Where(x => x.EndDate <= criteria.ActiveEndDate || x.EndDate == null);
             }
 
             return query;
