@@ -1,10 +1,12 @@
 angular.module('Contracts')
     .controller('Contracts.contractController',
-        ['$scope', 'Contracts.api', 'virtoCommerce.storeModule.stores', 'platformWebApp.dialogService', 'platformWebApp.bladeUtils',
-            function ($scope, contracts, stores, dialogService, bladeUtils) {
+        ['$scope', 'Contracts.api', 'virtoCommerce.storeModule.stores', 'virtoCommerce.customerModule.members', 'platformWebApp.dialogService', 'platformWebApp.bladeUtils', 'platformWebApp.metaFormsService', 'platformWebApp.settings',
+            function ($scope, contracts, stores, members, dialogService, bladeUtils, metaFormsService, settings) {
                 var blade = $scope.blade;
                 blade.headIcon = 'fas fa-file-contract';
                 blade.updatePermission = 'Contracts:update';
+
+                blade.metaFields = metaFormsService.getMetaFields("contractDetail");
 
                 var bladeNavigationService = bladeUtils.bladeNavigationService;
 
@@ -30,6 +32,26 @@ angular.module('Contracts')
                     }
                 };
 
+                settings.getValues({ id: 'Contract.Status' }, translateBladeStatuses);
+                blade.openStatusSettingManagement = function () {
+                    var newBlade = {
+                        id: 'settingDetailChild',
+                        isApiSave: true,
+                        currentEntityId: 'Contract.Status',
+                        parentRefresh: translateBladeStatuses,
+                        controller: 'platformWebApp.settingDictionaryController',
+                        template: '$(Platform)/Scripts/app/settings/blades/setting-dictionary.tpl.html'
+                    };
+                    bladeNavigationService.showBlade(newBlade, blade);
+                };
+
+                function translateBladeStatuses(data) {
+                    blade.statuses = _.map(data, function (x)
+                    {
+                        return { value: x, key: x }
+                    });
+                }
+
                 function initializeBlade(data) {
                     blade.currentEntity = angular.copy(data);
                     blade.originalEntity = data;
@@ -41,7 +63,7 @@ angular.module('Contracts')
                     blade.isLoading = false;
                 }
 
-                $scope.searchStores = function (criteria) {
+                blade.searchStores = function (criteria) {
                     return stores.search(criteria);
                 }
 
@@ -77,16 +99,16 @@ angular.module('Contracts')
                 };
 
                 // datepickers
-                $scope.datepickers = {
+                blade.datepickers = {
                     start: false,
                     end: false
                 };
 
-                $scope.open = function ($event, which) {
+                blade.open = function ($event, which) {
                     $event.preventDefault();
                     $event.stopPropagation();
 
-                    $scope.datepickers[which] = true;
+                    blade.datepickers[which] = true;
                 };
 
                 blade.toolbarCommands = [
@@ -163,6 +185,20 @@ angular.module('Contracts')
                 blade.codeValidator = function (value) {
                     var pattern = /[^\w_-]/;
                     return !pattern.test(value);
+                };
+
+                blade.fetchVendors = function (criteria) {
+                    return members.search(criteria);
+                }
+
+                blade.openVendorsManagement = function () {
+                    var newBlade = {
+                        id: 'vendorList',
+                        currentEntity: { id: null },
+                        controller: 'virtoCommerce.customerModule.memberListController',
+                        template: 'Modules/$(VirtoCommerce.Customer)/Scripts/blades/member-list.tpl.html'
+                    };
+                    bladeNavigationService.showBlade(newBlade, blade);
                 };
 
                 blade.refresh(false);

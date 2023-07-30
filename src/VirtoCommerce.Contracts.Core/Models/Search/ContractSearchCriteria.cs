@@ -7,9 +7,13 @@ namespace VirtoCommerce.Contracts.Core.Models.Search
     {
         public bool OnlyActive { get; set; }
 
+        public string VendorId { get; set; }
+
         public string StoreId { get; set; }
 
         public string Code { get; set; }
+
+        public string Status { get; set; }
 
         public DateTime? StartDate { get; set; }
 

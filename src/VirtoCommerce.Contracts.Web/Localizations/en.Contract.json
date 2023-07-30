@@ -18,7 +18,9 @@
           "start-date": "Start date",
           "end-date": "End date",
           "store": "Store",
-          "code": "Code"
+          "code": "Code",
+          "vendor": "Vendor",
+          "status": "Status"
         },
         "placeholders": {
           "name": "Ender name",
@@ -26,7 +28,9 @@
           "start-date": "Select start date",
           "end-date": "Select end date",
           "store": "Select store",
-          "code": "Enter custom code or leave empty for auto code generation"
+          "code": "Enter custom code or leave empty for auto code generation",
+          "vendor": "Select vendor",
+          "status": "Select status"
         },
         "validation": {
           "code": "Contract code can't contain special symbols except hyphens and underscores"

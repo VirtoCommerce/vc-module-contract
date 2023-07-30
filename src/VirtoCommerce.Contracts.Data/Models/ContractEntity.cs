@@ -17,8 +17,14 @@ namespace VirtoCommerce.Contracts.Data.Models
         [StringLength(256)]
         public string Code { get; set; }
 
+        [StringLength(128)]
+        public string Status { get; set; }
+
         [StringLength(1024)]
         public string Description { get; set; }
+
+        [StringLength(128)]
+        public string VendorId { get; set; }
 
         [StringLength(128)]
         public string StoreId { get; set; }
@@ -51,7 +57,9 @@ namespace VirtoCommerce.Contracts.Data.Models
 
             Name = model.Name;
             Code = model.Code;
+            Status = model.Status;
             Description = model.Description;
+            VendorId = model.VendorId;
             StoreId = model.StoreId;
             StartDate = model.StartDate;
             EndDate = model.EndDate;
@@ -84,7 +92,9 @@ namespace VirtoCommerce.Contracts.Data.Models
 
             model.Name = Name;
             model.Code = Code;
+            model.Status = Status;
             model.Description = Description;
+            model.VendorId = VendorId;
             model.StoreId = StoreId;
             model.StartDate = StartDate;
             model.EndDate = EndDate;
@@ -110,6 +120,7 @@ namespace VirtoCommerce.Contracts.Data.Models
         {
             target.Name = Name;
             target.Code = Code;
+            target.Status = Status;
             target.Description = Description;
             target.StoreId = StoreId;
             target.StartDate = StartDate;

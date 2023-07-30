@@ -27,8 +27,8 @@ angular.module(moduleName, [])
                 });
         }
     ])
-    .run(['platformWebApp.mainMenuService', '$state', 'platformWebApp.widgetService', 'platformWebApp.authService',
-        function (mainMenuService, $state, widgetService, authService) {
+    .run(['platformWebApp.mainMenuService', '$state', 'platformWebApp.widgetService', 'platformWebApp.authService', 'platformWebApp.metaFormsService',
+        function (mainMenuService, $state, widgetService, authService, metaFormsService) {
             //Register module in main menu
             var menuItem = {
                 path: 'browse/Contracts',
@@ -63,5 +63,46 @@ angular.module(moduleName, [])
                 template: 'Modules/$(VirtoCommerce.Contracts)/Scripts/widgets/contract-prices-widget.html',
                 isVisible: function (blade) { return !blade.isNew; }
             }, 'contractDetail');
+
+            metaFormsService.registerMetaFields("contractDetail", [
+                {
+                    title: "Contract.blades.contract-details.labels.name",
+                    colSpan: 6,
+                    templateUrl: "contract-details-name.html"
+                },
+                {
+                    title: "Contract.blades.contract-details.labels.code",
+                    colSpan: 3,
+                    templateUrl: "contract-details-code.html"
+                },
+                {
+                    colSpan: 3,
+                    templateUrl: "contract-details-status.html"
+                },
+
+                {
+                    colSpan: 6,
+                    templateUrl: "contract-details-description.html"
+                },
+                {
+                    title: "Contract.blades.contract-details.labels.start-date",
+                    colSpan: 3,
+                    templateUrl: "contract-details-startDate.html"
+                },
+                {
+                    title: "Contract.blades.contract-details.labels.end-date",
+                    colSpan: 3,
+                    templateUrl: "contract-details-endDate.html"
+                },
+                {
+                    colSpan: 3,
+                    templateUrl: "contract-details-vendor.html"
+                },
+                {
+                    title: 'Contract.blades.contract-details.labels.store',
+                    colSpan: 3,
+                    templateUrl: "contract-details-store.html"
+                },
+            ]);
         }
     ]);

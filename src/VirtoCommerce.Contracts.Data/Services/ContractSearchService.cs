@@ -49,6 +49,11 @@ namespace VirtoCommerce.Contracts.Data.Services
                 query = query.Where(predicate);
             }
 
+            if (!string.IsNullOrEmpty(criteria.VendorId))
+            {
+                query = query.Where(x => x.VendorId == criteria.VendorId);
+            }
+
             if (!string.IsNullOrEmpty(criteria.StoreId))
             {
                 query = query.Where(x => x.StoreId == criteria.StoreId);
@@ -59,11 +64,19 @@ namespace VirtoCommerce.Contracts.Data.Services
                 query = query.Where(x => x.Code == criteria.Code);
             }
 
+            if (!string.IsNullOrEmpty(criteria.Status))
+            {
+                query = query.Where(x => x.Status == criteria.Status);
+            }
+
             if (criteria.OnlyActive)
             {
                 var now = DateTime.UtcNow;
                 query = query.Where(x => (x.StartDate == null || now >= x.StartDate) && (x.EndDate == null || x.EndDate >= now));
             }
+
+            query = WithDateConditions(query, criteria);
+
 
             return query;
         }
@@ -114,6 +127,21 @@ namespace VirtoCommerce.Contracts.Data.Services
             }
 
             return sortInfos;
+        }
+
+        private static IQueryable<ContractEntity> WithDateConditions(IQueryable<ContractEntity> query, ContractSearchCriteria criteria)
+        {
+            if (criteria.StartDate != null)
+            {
+                query = query.Where(x => x.StartDate >= criteria.StartDate || x.StartDate == null);
+            }
+
+            if (criteria.EndDate != null)
+            {
+                query = query.Where(x => x.EndDate <= criteria.EndDate || x.EndDate == null);
+            }
+
+            return query;
         }
     }
 }

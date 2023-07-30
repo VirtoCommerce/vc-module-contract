@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using VirtoCommerce.Contracts.Data.Repositories;
@@ -11,9 +12,10 @@ using VirtoCommerce.Contracts.Data.Repositories;
 namespace VirtoCommerce.Contracts.Data.PostgreSql.Migrations
 {
     [DbContext(typeof(ContractDbContext))]
-    partial class ContractDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230730113748_AddContractStatusAndVendorId")]
+    partial class AddContractStatusAndVendorId
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
