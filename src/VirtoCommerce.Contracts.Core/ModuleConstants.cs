@@ -47,7 +47,7 @@ namespace VirtoCommerce.Contracts.Core
                 {
                     Name = "Contract.Status",
                     ValueType = SettingValueType.ShortText,
-                    GroupName = "Orders|General",
+                    GroupName = "Contracts|General",
                     IsDictionary = true,
                     AllowedValues = new object[]
                     {
