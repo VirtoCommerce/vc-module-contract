@@ -20,7 +20,7 @@ namespace VirtoCommerce.Contracts.Data.Models
 
         #endregion
 
-        public ContractAttachmentEntity FromModel(ContractAttachment model, PrimaryKeyResolvingMap pkMap)
+        public virtual ContractAttachmentEntity FromModel(ContractAttachment model, PrimaryKeyResolvingMap pkMap)
         {
             pkMap.AddPair(model, this);
 
@@ -36,7 +36,7 @@ namespace VirtoCommerce.Contracts.Data.Models
             return this;
         }
 
-        public ContractAttachment ToModel(ContractAttachment model)
+        public virtual ContractAttachment ToModel(ContractAttachment model)
         {
             model.Id = Id;
             model.CreatedBy = CreatedBy;
@@ -50,7 +50,7 @@ namespace VirtoCommerce.Contracts.Data.Models
             return model;
         }
 
-        public void Patch(ContractAttachmentEntity target)
+        public virtual void Patch(ContractAttachmentEntity target)
         {
             target.Url = Url;
             target.Name = Name;

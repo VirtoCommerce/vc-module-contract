@@ -45,7 +45,7 @@ namespace VirtoCommerce.Contracts.Data.Models
         public ObservableCollection<ContractAttachmentEntity> Attachments { get; set; } =
             new NullCollection<ContractAttachmentEntity>();
 
-        public ContractEntity FromModel(Contract model, PrimaryKeyResolvingMap pkMap)
+        public virtual ContractEntity FromModel(Contract model, PrimaryKeyResolvingMap pkMap)
         {
             pkMap.AddPair(model, this);
 
@@ -82,7 +82,7 @@ namespace VirtoCommerce.Contracts.Data.Models
             return this;
         }
 
-        public Contract ToModel(Contract model)
+        public virtual Contract ToModel(Contract model)
         {
             model.Id = Id;
             model.CreatedBy = CreatedBy;
@@ -116,7 +116,7 @@ namespace VirtoCommerce.Contracts.Data.Models
             return model;
         }
 
-        public void Patch(ContractEntity target)
+        public virtual void Patch(ContractEntity target)
         {
             target.Name = Name;
             target.Code = Code;
