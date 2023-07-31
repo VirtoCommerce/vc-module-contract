@@ -122,6 +122,7 @@ namespace VirtoCommerce.Contracts.Data.Models
             target.Code = Code;
             target.Status = Status;
             target.Description = Description;
+            target.VendorId = VendorId;
             target.StoreId = StoreId;
             target.StartDate = StartDate;
             target.EndDate = EndDate;

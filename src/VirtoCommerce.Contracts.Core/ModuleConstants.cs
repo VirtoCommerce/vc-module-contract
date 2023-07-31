@@ -1,10 +1,8 @@
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using VirtoCommerce.Platform.Core.Settings;
 
 namespace VirtoCommerce.Contracts.Core
 {
-    [ExcludeFromCodeCoverage]
     public static class ModuleConstants
     {
         public static class Security
@@ -43,7 +41,7 @@ namespace VirtoCommerce.Contracts.Core
         {
             public static class General
             {
-                public static SettingDescriptor ContractStatus = new SettingDescriptor
+                public static SettingDescriptor ContractStatus { get; } = new()
                 {
                     Name = "Contract.Status",
                     ValueType = SettingValueType.ShortText,
