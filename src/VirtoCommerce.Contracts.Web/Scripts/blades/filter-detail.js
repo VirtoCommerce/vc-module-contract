@@ -24,7 +24,7 @@ angular.module('Contracts')
             initializeBlade(blade.origEntity);
             blade.parentBlade.filter.criteriaChanged();
         };
-        
+
         $scope.saveChanges = function () {
             $scope.applyCriteria();
         };
@@ -36,14 +36,16 @@ angular.module('Contracts')
 
             blade.title = blade.isNew ? 'Contract.blades.filter-detail.new-title' : data.name;
             blade.subtitle = blade.isNew ? 'Contract.blades.filter-detail.new-subtitle' : 'Contract.blades.filter-detail.subtitle';
-        };
+        }
 
         var formScope;
-        $scope.setForm = function (form) { formScope = form; }
+        $scope.setForm = function (form) {
+            formScope = form;
+        };
 
         function isDirty() {
             return !angular.equals(blade.currentEntity, blade.origEntity);
-        };
+        }
 
         blade.headIcon = 'fa fa-filter';
 
