@@ -28,7 +28,7 @@
           "status": "Status"
         },
         "placeholders": {
-          "name": "Ender name",
+          "name": "Enter name",
           "description": "Enter description",
           "start-date": "Select start date",
           "end-date": "Select end date",
