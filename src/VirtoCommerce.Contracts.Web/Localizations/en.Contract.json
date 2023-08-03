@@ -33,7 +33,7 @@
           "start-date": "Select start date",
           "end-date": "Select end date",
           "store": "Select store",
-          "code": "Enter custom code or leave empty for auto code generation",
+          "code": "Leave empty for auto code generation",
           "vendor": "Select vendor",
           "status": "Select status"
         },
