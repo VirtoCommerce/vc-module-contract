@@ -25,7 +25,7 @@
 </script>
 <script type="text/ng-template" id="contract-details-vendor.html">
   <label class="form-label">{{ 'Contract.blades.contract-details.labels.vendor' | translate }} <a href="" ng-click="blade.openVendorsManagement()" class="form-edit" va-permission="customer:read"><i class="form-ico fa fa-pencil"></i></a></label>
-  <ui-scroll-drop-down ng-model="blade.currentEntity.vendor"
+  <ui-scroll-drop-down ng-model="blade.currentEntity.vendorId"
                        data="blade.fetchVendors(criteria)"
                        placeholder="'Contract.blades.contract-details.placeholders.vendor'">
   </ui-scroll-drop-down>

@@ -104,5 +104,30 @@ angular.module(moduleName, [])
                     templateUrl: "contract-details-store.html"
                 },
             ]);
+
+            metaFormsService.registerMetaFields("contractFilterDetail", [
+                {
+                    title: 'Contract.blades.filter-detail.labels.status',
+                    templateUrl: "contract-status-selector.html"
+                },
+                {
+                    title: 'Contract.blades.filter-detail.labels.vendor',
+                    templateUrl: "contract-vendor-selector.html"
+                },
+                {
+                    title: 'Contract.blades.filter-detail.labels.store',
+                    templateUrl: "contract-store-selector.html"
+                },
+                {
+                    name: 'activeStartDate',
+                    title: "Contract.blades.filter-detail.labels.from",
+                    valueType: "DateTime"
+                },
+                {
+                    name: 'activeEndDate',
+                    title: "Contract.blades.filter-detail.labels.to",
+                    valueType: "DateTime"
+                }
+            ]);
         }
     ]);

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using VirtoCommerce.Platform.Core.Common;
 
 namespace VirtoCommerce.Contracts.Core.Models.Search
@@ -13,7 +14,7 @@ namespace VirtoCommerce.Contracts.Core.Models.Search
 
         public string Code { get; set; }
 
-        public string Status { get; set; }
+        public IList<string> Statuses { get; set; }
 
         public DateTime? ActiveStartDate { get; set; }
 

@@ -4,9 +4,14 @@
       "contracts-list": {
         "title": "Contracts",
         "labels": {
+          "new-filter": "Add new filter",
+          "unnamed-filter": "Unnamed filter",
           "name": "Name",
           "start-date": "Start date",
           "end-date": "End date"
+        },
+        "placeholders": {
+          "select-filter": "Select filter"
         }
       },
       "contract-details": {
@@ -108,6 +113,27 @@
           "select": "Select files",
           "drag-drop-comment": "Drag and drop your files here",
           "progress": "Progress"
+        }
+      },
+      "filter-detail": {
+        "subtitle": "Edit filter",
+        "new-title": "New filter",
+        "new-subtitle": "Create new filter",
+        "labels": {
+          "name": "Filter name",
+          "name_": "Please give this filter a name",
+          "criteria": "Filter criteria",
+          "from": "Created at",
+          "to": "Valid until",
+          "status": "Statuses",
+          "vendor": "Vendor",
+          "store": "Store"
+        },
+        "placeholders": {
+          "all": "Not specified",
+          "status": "Status",
+          "vendor": "Select vendor",
+          "store": "Store"
         }
       }
     },
