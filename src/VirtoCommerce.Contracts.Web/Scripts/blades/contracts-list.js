@@ -42,7 +42,6 @@ angular.module('Contracts')
                     }
                 ];
 
-                // filtering 
                 var filter = blade.filter = $scope.filter = {};
                 $scope.$localStorage = $localStorage;
                 if (!$localStorage.contractSearchFilters) {
@@ -163,7 +162,6 @@ angular.module('Contracts')
                     dialogService.showConfirmationDialog(dialog);
                 }
 
-                // ui-grid
                 $scope.setGridOptions = function (gridId, gridOptions) {
                     $scope.gridOptions = gridOptions;
                     gridOptionExtension.tryExtendGridOptions(gridId, gridOptions);

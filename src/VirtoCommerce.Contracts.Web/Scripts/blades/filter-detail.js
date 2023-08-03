@@ -23,7 +23,6 @@ angular.module('Contracts')
 
             initializeBlade(blade.origEntity);
             blade.parentBlade.filter.criteriaChanged();
-            // $scope.bladeClose();
         };
         
         $scope.saveChanges = function () {
