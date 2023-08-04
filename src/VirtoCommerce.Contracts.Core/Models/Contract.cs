@@ -12,7 +12,11 @@ namespace VirtoCommerce.Contracts.Core.Models
 
         public string Code { get; set; }
 
+        public string Status { get; set; }
+
         public string Description { get; set; }
+
+        public string VendorId { get; set; }
 
         public string StoreId { get; set; }
 

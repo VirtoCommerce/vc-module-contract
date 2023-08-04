@@ -49,6 +49,11 @@ namespace VirtoCommerce.Contracts.Data.Services
                 query = query.Where(predicate);
             }
 
+            if (!string.IsNullOrEmpty(criteria.VendorId))
+            {
+                query = query.Where(x => x.VendorId == criteria.VendorId);
+            }
+
             if (!string.IsNullOrEmpty(criteria.StoreId))
             {
                 query = query.Where(x => x.StoreId == criteria.StoreId);
@@ -59,11 +64,14 @@ namespace VirtoCommerce.Contracts.Data.Services
                 query = query.Where(x => x.Code == criteria.Code);
             }
 
-            if (criteria.OnlyActive)
+            if (!criteria.Statuses.IsNullOrEmpty())
             {
-                var now = DateTime.UtcNow;
-                query = query.Where(x => (x.StartDate == null || now >= x.StartDate) && (x.EndDate == null || x.EndDate >= now));
+                query = query.Where(x => criteria.Statuses.Contains(x.Status));
             }
+
+            query = WithOnlyActiveCondition(query, criteria);
+            query = WithDateConditions(query, criteria);
+
 
             return query;
         }
@@ -114,6 +122,32 @@ namespace VirtoCommerce.Contracts.Data.Services
             }
 
             return sortInfos;
+        }
+
+        private static IQueryable<ContractEntity> WithOnlyActiveCondition(IQueryable<ContractEntity> query, ContractSearchCriteria criteria)
+        {
+            if (criteria.OnlyActive)
+            {
+                var now = DateTime.UtcNow;
+                query = query.Where(x => (x.StartDate == null || now >= x.StartDate) && (x.EndDate == null || x.EndDate >= now));
+            }
+
+            return query;
+        }
+
+        private static IQueryable<ContractEntity> WithDateConditions(IQueryable<ContractEntity> query, ContractSearchCriteria criteria)
+        {
+            if (criteria.ActiveStartDate != null)
+            {
+                query = query.Where(x => x.StartDate >= criteria.ActiveStartDate || x.StartDate == null);
+            }
+
+            if (criteria.ActiveEndDate != null)
+            {
+                query = query.Where(x => x.EndDate <= criteria.ActiveEndDate || x.EndDate == null);
+            }
+
+            return query;
         }
     }
 }

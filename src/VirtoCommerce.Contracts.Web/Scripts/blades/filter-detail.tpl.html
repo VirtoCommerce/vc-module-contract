@@ -1,0 +1,52 @@
+<div class="blade-content">
+    <div class="blade-inner">
+        <div class="inner-block clearfix">
+          <form class="form" name="formScope">
+            <legend>{{ 'Contract.blades.filter-detail.labels.criteria' | translate }}</legend>
+            <div class="form-group" ng-init="setForm(formScope)">
+              <label class="form-label">{{ 'Contract.blades.filter-detail.labels.name' | translate }}</label>
+              <div class="form-input">
+                <input ng-model="blade.currentEntity.name" required placeholder="{{ 'Contract.blades.filter-detail.labels.name' | translate }}" />
+              </div>
+            </div>
+            <va-metaform registered-inputs="blade.metaFields" blade="blade" ng-init="setForm(formScope)"></va-metaform>
+          </form>
+        </div>
+    </div>
+</div>
+
+<script type="text/ng-template" id="contract-status-selector.html">
+    <div class="form-input">
+        <ui-select multiple ng-model="blade.currentEntity.statuses">
+            <ui-select-match placeholder="{{ 'Contract.blades.filter-detail.placeholders.status' | translate }}">{{$item.value}}</ui-select-match>
+            <ui-select-choices repeat="x.key as x in blade.statuses | filter: {'value': $select.search}">
+                <span ng-bind-html="x.value | highlight: $select.search"></span>
+            </ui-select-choices>
+        </ui-select>
+    </div>
+</script>
+
+<script type="text/ng-template" id="contract-vendor-selector.html">
+  <div class="form-input">
+    <ui-scroll-drop-down ng-model="blade.currentEntity.vendorId"
+                         data="blade.fetchVendors(criteria)"
+                         placeholder="'Contract.blades.contract-details.placeholders.vendor'">
+    </ui-scroll-drop-down>
+  </div>
+</script>
+
+<script type="text/ng-template" id="contract-store-selector.html">
+    <div class="form-input">
+        <va-store-selector multiple ng-model="blade.currentEntity.storeIds" placeholder="'Contract.blades.filter-detail.placeholders.store'"></va-store-selector>
+    </div>
+</script>
+
+<script type="text/ng-template" id="contract-start-date-selector.html">
+
+  
+</script>
+
+<script type="text/ng-template" id="contract-end-date-selector.html">
+
+
+</script>

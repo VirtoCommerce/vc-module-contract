@@ -26,15 +26,44 @@ namespace VirtoCommerce.Contracts.Core
             }
         }
 
+        public static class ContractStatuses
+        {
+            public const string Draft = "Draft";
+            public const string PendingApproval = "Pending Approval";
+            public const string Active = "Active";
+            public const string Expired = "Expired";
+            public const string Terminated = "Terminated";
+            public const string Suspended = "Suspended";
+            public const string Cancelled = "Cancelled";
+        }
+
         public static class Settings
         {
             public static class General
             {
+                public static SettingDescriptor ContractStatus { get; } = new()
+                {
+                    Name = "Contract.Status",
+                    ValueType = SettingValueType.ShortText,
+                    GroupName = "Contracts|General",
+                    IsDictionary = true,
+                    AllowedValues = new object[]
+                    {
+                        ContractStatuses.Draft,
+                        ContractStatuses.PendingApproval,
+                        ContractStatuses.Active,
+                        ContractStatuses.Expired,
+                        ContractStatuses.Terminated,
+                        ContractStatuses.Suspended,
+                        ContractStatuses.Cancelled,
+                    }
+                };
+
                 public static IEnumerable<SettingDescriptor> AllGeneralSettings
                 {
                     get
                     {
-                        return new List<SettingDescriptor>();
+                        yield return ContractStatus;
                     }
                 }
             }

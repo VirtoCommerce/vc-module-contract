@@ -17,8 +17,14 @@ namespace VirtoCommerce.Contracts.Data.Models
         [StringLength(256)]
         public string Code { get; set; }
 
+        [StringLength(128)]
+        public string Status { get; set; }
+
         [StringLength(1024)]
         public string Description { get; set; }
+
+        [StringLength(128)]
+        public string VendorId { get; set; }
 
         [StringLength(128)]
         public string StoreId { get; set; }
@@ -39,7 +45,7 @@ namespace VirtoCommerce.Contracts.Data.Models
         public ObservableCollection<ContractAttachmentEntity> Attachments { get; set; } =
             new NullCollection<ContractAttachmentEntity>();
 
-        public ContractEntity FromModel(Contract model, PrimaryKeyResolvingMap pkMap)
+        public virtual ContractEntity FromModel(Contract model, PrimaryKeyResolvingMap pkMap)
         {
             pkMap.AddPair(model, this);
 
@@ -51,7 +57,9 @@ namespace VirtoCommerce.Contracts.Data.Models
 
             Name = model.Name;
             Code = model.Code;
+            Status = model.Status;
             Description = model.Description;
+            VendorId = model.VendorId;
             StoreId = model.StoreId;
             StartDate = model.StartDate;
             EndDate = model.EndDate;
@@ -74,7 +82,7 @@ namespace VirtoCommerce.Contracts.Data.Models
             return this;
         }
 
-        public Contract ToModel(Contract model)
+        public virtual Contract ToModel(Contract model)
         {
             model.Id = Id;
             model.CreatedBy = CreatedBy;
@@ -84,7 +92,9 @@ namespace VirtoCommerce.Contracts.Data.Models
 
             model.Name = Name;
             model.Code = Code;
+            model.Status = Status;
             model.Description = Description;
+            model.VendorId = VendorId;
             model.StoreId = StoreId;
             model.StartDate = StartDate;
             model.EndDate = EndDate;
@@ -106,11 +116,13 @@ namespace VirtoCommerce.Contracts.Data.Models
             return model;
         }
 
-        public void Patch(ContractEntity target)
+        public virtual void Patch(ContractEntity target)
         {
             target.Name = Name;
             target.Code = Code;
+            target.Status = Status;
             target.Description = Description;
+            target.VendorId = VendorId;
             target.StoreId = StoreId;
             target.StartDate = StartDate;
             target.EndDate = EndDate;

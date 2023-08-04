@@ -17,7 +17,7 @@ namespace VirtoCommerce.Contracts.Data.SqlServer.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.0")
+                .HasAnnotation("ProductVersion", "6.0.13")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -188,7 +188,15 @@ namespace VirtoCommerce.Contracts.Data.SqlServer.Migrations
                     b.Property<DateTime?>("StartDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Status")
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
+
                     b.Property<string>("StoreId")
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
+
+                    b.Property<string>("VendorId")
                         .HasMaxLength(128)
                         .HasColumnType("nvarchar(128)");
 

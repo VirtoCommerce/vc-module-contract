@@ -4,9 +4,14 @@
       "contracts-list": {
         "title": "Contracts",
         "labels": {
+          "new-filter": "Add new filter",
+          "unnamed-filter": "Unnamed filter",
           "name": "Name",
           "start-date": "Start date",
           "end-date": "End date"
+        },
+        "placeholders": {
+          "select-filter": "Select filter"
         }
       },
       "contract-details": {
@@ -18,15 +23,19 @@
           "start-date": "Start date",
           "end-date": "End date",
           "store": "Store",
-          "code": "Code"
+          "code": "Code",
+          "vendor": "Vendor",
+          "status": "Status"
         },
         "placeholders": {
-          "name": "Ender name",
+          "name": "Enter name",
           "description": "Enter description",
           "start-date": "Select start date",
           "end-date": "Select end date",
           "store": "Select store",
-          "code": "Enter custom code or leave empty for auto code generation"
+          "code": "Leave empty for auto code generation",
+          "vendor": "Select vendor",
+          "status": "Select status"
         },
         "validation": {
           "code": "Contract code can't contain special symbols except hyphens and underscores"
@@ -104,6 +113,27 @@
           "select": "Select files",
           "drag-drop-comment": "Drag and drop your files here",
           "progress": "Progress"
+        }
+      },
+      "filter-detail": {
+        "subtitle": "Edit filter",
+        "new-title": "New filter",
+        "new-subtitle": "Create new filter",
+        "labels": {
+          "name": "Filter name",
+          "name_": "Please give this filter a name",
+          "criteria": "Filter criteria",
+          "from": "Created at",
+          "to": "Valid until",
+          "status": "Statuses",
+          "vendor": "Vendor",
+          "store": "Store"
+        },
+        "placeholders": {
+          "all": "Not specified",
+          "status": "Status",
+          "vendor": "Select vendor",
+          "store": "Store"
         }
       }
     },
