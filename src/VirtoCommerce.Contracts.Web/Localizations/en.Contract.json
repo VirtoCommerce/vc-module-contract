@@ -49,7 +49,7 @@
         }
       },
       "contract-members-select": {
-        "title": "Contatcs & Organizations",
+        "title": "Contact & Organizations",
         "labels": {
           "name": "Name",
           "type": "Type"
@@ -118,7 +118,7 @@
       "filter-detail": {
         "subtitle": "Edit filter",
         "new-title": "New filter",
-        "new-subtitle": "Create new filter",
+        "new-subtitle": "Create a new filter",
         "labels": {
           "name": "Filter name",
           "name_": "Please give this filter a name",
