@@ -21,16 +21,16 @@ XAPI-Contracts provides high performance API for contracts.
 {
     contract (id: "d97ee2c7-e29d-440a-a43a-388eb5586087")
     {
-        id
-        name
-        description
-        status
-        storeId
-        vendorId
-        code
-        startDate
-		    endDate
-        dynamicProperties { name value valueType }
+      id
+      name
+      description
+      status
+      storeId
+      vendorId
+      code
+      startDate
+      endDate
+      dynamicProperties { name value valueType }
     }
 }
 ```
