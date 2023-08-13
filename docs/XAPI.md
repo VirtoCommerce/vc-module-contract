@@ -34,8 +34,6 @@ XAPI-Contracts provides high performance API for contracts.
     }
 }
 ```
-> [!TIP]
-> See also ContractType schema for better understanding of possible fields in request.
 
 ### Contracts connection
 
