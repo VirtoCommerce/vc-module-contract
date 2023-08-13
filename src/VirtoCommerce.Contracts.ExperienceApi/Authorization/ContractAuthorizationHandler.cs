@@ -47,15 +47,19 @@ namespace VirtoCommerce.Contracts.ExperienceApi.Authorization
                         result = await IsContractAvailable(currentUserId, contract.Code);
                         break;
 
-                    case ContractsQuery query:
-                        result = await IsContactInOrganization(currentUserId, query.OrganizationId);
-                        var organization = await GetOrganization(query.OrganizationId);
-                        result = result && organization != null && !organization.Groups.IsNullOrEmpty();
-                        if (result)
-                        {
-                            query.Codes = organization.Groups;
-                        }
+                    case ContractsQuery contractsQuery:
+                        result = await IsContactInOrganization(currentUserId, contractsQuery.OrganizationId);
                         break;
+                }
+            }
+
+            if (result && context.Resource is ContractsQuery query)
+            {
+                var organization = await GetOrganization(query.OrganizationId);
+                result = organization != null && !organization.Groups.IsNullOrEmpty();
+                if (result)
+                {
+                    query.Codes = organization.Groups;
                 }
             }
 
