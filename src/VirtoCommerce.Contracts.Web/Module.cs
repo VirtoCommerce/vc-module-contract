@@ -1,5 +1,8 @@
 using System;
 using FluentValidation;
+using GraphQL.Server;
+using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -15,6 +18,10 @@ using VirtoCommerce.Contracts.Data.Repositories;
 using VirtoCommerce.Contracts.Data.Services;
 using VirtoCommerce.Contracts.Data.SqlServer;
 using VirtoCommerce.Contracts.Data.Validation;
+using VirtoCommerce.Contracts.ExperienceApi;
+using VirtoCommerce.Contracts.ExperienceApi.Authorization;
+using VirtoCommerce.ExperienceApiModule.Core.Extensions;
+using VirtoCommerce.ExperienceApiModule.Core.Infrastructure;
 using VirtoCommerce.Platform.Core.Bus;
 using VirtoCommerce.Platform.Core.DynamicProperties;
 using VirtoCommerce.Platform.Core.Modularity;
@@ -71,6 +78,15 @@ namespace VirtoCommerce.Contracts.Web
 
             // Validation services
             serviceCollection.AddTransient<AbstractValidator<Contract>, ContractValidator>();
+
+            // GraphQL
+            var assemblyMarker = typeof(AssemblyMarker);
+            var graphQlBuilder = new CustomGraphQLBuilder(serviceCollection);
+            graphQlBuilder.AddGraphTypes(assemblyMarker);
+            serviceCollection.AddMediatR(assemblyMarker);
+            serviceCollection.AddAutoMapper(assemblyMarker);
+            serviceCollection.AddSchemaBuilders(assemblyMarker);
+            serviceCollection.AddSingleton<IAuthorizationHandler, ContractAuthorizationHandler>();
         }
 
         public void PostInitialize(IApplicationBuilder appBuilder)

@@ -34,7 +34,7 @@ namespace VirtoCommerce.Contracts.Data.Validation
 
                 var searchCriteria = new ContractSearchCriteria()
                 {
-                    Code = contract.Code,
+                    Codes = { contract.Code },
                     Take = 0,
                 };
 
