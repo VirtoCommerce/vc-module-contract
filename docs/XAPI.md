@@ -42,26 +42,27 @@ XAPI-Contracts provides high performance API for contracts.
 With this connection you can get all organization's contracts.
 ```
 {
-    carts (organizationId: "33ae18d0-b7ba-4844-8c19-afd49489401b"
-    		statuses: ["Draft", "Active"]
-    		code: ["contact-code1", "contract-code2"]
-    		vendorId: "478e51d0-b7ba-4334-8109-abb45512101b"
-    		storeId: "B2B-store"
-        take: 20
-        skip: 0)
+    carts (
+      organizationId: "33ae18d0-b7ba-4844-8c19-afd49489401b"
+      statuses: ["Draft", "Active"]
+      code: ["contact-code1", "contract-code2"]
+      vendorId: "478e51d0-b7ba-4334-8109-abb45512101b"
+      storeId: "B2B-store"
+      take: 20
+      skip: 0)
     {
         items
         {
-            id
-            name
-            description
-      			status
-      			storeId
-      			vendorId
-      			code
-      			startDate
-      			endDate
-      			dynamicProperties { name value valueType }
+          id
+          name
+          description
+          status
+          storeId
+          vendorId
+          code
+          startDate
+          endDate
+          dynamicProperties { name value valueType }
         }
         totalCount
     }
