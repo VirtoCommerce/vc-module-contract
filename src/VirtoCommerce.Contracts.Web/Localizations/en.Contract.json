@@ -123,7 +123,7 @@
           "name": "Filter name",
           "name_": "Please give this filter a name",
           "criteria": "Filter criteria",
-          "from": "Created at",
+          "from": "Started from",
           "to": "Valid until",
           "status": "Statuses",
           "vendor": "Vendor",
