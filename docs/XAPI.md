@@ -40,7 +40,7 @@ XAPI-Contracts provides high performance API for contracts.
 With this connection you can get all organization's contracts.
 ```
 {
-    carts (
+    contracts (
       organizationId: "33ae18d0-b7ba-4844-8c19-afd49489401b"
       statuses: ["Draft", "Active"]
       code: ["contact-code1", "contract-code2"]
