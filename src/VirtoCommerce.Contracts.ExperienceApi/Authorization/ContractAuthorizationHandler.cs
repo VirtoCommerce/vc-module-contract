@@ -81,6 +81,7 @@ namespace VirtoCommerce.Contracts.ExperienceApi.Authorization
 
         protected virtual async Task<bool> IsContractAvailable(string userId, string contractCode)
         {
+            var result = false;
             var contact = await GetContact(userId);
 
             if (contact == null)
@@ -88,6 +89,7 @@ namespace VirtoCommerce.Contracts.ExperienceApi.Authorization
                 return false;
             }
 
+            int totalCount;
             var memberSearchCriteria = new MembersSearchCriteria
             {
                 Group = contractCode,
@@ -96,9 +98,16 @@ namespace VirtoCommerce.Contracts.ExperienceApi.Authorization
                 Take = 20,
                 MemberType = nameof(Organization)
             };
-            var memberSearchResult = await _memberSearchService.SearchMembersAsync(memberSearchCriteria);
 
-            return contact.Organizations.Intersect(memberSearchResult.Results.Select(x => x.Id)).Any();
+            do
+            {
+                var memberSearchResult = await _memberSearchService.SearchMembersAsync(memberSearchCriteria);
+                totalCount = memberSearchResult.TotalCount;
+                memberSearchCriteria.Skip += 20;
+                result = contact.Organizations.Intersect(memberSearchResult.Results.Select(x => x.Id)).Any();
+            } while (!result && totalCount >= memberSearchCriteria.Skip);
+
+            return result;
         }
 
         protected virtual async Task<Organization> GetOrganization(string organizationId)
