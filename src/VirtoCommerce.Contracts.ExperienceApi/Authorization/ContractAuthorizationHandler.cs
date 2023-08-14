@@ -23,6 +23,8 @@ namespace VirtoCommerce.Contracts.ExperienceApi.Authorization
         private readonly IMemberService _memberService;
         private readonly IMemberSearchService _memberSearchService;
 
+        private const int _pageSize = 20;
+
         public ContractAuthorizationHandler(
             Func<UserManager<ApplicationUser>> userManagerFactory,
             IMemberService memberService,
@@ -94,8 +96,7 @@ namespace VirtoCommerce.Contracts.ExperienceApi.Authorization
             {
                 Group = contractCode,
                 ResponseGroup = MemberResponseGroup.Default.ToString(),
-                Skip = 0,
-                Take = 20,
+                Take = _pageSize,
                 MemberType = nameof(Organization)
             };
 
@@ -103,7 +104,7 @@ namespace VirtoCommerce.Contracts.ExperienceApi.Authorization
             {
                 var memberSearchResult = await _memberSearchService.SearchMembersAsync(memberSearchCriteria);
                 totalCount = memberSearchResult.TotalCount;
-                memberSearchCriteria.Skip += 20;
+                memberSearchCriteria.Skip += _pageSize;
                 result = contact.Organizations.Intersect(memberSearchResult.Results.Select(x => x.Id)).Any();
             } while (!result && totalCount >= memberSearchCriteria.Skip);
 
