@@ -100,10 +100,10 @@ namespace VirtoCommerce.Contracts.ExperienceApi.Authorization
 
             do
             {
-                var memberSearchResult = await _memberSearchService.SearchMembersAsync(searchCriteria);
-                totalCount = memberSearchResult.TotalCount;
+                var searchResult = await _memberSearchService.SearchMembersAsync(searchCriteria);
+                totalCount = searchResult.TotalCount;
                 searchCriteria.Skip += _pageSize;
-                result = contact.Organizations.Intersect(memberSearchResult.Results.Select(x => x.Id)).Any();
+                result = contact.Organizations.Intersect(searchResult.Results.Select(x => x.Id)).Any();
             } while (!result && totalCount >= searchCriteria.Skip);
 
             return result;
