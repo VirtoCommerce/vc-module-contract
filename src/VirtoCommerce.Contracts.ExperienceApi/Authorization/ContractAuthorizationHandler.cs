@@ -92,19 +92,19 @@ namespace VirtoCommerce.Contracts.ExperienceApi.Authorization
             }
 
             int totalCount;
-            var memberSearchCriteria = AbstractTypeFactory<MembersSearchCriteria>.TryCreateInstance();
-            memberSearchCriteria.Group = contractCode;
-            memberSearchCriteria.ResponseGroup = MemberResponseGroup.Default.ToString();
-            memberSearchCriteria.Take = _pageSize;
-            memberSearchCriteria.MemberType = nameof(Organization);
+            var searchCriteria = AbstractTypeFactory<MembersSearchCriteria>.TryCreateInstance();
+            searchCriteria.MemberType = nameof(Organization);
+            searchCriteria.ResponseGroup = MemberResponseGroup.Default.ToString();
+            searchCriteria.Group = contractCode;
+            searchCriteria.Take = _pageSize;
 
             do
             {
-                var memberSearchResult = await _memberSearchService.SearchMembersAsync(memberSearchCriteria);
+                var memberSearchResult = await _memberSearchService.SearchMembersAsync(searchCriteria);
                 totalCount = memberSearchResult.TotalCount;
-                memberSearchCriteria.Skip += _pageSize;
+                searchCriteria.Skip += _pageSize;
                 result = contact.Organizations.Intersect(memberSearchResult.Results.Select(x => x.Id)).Any();
-            } while (!result && totalCount >= memberSearchCriteria.Skip);
+            } while (!result && totalCount >= searchCriteria.Skip);
 
             return result;
         }
