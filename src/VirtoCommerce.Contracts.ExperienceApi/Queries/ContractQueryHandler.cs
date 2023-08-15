@@ -15,9 +15,9 @@ namespace VirtoCommerce.Contracts.ExperienceApi.Queries
             _contractService = contractService;
         }
 
-        public virtual async Task<Contract> Handle(ContractQuery request, CancellationToken cancellationToken)
+        public virtual Task<Contract> Handle(ContractQuery request, CancellationToken cancellationToken)
         {
-            return await _contractService.GetByIdAsync(request.Id);
+            return _contractService.GetByIdAsync(request.Id);
         }
     }
 }

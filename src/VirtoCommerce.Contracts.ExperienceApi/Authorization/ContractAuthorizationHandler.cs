@@ -92,13 +92,11 @@ namespace VirtoCommerce.Contracts.ExperienceApi.Authorization
             }
 
             int totalCount;
-            var memberSearchCriteria = new MembersSearchCriteria
-            {
-                Group = contractCode,
-                ResponseGroup = MemberResponseGroup.Default.ToString(),
-                Take = _pageSize,
-                MemberType = nameof(Organization)
-            };
+            var memberSearchCriteria = AbstractTypeFactory<MembersSearchCriteria>.TryCreateInstance();
+            memberSearchCriteria.Group = contractCode;
+            memberSearchCriteria.ResponseGroup = MemberResponseGroup.Default.ToString();
+            memberSearchCriteria.Take = _pageSize;
+            memberSearchCriteria.MemberType = nameof(Organization);
 
             do
             {
