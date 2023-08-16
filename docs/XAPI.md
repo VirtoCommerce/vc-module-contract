@@ -41,13 +41,13 @@ With this connection you can get all organization's contracts.
 ```
 {
     contracts (
+      storeId: "B2B-store"
       organizationId: "33ae18d0-b7ba-4844-8c19-afd49489401b"
       statuses: ["Draft", "Active"]
       code: ["contact-code1", "contract-code2"]
       vendorId: "478e51d0-b7ba-4334-8109-abb45512101b"
-      storeId: "B2B-store"
-      take: 20
-      skip: 0)
+      after: 0
+      first: 20)
     {
         items
         {
