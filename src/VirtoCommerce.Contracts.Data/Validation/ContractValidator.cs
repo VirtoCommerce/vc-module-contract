@@ -32,11 +32,9 @@ namespace VirtoCommerce.Contracts.Data.Validation
                     return;
                 }
 
-                var searchCriteria = new ContractSearchCriteria()
-                {
-                    Code = contract.Code,
-                    Take = 0,
-                };
+                var searchCriteria = AbstractTypeFactory<ContractSearchCriteria>.TryCreateInstance();
+                searchCriteria.Codes = new[] { contract.Code };
+                searchCriteria.Take = 0;
 
                 var contractSearchService = contractSearchServiceFactory();
                 var searchResult = await contractSearchService.SearchNoCloneAsync(searchCriteria);
