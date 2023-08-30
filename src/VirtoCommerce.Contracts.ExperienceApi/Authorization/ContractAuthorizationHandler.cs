@@ -49,19 +49,9 @@ namespace VirtoCommerce.Contracts.ExperienceApi.Authorization
                         result = await IsContractAvailable(currentUserId, contract.Code);
                         break;
 
-                    case ContractsQuery contractsQuery:
+                    case OrganizationContractsQuery contractsQuery:
                         result = await IsContactInOrganization(currentUserId, contractsQuery.OrganizationId);
                         break;
-                }
-            }
-
-            if (result && context.Resource is ContractsQuery query)
-            {
-                var organization = await GetOrganization(query.OrganizationId);
-                result = organization != null && !organization.Groups.IsNullOrEmpty();
-                if (result)
-                {
-                    query.Codes = organization.Groups;
                 }
             }
 
@@ -107,12 +97,6 @@ namespace VirtoCommerce.Contracts.ExperienceApi.Authorization
             } while (!result && totalCount >= searchCriteria.Skip);
 
             return result;
-        }
-
-        protected virtual async Task<Organization> GetOrganization(string organizationId)
-        {
-            var organization = await _memberService.GetByIdAsync(organizationId) as Organization;
-            return organization;
         }
 
         protected virtual async Task<Contact> GetContact(string userId)
