@@ -10,17 +10,17 @@ using VirtoCommerce.ExperienceApiModule.Core.Extensions;
 
 namespace VirtoCommerce.Contracts.ExperienceApi.Queries
 {
-    public class ContractsQueryBuilder : SearchQueryBuilder<ContractsQuery, ContractSearchResult, Contract, ContractType>
+    public class OrganizationContractsQueryBuilder : SearchQueryBuilder<OrganizationContractsQuery, ContractSearchResult, Contract, ContractType>
     {
-        protected override string Name => "contracts";
+        protected override string Name => "organizationContracts";
 
-        public ContractsQueryBuilder(IMediator mediator, IAuthorizationService authorizationService)
+        public OrganizationContractsQueryBuilder(IMediator mediator, IAuthorizationService authorizationService)
             : base(mediator, authorizationService)
         {
 
         }
 
-        protected override async Task BeforeMediatorSend(IResolveFieldContext<object> context, ContractsQuery request)
+        protected override async Task BeforeMediatorSend(IResolveFieldContext<object> context, OrganizationContractsQuery request)
         {
             await base.BeforeMediatorSend(context, request);
             await Authorize(context, request, new ContractAuthorizationRequirement());

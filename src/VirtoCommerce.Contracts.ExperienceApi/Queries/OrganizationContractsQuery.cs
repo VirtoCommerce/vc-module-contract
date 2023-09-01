@@ -5,13 +5,12 @@ using VirtoCommerce.ExperienceApiModule.Core.BaseQueries;
 
 namespace VirtoCommerce.Contracts.ExperienceApi.Queries
 {
-    public class ContractsQuery : SearchQuery<ContractSearchResult>
+    public class OrganizationContractsQuery : SearchQuery<ContractSearchResult>
     {
         public string OrganizationId { get; set; }
         public string StoreId { get; set; }
         public string VendorId { get; set; }
         public IList<string> Statuses { get; set; }
-        public IList<string> Codes { get; set; }
         public DateTime? StartDate { get; set; }
         public DateTime? EndDate { get; set; }
 
@@ -22,7 +21,6 @@ namespace VirtoCommerce.Contracts.ExperienceApi.Queries
             yield return Argument<StringGraphType>(nameof(StoreId));
             yield return Argument<StringGraphType>(nameof(VendorId));
             yield return Argument<ListGraphType<StringGraphType>>(nameof(Statuses));
-            yield return Argument<ListGraphType<StringGraphType>>(nameof(Codes));
             yield return Argument<DateTimeGraphType>(nameof(StartDate));
             yield return Argument<DateTimeGraphType>(nameof(EndDate));
         }
@@ -35,7 +33,6 @@ namespace VirtoCommerce.Contracts.ExperienceApi.Queries
             StoreId = context.GetArgument<string>(nameof(StoreId));
             VendorId = context.GetArgument<string>(nameof(VendorId));
             Statuses = context.GetArgument<IList<string>>(nameof(Statuses));
-            Codes = context.GetArgument<IList<string>>(nameof(Codes));
             StartDate = context.GetArgument<DateTime?>(nameof(StartDate));
             EndDate = context.GetArgument<DateTime?>(nameof(EndDate));
         }
