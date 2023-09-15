@@ -1,11 +1,11 @@
 using System.Reflection;
-using EntityFrameworkCore.Triggers;
 using Microsoft.EntityFrameworkCore;
 using VirtoCommerce.Contracts.Data.Models;
+using VirtoCommerce.Platform.Data.Infrastructure;
 
 namespace VirtoCommerce.Contracts.Data.Repositories
 {
-    public class ContractDbContext : DbContextWithTriggers
+    public class ContractDbContext : DbContextBase
     {
         private const int _maxLength128 = 128;
 
