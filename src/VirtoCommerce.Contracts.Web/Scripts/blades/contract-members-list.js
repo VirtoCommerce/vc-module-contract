@@ -166,7 +166,7 @@ angular.module('Contracts')
                         canExecuteMethod: function () {
                             return true;
                         },
-                        permission: 'Contracts:update'
+                        permission: 'Contract:update'
                     },
                     {
                         name: "platform.commands.delete",
@@ -175,7 +175,7 @@ angular.module('Contracts')
                         canExecuteMethod: function () {
                             return $scope.gridApi && _.any($scope.gridApi.selection.getSelectedRows());
                         },
-                        permission: 'Contracts:delete'
+                        permission: 'Contract:delete'
                     }
                 ];
 

@@ -4,7 +4,7 @@ angular.module('Contracts')
             function ($scope, contracts, stores, members, dialogService, bladeUtils, metaFormsService, settings) {
                 var blade = $scope.blade;
                 blade.headIcon = 'fas fa-file-contract';
-                blade.updatePermission = 'Contracts:update';
+                blade.updatePermission = 'Contract:update';
 
                 blade.metaFields = metaFormsService.getMetaFields("contractDetail");
 
