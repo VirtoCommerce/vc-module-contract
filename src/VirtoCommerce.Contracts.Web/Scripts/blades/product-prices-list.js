@@ -4,7 +4,7 @@ angular.module('Contracts')
             function ($scope, contractPrices, objCompareService, bladeNavigationService, uiGridHelper, priceValidatorsService, gridOptionExtension, dialogService) {
                 $scope.uiGridConstants = uiGridHelper.uiGridConstants;
                 var blade = $scope.blade;
-                blade.updatePermission = 'Contracts:update';
+                blade.updatePermission = 'Contract:update';
 
                 blade.refresh = function () {
                     blade.isLoading = true;
