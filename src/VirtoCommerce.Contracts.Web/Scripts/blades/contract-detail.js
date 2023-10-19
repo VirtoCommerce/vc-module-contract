@@ -4,7 +4,7 @@ angular.module('Contracts')
             function ($scope, contracts, stores, dialogService, bladeUtils) {
                 var blade = $scope.blade;
                 blade.headIcon = 'fas fa-file-contract';
-                blade.updatePermission = 'Contracts:update';
+                blade.updatePermission = 'Contract:update';
 
                 var bladeNavigationService = bladeUtils.bladeNavigationService;
 
