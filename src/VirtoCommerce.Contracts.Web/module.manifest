@@ -3,7 +3,7 @@
   <id>VirtoCommerce.Contracts</id>
   <version>3.800.0</version>
   <version-tag />
-  <platformVersion>3.800.0-alpha.12831-net8n</platformVersion>
+  <platformVersion>3.800.0-alpha.12831-net8</platformVersion>
   <dependencies>
     <dependency id="VirtoCommerce.Customer" version="3.800.0-alpha.805-pt-14740-net8" />
     <dependency id="VirtoCommerce.ExperienceApi" version="3.800.0-alpha.1306-pt-14740-net8" />
