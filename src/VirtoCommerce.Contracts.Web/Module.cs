@@ -22,8 +22,8 @@ using VirtoCommerce.Contracts.ExperienceApi;
 using VirtoCommerce.Contracts.ExperienceApi.Authorization;
 using VirtoCommerce.ExperienceApiModule.Core.Extensions;
 using VirtoCommerce.ExperienceApiModule.Core.Infrastructure;
-using VirtoCommerce.Platform.Core.Bus;
 using VirtoCommerce.Platform.Core.DynamicProperties;
+using VirtoCommerce.Platform.Core.Events;
 using VirtoCommerce.Platform.Core.Modularity;
 using VirtoCommerce.Platform.Core.Security;
 using VirtoCommerce.Platform.Core.Settings;
@@ -110,8 +110,7 @@ namespace VirtoCommerce.Contracts.Web
             using var dbContext = serviceScope.ServiceProvider.GetRequiredService<ContractDbContext>();
             dbContext.Database.Migrate();
 
-            var inProcessBus = appBuilder.ApplicationServices.GetService<IHandlerRegistrar>();
-            inProcessBus.RegisterHandler<ContractChangedEvent>(async (message, _) => await appBuilder.ApplicationServices.GetService<DeleteContractHandler>().Handle(message));
+            appBuilder.RegisterEventHandler<ContractChangedEvent, DeleteContractHandler>();
         }
 
         public void Uninstall()
