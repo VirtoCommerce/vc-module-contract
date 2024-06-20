@@ -2,7 +2,7 @@ using VirtoCommerce.Contracts.Core.Models.Search;
 using VirtoCommerce.Contracts.Core.Services;
 using VirtoCommerce.CustomerModule.Core.Model;
 using VirtoCommerce.CustomerModule.Core.Services;
-using VirtoCommerce.ExperienceApiModule.Core.Infrastructure;
+using VirtoCommerce.Xapi.Core.Infrastructure;
 using VirtoCommerce.Platform.Core.Common;
 
 namespace VirtoCommerce.Contracts.ExperienceApi.Queries
