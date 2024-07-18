@@ -1,7 +1,7 @@
 using GraphQL;
 using GraphQL.Types;
 using VirtoCommerce.Contracts.Core.Models;
-using VirtoCommerce.ExperienceApiModule.Core.BaseQueries;
+using VirtoCommerce.Xapi.Core.BaseQueries;
 
 namespace VirtoCommerce.Contracts.ExperienceApi.Queries
 {

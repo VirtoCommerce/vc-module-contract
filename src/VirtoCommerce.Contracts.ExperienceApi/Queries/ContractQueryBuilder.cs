@@ -4,8 +4,8 @@ using Microsoft.AspNetCore.Authorization;
 using VirtoCommerce.Contracts.Core.Models;
 using VirtoCommerce.Contracts.ExperienceApi.Authorization;
 using VirtoCommerce.Contracts.ExperienceApi.Schemas;
-using VirtoCommerce.ExperienceApiModule.Core.BaseQueries;
-using VirtoCommerce.ExperienceApiModule.Core.Extensions;
+using VirtoCommerce.Xapi.Core.BaseQueries;
+using VirtoCommerce.Xapi.Core.Extensions;
 
 namespace VirtoCommerce.Contracts.ExperienceApi.Queries
 {
