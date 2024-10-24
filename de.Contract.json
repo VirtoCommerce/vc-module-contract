@@ -1,0 +1,200 @@
+{
+  "Contract": {
+    "blades": {
+      "contracts-list": {
+        "title": "Verträge",
+        "labels": {
+          "new-filter": "Neuen Filter hinzufügen",
+          "unnamed-filter": "Unbenannter Filter",
+          "name": "Name",
+          "start-date": "Startdatum",
+          "end-date": "Enddatum"
+        },
+        "placeholders": {
+          "select-filter": "Filter auswählen"
+        }
+      },
+      "contract-details": {
+        "title-new": "Neuen Vertrag erstellen",
+        "subtitle": "Vertrag bearbeiten",
+        "labels": {
+          "name": "Name",
+          "description": "Beschreibung",
+          "start-date": "Startdatum",
+          "end-date": "Enddatum",
+          "store": "Geschäft",
+          "code": "Code",
+          "vendor": "Lieferant",
+          "status": "Status"
+        },
+        "placeholders": {
+          "name": "Namen eingeben",
+          "description": "Beschreibung eingeben",
+          "start-date": "Startdatum auswählen",
+          "end-date": "Enddatum auswählen",
+          "store": "Geschäft auswählen",
+          "code": "Leer lassen für automatische Code-Generierung",
+          "vendor": "Lieferanten auswählen",
+          "status": "Status auswählen"
+        },
+        "validation": {
+          "code": "Vertragscode darf keine Sonderzeichen außer Bindestriche und Unterstriche enthalten"
+        }
+      },
+      "contract-members": {
+        "title": "Kunden",
+        "labels": {
+          "name": "Name",
+          "type": "Typ"
+        }
+      },
+      "contract-members-select": {
+        "title": "Kontakte & Organisationen",
+        "labels": {
+          "name": "Name",
+          "type": "Typ"
+        }
+      },
+      "contract-prices": {
+        "title": "Vertragspreise",
+        "subtitle": "Vertragspreise",
+        "select-products-title": "Artikel auswählen",
+        "labels": {
+          "product-image": "Bild",
+          "product-name": "Artikelname",
+          "product-code": "Artikelcode",
+          "price-count": "Preisanzahl",
+          "price-range": "Preisbereich",
+          "state": "Status",
+          "state-new": "Neu",
+          "state-updated": "Aktualisiert",
+          "state-modified": "Geändert",
+          "no-data": "Es gibt noch keine Preislisten"
+        },
+        "commands": {
+          "link-pricelist": "Preisliste verknüpfen",
+          "restore": "Wiederherstellen"
+        }
+      },
+      "product-prices": {
+        "labels": {
+          "currency": "Währung",
+          "list-price": "Listenpreis",
+          "sale-price": "Verkaufspreis",
+          "min-quantity": "Mindestmenge",
+          "state": "Status",
+          "state-new": "Neu",
+          "state-updated": "Aktualisiert"
+        },
+        "commands": {
+          "restore": "Wiederherstellen"
+        }
+      },
+      "contract-pricrlist-select": {
+        "title": "Verfügbare Preislisten",
+        "labels": {
+          "name": "Name",
+          "currency": "Währung"
+        }
+      },
+      "contract-attachments-list": {
+        "title": "Anhänge",
+        "labels": {
+          "name": "Name",
+          "copy-url-prompt": "In die Zwischenablage kopieren: Strg+C, Enter"
+        }
+      },
+      "contract-attachment-add": {
+        "title": "Anhang hochladen",
+        "labels": {
+          "name": "Name",
+          "type": "Typ",
+          "actions": "Aktionen",
+          "select": "Dateien auswählen",
+          "drag-drop-comment": "Ziehen Sie Ihre Dateien hierher",
+          "progress": "Fortschritt"
+        }
+      },
+      "filter-detail": {
+        "subtitle": "Filter bearbeiten",
+        "new-title": "Neuer Filter",
+        "new-subtitle": "Einen neuen Filter erstellen",
+        "labels": {
+          "name": "Filtername",
+          "name_": "Diesen Filter benennen",
+          "criteria": "Filterkriterien",
+          "from": "Begonnen ab",
+          "to": "Gültig bis",
+          "status": "Status",
+          "vendor": "Lieferant",
+          "store": "Geschäft"
+        },
+        "placeholders": {
+          "all": "Nicht angegeben",
+          "status": "Status",
+          "vendor": "Lieferanten auswählen",
+          "store": "Geschäft"
+        }
+      }
+    },
+    "dialogs": {
+      "notification-contract-delete": {
+        "title": "Vertrag löschen",
+        "message": "Sind Sie sicher, dass Sie die ausgewählten Verträge löschen möchten?"
+      },
+      "notification-contract-member-delete": {
+        "title": "Mitglied löschen",
+        "message": "Sind Sie sicher, dass Sie die ausgewählten Mitglieder aus dem Vertrag löschen möchten?"
+      },
+      "notification-prices-save": {
+        "title": "Änderungen speichern",
+        "message": "Die Preise wurden geändert. Möchten Sie die Änderungen speichern?"
+      },
+      "notification-contract-prices-restore": {
+        "title": "Wiederherstellungsbestätigung",
+        "message": "Sind Sie sicher, dass Sie diese Produkte mit Preis in den Ausgangszustand zurücksetzen möchten?"
+      },
+      "notification-product-prices-restore": {
+        "title": "Wiederherstellungsbestätigung",
+        "message": "Sie werden die ausgewählte Preiszeile in den Ausgangszustand zurücksetzen"
+      },
+      "notification-attachement-delete": {
+        "title": "Löschbestätigung",
+        "message": "Sind Sie sicher, dass Sie die ausgewählten Anhänge löschen möchten?"
+      }
+    },
+    "widgets": {
+      "contract-attachments": {
+        "title": "Anhänge"
+      },
+      "contract-customers": {
+        "title": "Kunden"
+      },
+      "contract-dynamic-properties": {
+        "title": "Dynamische Eigenschaften"
+      },
+      "contract-prices": {
+        "title": "Preise"
+      }
+    }
+  },
+  "permissions": {
+    "Contract:access": "Vertragsmenü öffnen",
+    "Contract:create": "Vertragsbezogene Daten erstellen",
+    "Contract:read": "Vertragsbezogene Daten anzeigen",
+    "Contract:update": "Vertragsbezogene Daten aktualisieren",
+    "Contract:delete": "Vertragsbezogene Daten löschen"
+  },
+  "settings": {
+    "Contract": {
+      "ContractEnabled": {
+        "title": "Vertrag aktiviert",
+        "description": "Einstellung für aktivierten Vertrag"
+      },
+      "ContractPassword": {
+        "title": "Vertragspasswort",
+        "description": "Einstellung für Vertragspasswort"
+      }
+    }
+  }
+}

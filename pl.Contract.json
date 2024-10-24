@@ -1,0 +1,200 @@
+{
+  "Contract": {
+    "blades": {
+      "contracts-list": {
+        "title": "Umowy",
+        "labels": {
+          "new-filter": "Dodaj nowy filtr",
+          "unnamed-filter": "Nienazwany filtr",
+          "name": "Nazwa",
+          "start-date": "Data rozpoczęcia",
+          "end-date": "Data zakończenia"
+        },
+        "placeholders": {
+          "select-filter": "Wybierz filtr"
+        }
+      },
+      "contract-details": {
+        "title-new": "Utwórz nową umowę",
+        "subtitle": "Edytuj umowę",
+        "labels": {
+          "name": "Nazwa",
+          "description": "Opis",
+          "start-date": "Data rozpoczęcia",
+          "end-date": "Data zakończenia",
+          "store": "Sklep",
+          "code": "Kod",
+          "vendor": "Dostawca",
+          "status": "Status"
+        },
+        "placeholders": {
+          "name": "Wprowadź nazwę",
+          "description": "Wprowadź opis",
+          "start-date": "Wybierz datę rozpoczęcia",
+          "end-date": "Wybierz datę zakończenia",
+          "store": "Wybierz sklep",
+          "code": "Pozostaw puste dla automatycznego generowania kodu",
+          "vendor": "Wybierz dostawcę",
+          "status": "Wybierz status"
+        },
+        "validation": {
+          "code": "Kod umowy nie może zawierać znaków specjalnych innych niż myślniki i podkreślenia"
+        }
+      },
+      "contract-members": {
+        "title": "Klienci",
+        "labels": {
+          "name": "Nazwa",
+          "type": "Typ"
+        }
+      },
+      "contract-members-select": {
+        "title": "Kontakty i organizacje",
+        "labels": {
+          "name": "Nazwa",
+          "type": "Typ"
+        }
+      },
+      "contract-prices": {
+        "title": "Ceny umowy",
+        "subtitle": "Ceny umowy",
+        "select-products-title": "Wybierz produkty",
+        "labels": {
+          "product-image": "Zdjęcie",
+          "product-name": "Nazwa produktu",
+          "product-code": "Kod produktu",
+          "price-count": "Liczba cen",
+          "price-range": "Zakres cen",
+          "state": "Stan",
+          "state-new": "Nowy",
+          "state-updated": "Zaktualizowany",
+          "state-modified": "Zmodyfikowany",
+          "no-data": "Nie ma jeszcze cenników"
+        },
+        "commands": {
+          "link-pricelist": "Połącz cennik",
+          "restore": "Przywróć"
+        }
+      },
+      "product-prices": {
+        "labels": {
+          "currency": "Waluta",
+          "list-price": "Cena katalogowa",
+          "sale-price": "Cena sprzedaży",
+          "min-quantity": "Minimalna ilość",
+          "state": "Stan",
+          "state-new": "Nowy",
+          "state-updated": "Zaktualizowany"
+        },
+        "commands": {
+          "restore": "Przywróć"
+        }
+      },
+      "contract-pricrlist-select": {
+        "title": "Dostępne cenniki",
+        "labels": {
+          "name": "Nazwa",
+          "currency": "Waluta"
+        }
+      },
+      "contract-attachments-list": {
+        "title": "Załączniki",
+        "labels": {
+          "name": "Nazwa",
+          "copy-url-prompt": "Kopiuj do schowka: Ctrl+C, Enter"
+        }
+      },
+      "contract-attachment-add": {
+        "title": "Prześlij załącznik",
+        "labels": {
+          "name": "Nazwa",
+          "type": "Typ",
+          "actions": "Akcje",
+          "select": "Wybierz pliki",
+          "drag-drop-comment": "Przeciągnij i upuść swoje pliki tutaj",
+          "progress": "Postęp"
+        }
+      },
+      "filter-detail": {
+        "subtitle": "Edytuj filtr",
+        "new-title": "Nowy filtr",
+        "new-subtitle": "Utwórz nowy filtr",
+        "labels": {
+          "name": "Nazwa filtra",
+          "name_": "Nazwij ten filtr",
+          "criteria": "Kryteria filtra",
+          "from": "Rozpoczęto od",
+          "to": "Ważne do",
+          "status": "Statusy",
+          "vendor": "Dostawca",
+          "store": "Sklep"
+        },
+        "placeholders": {
+          "all": "Nie określono",
+          "status": "Status",
+          "vendor": "Wybierz dostawcę",
+          "store": "Sklep"
+        }
+      }
+    },
+    "dialogs": {
+      "notification-contract-delete": {
+        "title": "Usuń umowę",
+        "message": "Czy na pewno chcesz usunąć wybrane umowy?"
+      },
+      "notification-contract-member-delete": {
+        "title": "Usuń członka",
+        "message": "Czy na pewno chcesz usunąć wybranych członków z umowy?"
+      },
+      "notification-prices-save": {
+        "title": "Zapisz zmiany",
+        "message": "Ceny zostały zmodyfikowane. Czy chcesz zapisać zmiany?"
+      },
+      "notification-contract-prices-restore": {
+        "title": "Potwierdzenie przywrócenia",
+        "message": "Czy na pewno chcesz przywrócić te produkty z ceną do stanu początkowego?"
+      },
+      "notification-product-prices-restore": {
+        "title": "Potwierdzenie przywrócenia",
+        "message": "Zamierzasz przywrócić wybraną linię ceny do stanu początkowego"
+      },
+      "notification-attachement-delete": {
+        "title": "Potwierdzenie usunięcia",
+        "message": "Czy na pewno chcesz usunąć wybrane załączniki?"
+      }
+    },
+    "widgets": {
+      "contract-attachments": {
+        "title": "Załączniki"
+      },
+      "contract-customers": {
+        "title": "Klienci"
+      },
+      "contract-dynamic-properties": {
+        "title": "Właściwości dynamiczne"
+      },
+      "contract-prices": {
+        "title": "Ceny"
+      }
+    }
+  },
+  "permissions": {
+    "Contract:access": "Otwórz menu umów",
+    "Contract:create": "Twórz dane związane z umową",
+    "Contract:read": "Przeglądaj dane związane z umową",
+    "Contract:update": "Aktualizuj dane związane z umową",
+    "Contract:delete": "Usuń dane związane z umową"
+  },
+  "settings": {
+    "Contract": {
+      "ContractEnabled": {
+        "title": "Umowa włączona",
+        "description": "Ustawienie włączenia umowy"
+      },
+      "ContractPassword": {
+        "title": "Hasło umowy",
+        "description": "Ustawienie hasła umowy"
+      }
+    }
+  }
+}

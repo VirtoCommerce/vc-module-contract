@@ -1,0 +1,200 @@
+{
+  "Contract": {
+    "blades": {
+      "contracts-list": {
+        "title": "Контракты",
+        "labels": {
+          "new-filter": "Добавить новый фильтр",
+          "unnamed-filter": "Безымянный фильтр",
+          "name": "Название",
+          "start-date": "Дата начала",
+          "end-date": "Дата окончания"
+        },
+        "placeholders": {
+          "select-filter": "Выбрать фильтр"
+        }
+      },
+      "contract-details": {
+        "title-new": "Создать новый контракт",
+        "subtitle": "Редактировать контракт",
+        "labels": {
+          "name": "Название",
+          "description": "Описание",
+          "start-date": "Дата начала",
+          "end-date": "Дата окончания",
+          "store": "Магазин",
+          "code": "Код",
+          "vendor": "Поставщик",
+          "status": "Статус"
+        },
+        "placeholders": {
+          "name": "Введите название",
+          "description": "Введите описание",
+          "start-date": "Выберите дату начала",
+          "end-date": "Выберите дату окончания",
+          "store": "Выберите магазин",
+          "code": "Оставьте пустым для автоматической генерации кода",
+          "vendor": "Выберите поставщика",
+          "status": "Выберите статус"
+        },
+        "validation": {
+          "code": "Код контракта не может содержать специальные символы, кроме дефисов и подчеркиваний"
+        }
+      },
+      "contract-members": {
+        "title": "Клиенты",
+        "labels": {
+          "name": "Имя",
+          "type": "Тип"
+        }
+      },
+      "contract-members-select": {
+        "title": "Контакты и организации",
+        "labels": {
+          "name": "Имя",
+          "type": "Тип"
+        }
+      },
+      "contract-prices": {
+        "title": "Цены контракта",
+        "subtitle": "Цены контракта",
+        "select-products-title": "Выбрать товары",
+        "labels": {
+          "product-image": "Изображение",
+          "product-name": "Название товара",
+          "product-code": "Код товара",
+          "price-count": "Количество цен",
+          "price-range": "Диапазон цен",
+          "state": "Состояние",
+          "state-new": "Новый",
+          "state-updated": "Обновлено",
+          "state-modified": "Изменено",
+          "no-data": "Прайслистов пока нет"
+        },
+        "commands": {
+          "link-pricelist": "Связать прайслист",
+          "restore": "Восстановить"
+        }
+      },
+      "product-prices": {
+        "labels": {
+          "currency": "Валюта",
+          "list-price": "Базовая цена",
+          "sale-price": "Цена продажи",
+          "min-quantity": "Мин. количество",
+          "state": "Состояние",
+          "state-new": "Новый",
+          "state-updated": "Обновлено"
+        },
+        "commands": {
+          "restore": "Восстановить"
+        }
+      },
+      "contract-pricrlist-select": {
+        "title": "Доступные прайслисты",
+        "labels": {
+          "name": "Название",
+          "currency": "Валюта"
+        }
+      },
+      "contract-attachments-list": {
+        "title": "Вложения",
+        "labels": {
+          "name": "Название",
+          "copy-url-prompt": "Копировать в буфер обмена: Ctrl+C, Enter"
+        }
+      },
+      "contract-attachment-add": {
+        "title": "Загрузить вложение",
+        "labels": {
+          "name": "Название",
+          "type": "Тип",
+          "actions": "Действия",
+          "select": "Выбрать файлы",
+          "drag-drop-comment": "Перетащите файлы сюда",
+          "progress": "Прогресс"
+        }
+      },
+      "filter-detail": {
+        "subtitle": "Редактировать фильтр",
+        "new-title": "Новый фильтр",
+        "new-subtitle": "Создать новый фильтр",
+        "labels": {
+          "name": "Название фильтра",
+          "name_": "Назовите этот фильтр",
+          "criteria": "Критерии фильтра",
+          "from": "Начало с",
+          "to": "Действителен до",
+          "status": "Статусы",
+          "vendor": "Поставщик",
+          "store": "Магазин"
+        },
+        "placeholders": {
+          "all": "Не указано",
+          "status": "Статус",
+          "vendor": "Выберите поставщика",
+          "store": "Магазин"
+        }
+      }
+    },
+    "dialogs": {
+      "notification-contract-delete": {
+        "title": "Удалить контракт",
+        "message": "Вы уверены, что хотите удалить выбранные контракты?"
+      },
+      "notification-contract-member-delete": {
+        "title": "Удалить участника",
+        "message": "Вы уверены, что хотите удалить выбранных участников из контракта?"
+      },
+      "notification-prices-save": {
+        "title": "Сохранить изменения",
+        "message": "Цены были изменены. Хотите сохранить изменения?"
+      },
+      "notification-contract-prices-restore": {
+        "title": "Подтверждение восстановления",
+        "message": "Вы уверены, что хотите восстановить эти товары с ценами до исходного состояния?"
+      },
+      "notification-product-prices-restore": {
+        "title": "Подтверждение восстановления",
+        "message": "Вы собираетесь восстановить выбранную строку цены до исходного состояния"
+      },
+      "notification-attachement-delete": {
+        "title": "Подтверждение удаления",
+        "message": "Вы уверены, что хотите удалить выбранные вложения?"
+      }
+    },
+    "widgets": {
+      "contract-attachments": {
+        "title": "Вложения"
+      },
+      "contract-customers": {
+        "title": "Клиенты"
+      },
+      "contract-dynamic-properties": {
+        "title": "Динамические свойства"
+      },
+      "contract-prices": {
+        "title": "Цены"
+      }
+    }
+  },
+  "permissions": {
+    "Contract:access": "Открывать меню контрактов",
+    "Contract:create": "Создавать данные, связанные с контрактом",
+    "Contract:read": "Просматривать данные, связанные с контрактом",
+    "Contract:update": "Обновлять данные, связанные с контрактом",
+    "Contract:delete": "Удалять данные, связанные с контрактом"
+  },
+  "settings": {
+    "Contract": {
+      "ContractEnabled": {
+        "title": "Контракт активирован",
+        "description": "Настройка активации контракта"
+      },
+      "ContractPassword": {
+        "title": "Пароль контракта",
+        "description": "Настройка пароля контракта"
+      }
+    }
+  }
+}

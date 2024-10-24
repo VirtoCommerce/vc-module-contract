@@ -1,0 +1,200 @@
+{
+  "Contract": {
+    "blades": {
+      "contracts-list": {
+        "title": "契約",
+        "labels": {
+          "new-filter": "新しいフィルターを追加",
+          "unnamed-filter": "名称未設定のフィルター",
+          "name": "名前",
+          "start-date": "開始日",
+          "end-date": "終了日"
+        },
+        "placeholders": {
+          "select-filter": "フィルターを選択"
+        }
+      },
+      "contract-details": {
+        "title-new": "新規契約を作成",
+        "subtitle": "契約を編集",
+        "labels": {
+          "name": "名前",
+          "description": "説明",
+          "start-date": "開始日",
+          "end-date": "終了日",
+          "store": "店舗",
+          "code": "コード",
+          "vendor": "ベンダー",
+          "status": "ステータス"
+        },
+        "placeholders": {
+          "name": "名前を入力",
+          "description": "説明を入力",
+          "start-date": "開始日を選択",
+          "end-date": "終了日を選択",
+          "store": "店舗を選択",
+          "code": "自動コード生成の場合は空白のままにしてください",
+          "vendor": "ベンダーを選択",
+          "status": "ステータスを選択"
+        },
+        "validation": {
+          "code": "契約コードにはハイフンとアンダースコア以外の特殊記号を含めることはできません"
+        }
+      },
+      "contract-members": {
+        "title": "顧客",
+        "labels": {
+          "name": "名前",
+          "type": "タイプ"
+        }
+      },
+      "contract-members-select": {
+        "title": "連絡先と組織",
+        "labels": {
+          "name": "名前",
+          "type": "タイプ"
+        }
+      },
+      "contract-prices": {
+        "title": "契約価格",
+        "subtitle": "契約価格",
+        "select-products-title": "商品を選択",
+        "labels": {
+          "product-image": "画像",
+          "product-name": "商品名",
+          "product-code": "商品コード",
+          "price-count": "価格数",
+          "price-range": "価格範囲",
+          "state": "状態",
+          "state-new": "新規",
+          "state-updated": "更新済み",
+          "state-modified": "変更済み",
+          "no-data": "まだ価格表がありません"
+        },
+        "commands": {
+          "link-pricelist": "価格表をリンク",
+          "restore": "復元"
+        }
+      },
+      "product-prices": {
+        "labels": {
+          "currency": "通貨",
+          "list-price": "定価",
+          "sale-price": "販売価格",
+          "min-quantity": "最小数量",
+          "state": "状態",
+          "state-new": "新規",
+          "state-updated": "更新済み"
+        },
+        "commands": {
+          "restore": "復元"
+        }
+      },
+      "contract-pricrlist-select": {
+        "title": "利用可能な価格表",
+        "labels": {
+          "name": "名前",
+          "currency": "通貨"
+        }
+      },
+      "contract-attachments-list": {
+        "title": "添付ファイル",
+        "labels": {
+          "name": "名前",
+          "copy-url-prompt": "クリップボードにコピー: Ctrl+C, Enter"
+        }
+      },
+      "contract-attachment-add": {
+        "title": "添付ファイルをアップロード",
+        "labels": {
+          "name": "名前",
+          "type": "タイプ",
+          "actions": "アクション",
+          "select": "ファイルを選択",
+          "drag-drop-comment": "ファイルをここにドラッグ＆ドロップしてください",
+          "progress": "進行状況"
+        }
+      },
+      "filter-detail": {
+        "subtitle": "フィルターを編集",
+        "new-title": "新規フィルター",
+        "new-subtitle": "新しいフィルターを作成",
+        "labels": {
+          "name": "フィルター名",
+          "name_": "このフィルターに名前を付ける",
+          "criteria": "フィルター条件",
+          "from": "開始日",
+          "to": "有効期限",
+          "status": "ステータス",
+          "vendor": "ベンダー",
+          "store": "店舗"
+        },
+        "placeholders": {
+          "all": "指定なし",
+          "status": "ステータス",
+          "vendor": "ベンダーを選択",
+          "store": "店舗"
+        }
+      }
+    },
+    "dialogs": {
+      "notification-contract-delete": {
+        "title": "契約を削除",
+        "message": "選択した契約を削除してもよろしいですか？"
+      },
+      "notification-contract-member-delete": {
+        "title": "メンバーを削除",
+        "message": "選択したメンバーを契約から削除してもよろしいですか？"
+      },
+      "notification-prices-save": {
+        "title": "変更を保存",
+        "message": "価格が変更されました。変更を保存しますか？"
+      },
+      "notification-contract-prices-restore": {
+        "title": "復元の確認",
+        "message": "これらの商品と価格を初期状態に復元してもよろしいですか？"
+      },
+      "notification-product-prices-restore": {
+        "title": "復元の確認",
+        "message": "選択した価格行を初期状態に復元しようとしています"
+      },
+      "notification-attachement-delete": {
+        "title": "削除の確認",
+        "message": "選択した添付ファイルを削除してもよろしいですか？"
+      }
+    },
+    "widgets": {
+      "contract-attachments": {
+        "title": "添付ファイル"
+      },
+      "contract-customers": {
+        "title": "顧客"
+      },
+      "contract-dynamic-properties": {
+        "title": "動的プロパティ"
+      },
+      "contract-prices": {
+        "title": "価格"
+      }
+    }
+  },
+  "permissions": {
+    "Contract:access": "契約メニューを開く",
+    "Contract:create": "契約関連データを作成",
+    "Contract:read": "契約関連データを表示",
+    "Contract:update": "契約関連データを更新",
+    "Contract:delete": "契約関連データを削除"
+  },
+  "settings": {
+    "Contract": {
+      "ContractEnabled": {
+        "title": "契約有効",
+        "description": "契約有効設定"
+      },
+      "ContractPassword": {
+        "title": "契約パスワード",
+        "description": "契約パスワード設定"
+      }
+    }
+  }
+}
