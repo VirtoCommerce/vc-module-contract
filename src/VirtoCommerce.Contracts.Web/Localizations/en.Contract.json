@@ -38,7 +38,7 @@
           "status": "Select status"
         },
         "validation": {
-          "code": "Contract code can't contain special symbols except hyphens and underscores"
+          "code": "Contract code can't contain special symbols other than hyphens and underscores"
         }
       },
       "contract-members": {
@@ -49,7 +49,7 @@
         }
       },
       "contract-members-select": {
-        "title": "Contact & Organizations",
+        "title": "Contact & organizations",
         "labels": {
           "name": "Name",
           "type": "Type"
@@ -121,7 +121,7 @@
         "new-subtitle": "Create a new filter",
         "labels": {
           "name": "Filter name",
-          "name_": "Please give this filter a name",
+          "name_": "Name this filter",
           "criteria": "Filter criteria",
           "from": "Started from",
           "to": "Valid until",
@@ -179,21 +179,21 @@
     }
   },
   "permissions": {
-    "Contract:access": "Open Contract menu",
-    "Contract:create": "Create Contract related data",
-    "Contract:read": "View Contract related data",
-    "Contract:update": "Update Contract related data",
-    "Contract:delete": "Delete Contract related data"
+    "Contract:access": "Open contract menu",
+    "Contract:create": "Create contract related data",
+    "Contract:read": "View contract related data",
+    "Contract:update": "Update contract related data",
+    "Contract:delete": "Delete contract related data"
   },
   "settings": {
     "Contract": {
       "ContractEnabled": {
-        "title": "Contract Enabled",
-        "description": "Contract Enabled setting"
+        "title": "Contract enabled",
+        "description": "Contract enabled setting"
       },
       "ContractPassword": {
-        "title": "Contract Password",
-        "description": "Contract Password setting"
+        "title": "Contract password",
+        "description": "Contract password setting"
       }
     }
   }

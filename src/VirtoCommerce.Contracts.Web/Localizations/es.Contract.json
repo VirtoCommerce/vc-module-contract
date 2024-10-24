@@ -1,0 +1,200 @@
+{
+  "Contract": {
+    "blades": {
+      "contracts-list": {
+        "title": "Contratos",
+        "labels": {
+          "new-filter": "Añadir nuevo filtro",
+          "unnamed-filter": "Filtro sin nombre",
+          "name": "Nombre",
+          "start-date": "Fecha de inicio",
+          "end-date": "Fecha de finalización"
+        },
+        "placeholders": {
+          "select-filter": "Seleccionar filtro"
+        }
+      },
+      "contract-details": {
+        "title-new": "Crear nuevo contrato",
+        "subtitle": "Editar contrato",
+        "labels": {
+          "name": "Nombre",
+          "description": "Descripción",
+          "start-date": "Fecha de inicio",
+          "end-date": "Fecha de finalización",
+          "store": "Tienda",
+          "code": "Código",
+          "vendor": "Proveedor",
+          "status": "Estado"
+        },
+        "placeholders": {
+          "name": "Introducir nombre",
+          "description": "Introducir descripción",
+          "start-date": "Seleccionar fecha de inicio",
+          "end-date": "Seleccionar fecha de finalización",
+          "store": "Seleccionar tienda",
+          "code": "Dejar vacío para generación automática de código",
+          "vendor": "Seleccionar proveedor",
+          "status": "Seleccionar estado"
+        },
+        "validation": {
+          "code": "El código del contrato no puede contener símbolos especiales excepto guiones y guiones bajos"
+        }
+      },
+      "contract-members": {
+        "title": "Clientes",
+        "labels": {
+          "name": "Nombre",
+          "type": "Tipo"
+        }
+      },
+      "contract-members-select": {
+        "title": "Contactos y organizaciones",
+        "labels": {
+          "name": "Nombre",
+          "type": "Tipo"
+        }
+      },
+      "contract-prices": {
+        "title": "Precios del contrato",
+        "subtitle": "Precios del contrato",
+        "select-products-title": "Seleccionar artículos",
+        "labels": {
+          "product-image": "Imagen",
+          "product-name": "Nombre del artículo",
+          "product-code": "Código del artículo",
+          "price-count": "Cantidad de precios",
+          "price-range": "Rango de precios",
+          "state": "Estado",
+          "state-new": "Nuevo",
+          "state-updated": "Actualizado",
+          "state-modified": "Modificado",
+          "no-data": "Aún no hay listas de precios"
+        },
+        "commands": {
+          "link-pricelist": "Vincular lista de precios",
+          "restore": "Restaurar"
+        }
+      },
+      "product-prices": {
+        "labels": {
+          "currency": "Moneda",
+          "list-price": "Precio de lista",
+          "sale-price": "Precio de venta",
+          "min-quantity": "Cantidad mínima",
+          "state": "Estado",
+          "state-new": "Nuevo",
+          "state-updated": "Actualizado"
+        },
+        "commands": {
+          "restore": "Restaurar"
+        }
+      },
+      "contract-pricrlist-select": {
+        "title": "Listas de precios disponibles",
+        "labels": {
+          "name": "Nombre",
+          "currency": "Moneda"
+        }
+      },
+      "contract-attachments-list": {
+        "title": "Archivos adjuntos",
+        "labels": {
+          "name": "Nombre",
+          "copy-url-prompt": "Copiar al portapapeles: Ctrl+C, Enter"
+        }
+      },
+      "contract-attachment-add": {
+        "title": "Subir archivo adjunto",
+        "labels": {
+          "name": "Nombre",
+          "type": "Tipo",
+          "actions": "Acciones",
+          "select": "Seleccionar archivos",
+          "drag-drop-comment": "Arrastre y suelte sus archivos aquí",
+          "progress": "Progreso"
+        }
+      },
+      "filter-detail": {
+        "subtitle": "Editar filtro",
+        "new-title": "Nuevo filtro",
+        "new-subtitle": "Crear un nuevo filtro",
+        "labels": {
+          "name": "Nombre del filtro",
+          "name_": "Nombrar este filtro",
+          "criteria": "Criterios del filtro",
+          "from": "Iniciado desde",
+          "to": "Válido hasta",
+          "status": "Estados",
+          "vendor": "Proveedor",
+          "store": "Tienda"
+        },
+        "placeholders": {
+          "all": "No especificado",
+          "status": "Estado",
+          "vendor": "Seleccionar proveedor",
+          "store": "Tienda"
+        }
+      }
+    },
+    "dialogs": {
+      "notification-contract-delete": {
+        "title": "Eliminar contrato",
+        "message": "¿Está seguro de que desea eliminar los contratos seleccionados?"
+      },
+      "notification-contract-member-delete": {
+        "title": "Eliminar miembro",
+        "message": "¿Está seguro de que desea eliminar los miembros seleccionados del contrato?"
+      },
+      "notification-prices-save": {
+        "title": "Guardar cambios",
+        "message": "Los precios han sido modificados. ¿Desea guardar los cambios?"
+      },
+      "notification-contract-prices-restore": {
+        "title": "Confirmación de restauración",
+        "message": "¿Está seguro de que desea restaurar estos productos con precio al estado inicial?"
+      },
+      "notification-product-prices-restore": {
+        "title": "Confirmación de restauración",
+        "message": "Va a restaurar la línea de precio seleccionada al estado inicial"
+      },
+      "notification-attachement-delete": {
+        "title": "Confirmación de eliminación",
+        "message": "¿Está seguro de que desea eliminar los archivos adjuntos seleccionados?"
+      }
+    },
+    "widgets": {
+      "contract-attachments": {
+        "title": "Archivos adjuntos"
+      },
+      "contract-customers": {
+        "title": "Clientes"
+      },
+      "contract-dynamic-properties": {
+        "title": "Propiedades dinámicas"
+      },
+      "contract-prices": {
+        "title": "Precios"
+      }
+    }
+  },
+  "permissions": {
+    "Contract:access": "Abrir menú de contratos",
+    "Contract:create": "Crear datos relacionados con contratos",
+    "Contract:read": "Ver datos relacionados con contratos",
+    "Contract:update": "Actualizar datos relacionados con contratos",
+    "Contract:delete": "Eliminar datos relacionados con contratos"
+  },
+  "settings": {
+    "Contract": {
+      "ContractEnabled": {
+        "title": "Contrato habilitado",
+        "description": "Configuración de habilitación de contrato"
+      },
+      "ContractPassword": {
+        "title": "Contraseña del contrato",
+        "description": "Configuración de contraseña del contrato"
+      }
+    }
+  }
+}

@@ -1,0 +1,200 @@
+{
+  "Contract": {
+    "blades": {
+      "contracts-list": {
+        "title": "合同",
+        "labels": {
+          "new-filter": "添加新筛选器",
+          "unnamed-filter": "未命名筛选器",
+          "name": "名称",
+          "start-date": "开始日期",
+          "end-date": "结束日期"
+        },
+        "placeholders": {
+          "select-filter": "选择筛选器"
+        }
+      },
+      "contract-details": {
+        "title-new": "创建新合同",
+        "subtitle": "编辑合同",
+        "labels": {
+          "name": "名称",
+          "description": "描述",
+          "start-date": "开始日期",
+          "end-date": "结束日期",
+          "store": "商店",
+          "code": "代码",
+          "vendor": "供应商",
+          "status": "状态"
+        },
+        "placeholders": {
+          "name": "输入名称",
+          "description": "输入描述",
+          "start-date": "选择开始日期",
+          "end-date": "选择结束日期",
+          "store": "选择商店",
+          "code": "留空以自动生成代码",
+          "vendor": "选择供应商",
+          "status": "选择状态"
+        },
+        "validation": {
+          "code": "合同代码不能包含除连字符和下划线以外的特殊符号"
+        }
+      },
+      "contract-members": {
+        "title": "客户",
+        "labels": {
+          "name": "名称",
+          "type": "类型"
+        }
+      },
+      "contract-members-select": {
+        "title": "联系人和组织",
+        "labels": {
+          "name": "名称",
+          "type": "类型"
+        }
+      },
+      "contract-prices": {
+        "title": "合同价格",
+        "subtitle": "合同价格",
+        "select-products-title": "选择商品",
+        "labels": {
+          "product-image": "图片",
+          "product-name": "商品名称",
+          "product-code": "商品代码",
+          "price-count": "价格数量",
+          "price-range": "价格范围",
+          "state": "状态",
+          "state-new": "新建",
+          "state-updated": "已更新",
+          "state-modified": "已修改",
+          "no-data": "还没有价目表"
+        },
+        "commands": {
+          "link-pricelist": "链接价目表",
+          "restore": "恢复"
+        }
+      },
+      "product-prices": {
+        "labels": {
+          "currency": "货币",
+          "list-price": "目录价",
+          "sale-price": "销售价",
+          "min-quantity": "最小数量",
+          "state": "状态",
+          "state-new": "新建",
+          "state-updated": "已更新"
+        },
+        "commands": {
+          "restore": "恢复"
+        }
+      },
+      "contract-pricrlist-select": {
+        "title": "可用价目表",
+        "labels": {
+          "name": "名称",
+          "currency": "货币"
+        }
+      },
+      "contract-attachments-list": {
+        "title": "附件",
+        "labels": {
+          "name": "名称",
+          "copy-url-prompt": "复制到剪贴板：Ctrl+C，回车"
+        }
+      },
+      "contract-attachment-add": {
+        "title": "上传附件",
+        "labels": {
+          "name": "名称",
+          "type": "类型",
+          "actions": "操作",
+          "select": "选择文件",
+          "drag-drop-comment": "将文件拖放到此处",
+          "progress": "进度"
+        }
+      },
+      "filter-detail": {
+        "subtitle": "编辑筛选器",
+        "new-title": "新筛选器",
+        "new-subtitle": "创建新筛选器",
+        "labels": {
+          "name": "筛选器名称",
+          "name_": "命名此筛选器",
+          "criteria": "筛选条件",
+          "from": "开始时间",
+          "to": "有效期至",
+          "status": "状态",
+          "vendor": "供应商",
+          "store": "商店"
+        },
+        "placeholders": {
+          "all": "未指定",
+          "status": "状态",
+          "vendor": "选择供应商",
+          "store": "商店"
+        }
+      }
+    },
+    "dialogs": {
+      "notification-contract-delete": {
+        "title": "删除合同",
+        "message": "您确定要删除所选合同吗？"
+      },
+      "notification-contract-member-delete": {
+        "title": "删除成员",
+        "message": "您确定要从合同中删除所选成员吗？"
+      },
+      "notification-prices-save": {
+        "title": "保存更改",
+        "message": "价格已被修改。您想保存更改吗？"
+      },
+      "notification-contract-prices-restore": {
+        "title": "恢复确认",
+        "message": "您确定要将这些产品及其价格恢复到初始状态吗？"
+      },
+      "notification-product-prices-restore": {
+        "title": "恢复确认",
+        "message": "您将要将所选价格行恢复到初始状态"
+      },
+      "notification-attachement-delete": {
+        "title": "删除确认",
+        "message": "您确定要删除所选附件吗？"
+      }
+    },
+    "widgets": {
+      "contract-attachments": {
+        "title": "附件"
+      },
+      "contract-customers": {
+        "title": "客户"
+      },
+      "contract-dynamic-properties": {
+        "title": "动态属性"
+      },
+      "contract-prices": {
+        "title": "价格"
+      }
+    }
+  },
+  "permissions": {
+    "Contract:access": "打开合同菜单",
+    "Contract:create": "创建合同相关数据",
+    "Contract:read": "查看合同相关数据",
+    "Contract:update": "更新合同相关数据",
+    "Contract:delete": "删除合同相关数据"
+  },
+  "settings": {
+    "Contract": {
+      "ContractEnabled": {
+        "title": "启用合同",
+        "description": "合同启用设置"
+      },
+      "ContractPassword": {
+        "title": "合同密码",
+        "description": "合同密码设置"
+      }
+    }
+  }
+}

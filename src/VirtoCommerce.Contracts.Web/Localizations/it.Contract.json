@@ -1,0 +1,200 @@
+{
+  "Contract": {
+    "blades": {
+      "contracts-list": {
+        "title": "Contratti",
+        "labels": {
+          "new-filter": "Aggiungi nuovo filtro",
+          "unnamed-filter": "Filtro senza nome",
+          "name": "Nome",
+          "start-date": "Data di inizio",
+          "end-date": "Data di fine"
+        },
+        "placeholders": {
+          "select-filter": "Seleziona filtro"
+        }
+      },
+      "contract-details": {
+        "title-new": "Crea nuovo contratto",
+        "subtitle": "Modifica contratto",
+        "labels": {
+          "name": "Nome",
+          "description": "Descrizione",
+          "start-date": "Data di inizio",
+          "end-date": "Data di fine",
+          "store": "Negozio",
+          "code": "Codice",
+          "vendor": "Fornitore",
+          "status": "Stato"
+        },
+        "placeholders": {
+          "name": "Inserisci nome",
+          "description": "Inserisci descrizione",
+          "start-date": "Seleziona data di inizio",
+          "end-date": "Seleziona data di fine",
+          "store": "Seleziona negozio",
+          "code": "Lascia vuoto per la generazione automatica del codice",
+          "vendor": "Seleziona fornitore",
+          "status": "Seleziona stato"
+        },
+        "validation": {
+          "code": "Il codice del contratto non può contenere simboli speciali diversi da trattini e trattini bassi"
+        }
+      },
+      "contract-members": {
+        "title": "Clienti",
+        "labels": {
+          "name": "Nome",
+          "type": "Tipo"
+        }
+      },
+      "contract-members-select": {
+        "title": "Contatti e organizzazioni",
+        "labels": {
+          "name": "Nome",
+          "type": "Tipo"
+        }
+      },
+      "contract-prices": {
+        "title": "Prezzi del contratto",
+        "subtitle": "Prezzi del contratto",
+        "select-products-title": "Seleziona articoli",
+        "labels": {
+          "product-image": "Immagine",
+          "product-name": "Nome articolo",
+          "product-code": "Codice articolo",
+          "price-count": "Conteggio prezzi",
+          "price-range": "Intervallo di prezzo",
+          "state": "Stato",
+          "state-new": "Nuovo",
+          "state-updated": "Aggiornato",
+          "state-modified": "Modificato",
+          "no-data": "Non ci sono ancora listini prezzi"
+        },
+        "commands": {
+          "link-pricelist": "Collega listino prezzi",
+          "restore": "Ripristina"
+        }
+      },
+      "product-prices": {
+        "labels": {
+          "currency": "Valuta",
+          "list-price": "Prezzo di listino",
+          "sale-price": "Prezzo di vendita",
+          "min-quantity": "Quantità minima",
+          "state": "Stato",
+          "state-new": "Nuovo",
+          "state-updated": "Aggiornato"
+        },
+        "commands": {
+          "restore": "Ripristina"
+        }
+      },
+      "contract-pricrlist-select": {
+        "title": "Listini prezzi disponibili",
+        "labels": {
+          "name": "Nome",
+          "currency": "Valuta"
+        }
+      },
+      "contract-attachments-list": {
+        "title": "Allegati",
+        "labels": {
+          "name": "Nome",
+          "copy-url-prompt": "Copia negli appunti: Ctrl+C, Invio"
+        }
+      },
+      "contract-attachment-add": {
+        "title": "Carica allegato",
+        "labels": {
+          "name": "Nome",
+          "type": "Tipo",
+          "actions": "Azioni",
+          "select": "Seleziona file",
+          "drag-drop-comment": "Trascina e rilascia i tuoi file qui",
+          "progress": "Avanzamento"
+        }
+      },
+      "filter-detail": {
+        "subtitle": "Modifica filtro",
+        "new-title": "Nuovo filtro",
+        "new-subtitle": "Crea un nuovo filtro",
+        "labels": {
+          "name": "Nome del filtro",
+          "name_": "Assegna un nome a questo filtro",
+          "criteria": "Criteri del filtro",
+          "from": "Iniziato da",
+          "to": "Valido fino a",
+          "status": "Stati",
+          "vendor": "Fornitore",
+          "store": "Negozio"
+        },
+        "placeholders": {
+          "all": "Non specificato",
+          "status": "Stato",
+          "vendor": "Seleziona fornitore",
+          "store": "Negozio"
+        }
+      }
+    },
+    "dialogs": {
+      "notification-contract-delete": {
+        "title": "Elimina contratto",
+        "message": "Sei sicuro di voler eliminare i contratti selezionati?"
+      },
+      "notification-contract-member-delete": {
+        "title": "Elimina membro",
+        "message": "Sei sicuro di voler eliminare i membri selezionati dal contratto?"
+      },
+      "notification-prices-save": {
+        "title": "Salva modifiche",
+        "message": "I prezzi sono stati modificati. Vuoi salvare le modifiche?"
+      },
+      "notification-contract-prices-restore": {
+        "title": "Conferma ripristino",
+        "message": "Sei sicuro di voler ripristinare questi prodotti con il prezzo allo stato iniziale?"
+      },
+      "notification-product-prices-restore": {
+        "title": "Conferma ripristino",
+        "message": "Stai per ripristinare la riga di prezzo selezionata allo stato iniziale"
+      },
+      "notification-attachement-delete": {
+        "title": "Conferma eliminazione",
+        "message": "Sei sicuro di voler eliminare gli allegati selezionati?"
+      }
+    },
+    "widgets": {
+      "contract-attachments": {
+        "title": "Allegati"
+      },
+      "contract-customers": {
+        "title": "Clienti"
+      },
+      "contract-dynamic-properties": {
+        "title": "Proprietà dinamiche"
+      },
+      "contract-prices": {
+        "title": "Prezzi"
+      }
+    }
+  },
+  "permissions": {
+    "Contract:access": "Apri menu contratti",
+    "Contract:create": "Crea dati relativi al contratto",
+    "Contract:read": "Visualizza dati relativi al contratto",
+    "Contract:update": "Aggiorna dati relativi al contratto",
+    "Contract:delete": "Elimina dati relativi al contratto"
+  },
+  "settings": {
+    "Contract": {
+      "ContractEnabled": {
+        "title": "Contratto abilitato",
+        "description": "Impostazione di abilitazione del contratto"
+      },
+      "ContractPassword": {
+        "title": "Password del contratto",
+        "description": "Impostazione della password del contratto"
+      }
+    }
+  }
+}
