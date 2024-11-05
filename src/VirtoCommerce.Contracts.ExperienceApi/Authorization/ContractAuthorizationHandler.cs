@@ -1,4 +1,3 @@
-using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using VirtoCommerce.Contracts.Core.Models;
@@ -116,10 +115,7 @@ namespace VirtoCommerce.Contracts.ExperienceApi.Authorization
 
         protected virtual string GetUserId(AuthorizationHandlerContext context)
         {
-            return
-                context.User.FindFirstValue(ClaimTypes.NameIdentifier) ??
-                context.User.FindFirstValue("name") ??
-                AnonymousUser.UserName;
+            return context.User.GetUserId() ?? AnonymousUser.UserName;
         }
     }
 }
