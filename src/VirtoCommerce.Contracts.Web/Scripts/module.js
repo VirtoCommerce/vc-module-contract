@@ -33,7 +33,7 @@ angular.module(moduleName, [])
             var menuItem = {
                 path: 'browse/Contracts',
                 icon: 'fas fa-file-contract',
-                title: 'Contracts',
+                title: 'Contract.blades.contracts-list.title',
                 priority: 100,
                 action: function () { $state.go('workspace.ContractState'); },
                 permission: 'Contract:access',
