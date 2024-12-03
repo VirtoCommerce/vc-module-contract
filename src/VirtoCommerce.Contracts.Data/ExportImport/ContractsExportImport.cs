@@ -39,7 +39,6 @@ public class ContractsExportImport(
             var searchCriteria = AbstractTypeFactory<ContractSearchCriteria>.TryCreateInstance();
             searchCriteria.Take = take;
             searchCriteria.Skip = skip;
-            // searchCriteria.ResponseGroup = ContractResponseGroup.Full.ToString();
             var searchResult = await contractSearchService.SearchAsync(searchCriteria);
             return (GenericSearchResult<Contract>)searchResult;
         }, (processedCount, totalCount) =>
