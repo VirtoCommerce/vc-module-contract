@@ -180,7 +180,7 @@
   },
   "module": {
     "VirtoCommerce.Contracts":  {
-      "Description": "Export und Import von Verträgen"
+      "description": "Export und Import von Verträgen"
     }
   },
   "permissions": {

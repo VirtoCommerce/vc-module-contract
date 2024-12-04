@@ -179,8 +179,8 @@
     }
   },
   "module": {
-    "VirtoCommerce.Contracts":  {
-      "Description": "Export or import contracts"
+    "VirtoCommerce.Contracts": {
+      "description": "Export or import contracts"
     }
   },
   "permissions": {

@@ -180,7 +180,7 @@
   },
   "module": {
     "VirtoCommerce.Contracts":  {
-      "Description": "合同的导出和导入"
+      "description": "合同的导出和导入"
     }
   },
   "permissions": {
