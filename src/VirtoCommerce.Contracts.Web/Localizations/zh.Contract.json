@@ -178,6 +178,11 @@
       }
     }
   },
+  "module": {
+    "VirtoCommerce.Contracts":  {
+      "Description": "合同的导出和导入"
+    }
+  },
   "permissions": {
     "Contract:access": "打开合同菜单",
     "Contract:create": "创建合同相关数据",

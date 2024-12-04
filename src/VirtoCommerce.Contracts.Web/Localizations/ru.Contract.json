@@ -178,6 +178,11 @@
       }
     }
   },
+  "module": {
+    "VirtoCommerce.Contracts":  {
+      "Description": "Экспорт и импорт контрактов"
+    }
+  },
   "permissions": {
     "Contract:access": "Открывать меню контрактов",
     "Contract:create": "Создавать данные, связанные с контрактом",

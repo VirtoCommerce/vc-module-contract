@@ -178,6 +178,11 @@
       }
     }
   },
+  "module": {
+    "VirtoCommerce.Contracts":  {
+      "Description": "契約のエクスポートとインポート"
+    }
+  },
   "permissions": {
     "Contract:access": "契約メニューを開く",
     "Contract:create": "契約関連データを作成",

@@ -178,6 +178,11 @@
       }
     }
   },
+  "module": {
+    "VirtoCommerce.Contracts":  {
+      "Description": "Esportazione e importazione di contratti"
+    }
+  },
   "permissions": {
     "Contract:access": "Apri menu contratti",
     "Contract:create": "Crea dati relativi al contratto",
