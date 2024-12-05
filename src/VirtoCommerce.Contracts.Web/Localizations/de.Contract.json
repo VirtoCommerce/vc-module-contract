@@ -178,6 +178,11 @@
       }
     }
   },
+  "module": {
+    "VirtoCommerce.Contracts":  {
+      "description": "Export und Import von Verträgen"
+    }
+  },
   "permissions": {
     "Contract:access": "Vertragsmenü öffnen",
     "Contract:create": "Vertragsbezogene Daten erstellen",

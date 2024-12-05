@@ -1,4 +1,6 @@
 using System;
+using System.IO;
+using System.Threading.Tasks;
 using FluentValidation;
 using GraphQL.Server;
 using MediatR;
@@ -11,6 +13,7 @@ using VirtoCommerce.Contracts.Core;
 using VirtoCommerce.Contracts.Core.Events;
 using VirtoCommerce.Contracts.Core.Models;
 using VirtoCommerce.Contracts.Core.Services;
+using VirtoCommerce.Contracts.Data.ExportImport;
 using VirtoCommerce.Contracts.Data.Handlers;
 using VirtoCommerce.Contracts.Data.MySql;
 using VirtoCommerce.Contracts.Data.PostgreSql;
@@ -20,18 +23,22 @@ using VirtoCommerce.Contracts.Data.SqlServer;
 using VirtoCommerce.Contracts.Data.Validation;
 using VirtoCommerce.Contracts.ExperienceApi;
 using VirtoCommerce.Contracts.ExperienceApi.Authorization;
-using VirtoCommerce.Xapi.Core.Extensions;
-using VirtoCommerce.Xapi.Core.Infrastructure;
+using VirtoCommerce.Platform.Core.Common;
 using VirtoCommerce.Platform.Core.DynamicProperties;
 using VirtoCommerce.Platform.Core.Events;
+using VirtoCommerce.Platform.Core.ExportImport;
 using VirtoCommerce.Platform.Core.Modularity;
 using VirtoCommerce.Platform.Core.Security;
 using VirtoCommerce.Platform.Core.Settings;
+using VirtoCommerce.Xapi.Core.Extensions;
+using VirtoCommerce.Xapi.Core.Infrastructure;
 
 namespace VirtoCommerce.Contracts.Web
 {
-    public class Module : IModule, IHasConfiguration
+    public class Module : IModule, IHasConfiguration, IExportSupport, IImportSupport
     {
+        private IApplicationBuilder _appBuilder;
+
         public ManifestModuleInfo ModuleInfo { get; set; }
         public IConfiguration Configuration { get; set; }
 
@@ -75,6 +82,7 @@ namespace VirtoCommerce.Contracts.Web
             serviceCollection.AddTransient<IContractPricesService, ContractPricesService>();
 
             serviceCollection.AddTransient<DeleteContractHandler>();
+            serviceCollection.AddTransient<ContractsExportImport>();
 
             // Validation services
             serviceCollection.AddTransient<AbstractValidator<Contract>, ContractValidator>();
@@ -91,6 +99,7 @@ namespace VirtoCommerce.Contracts.Web
 
         public void PostInitialize(IApplicationBuilder appBuilder)
         {
+            _appBuilder = appBuilder;
             var serviceProvider = appBuilder.ApplicationServices;
 
             // Register settings
@@ -116,6 +125,20 @@ namespace VirtoCommerce.Contracts.Web
         public void Uninstall()
         {
             // Method intentionally left empty
+        }
+
+        public async Task ExportAsync(Stream outStream, ExportImportOptions options, Action<ExportImportProgressInfo> progressCallback,
+            ICancellationToken cancellationToken)
+        {
+            await _appBuilder.ApplicationServices.GetRequiredService<ContractsExportImport>().DoExportAsync(outStream, progressCallback, cancellationToken);
+
+        }
+
+        public async Task ImportAsync(Stream inputStream, ExportImportOptions options, Action<ExportImportProgressInfo> progressCallback,
+            ICancellationToken cancellationToken)
+        {
+            await _appBuilder.ApplicationServices.GetRequiredService<ContractsExportImport>().DoImportAsync(inputStream, progressCallback, cancellationToken);
+
         }
     }
 }
