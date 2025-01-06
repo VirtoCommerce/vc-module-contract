@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using FluentValidation;
 using GraphQL;
 using GraphQL.MicrosoftDI;
-using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
@@ -90,11 +89,7 @@ namespace VirtoCommerce.Contracts.Web
             // GraphQL
             _ = new GraphQLBuilder(serviceCollection, builder =>
             {
-                var assemblyMarker = typeof(AssemblyMarker);
-                builder.AddGraphTypes(assemblyMarker.Assembly);
-                serviceCollection.AddMediatR(assemblyMarker);
-                serviceCollection.AddAutoMapper(assemblyMarker);
-                serviceCollection.AddSchemaBuilders(assemblyMarker);
+                builder.AddSchema(serviceCollection, typeof(AssemblyMarker));
             });
 
             serviceCollection.AddSingleton<IAuthorizationHandler, ContractAuthorizationHandler>();
