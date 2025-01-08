@@ -21,11 +21,11 @@ namespace VirtoCommerce.Contracts.ExperienceApi.Schemas
             Field(x => x.StartDate, nullable: true);
             Field(x => x.EndDate, nullable: true);
 
-            ExtendableField<ListGraphType<DynamicPropertyValueType>>(
+            ExtendableFieldAsync<ListGraphType<DynamicPropertyValueType>>(
                 nameof(Contract.DynamicProperties),
                 "Contract dynamic property values",
                 QueryArgumentPresets.GetArgumentForDynamicProperties(),
-                context => dynamicPropertyResolverService.LoadDynamicPropertyValues(context.Source, context.GetArgumentOrValue<string>("cultureName")));
+                async context => await dynamicPropertyResolverService.LoadDynamicPropertyValues(context.Source, context.GetArgumentOrValue<string>("cultureName")));
         }
     }
 }
