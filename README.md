@@ -28,11 +28,11 @@ The Contract module allows you to leverage both the Pricing and Customers module
 
 ## References
 
-- Deployment: https://virtocommerce.com/docs/latest/developer-guide/deploy-module-from-source-code/
-- Installation: https://www.virtocommerce.com/docs/latest/user-guide/modules/
-- Home: https://virtocommerce.com
-- Community: https://www.virtocommerce.org
-- Download latest release: https://github.com/VirtoCommerce/vc-module-contract/releases/latest
+* [Deployment](https://docs.virtocommerce.org/platform/developer-guide/Tutorials-and-How-tos/Tutorials/deploy-module-from-source-code/)
+* [Installation](https://docs.virtocommerce.org/platform/user-guide/modules-installation/)
+* [Home](https://virtocommerce.com)
+* [Community](https://www.virtocommerce.org)
+* [Download latest release](https://github.com/VirtoCommerce/vc-module-contract/releases/latest)
 
 ## License
 
