@@ -1,21 +1,19 @@
 # Contract Module
 
-## Overview
+The Contract module enables simple personalization for customers.
 
-The *Contract* module enables simple personalization for customers.
+The goal of this module is to provide special prices for some Virto Commerce customers, such as non-tech, not high skilled business users.
 
-The goal of this module is providing special prices for some Virto Commerce customers, such as non-tech, not high skilled business users.
+The Contract module allows you to leverage both the Pricing and Customers modules in a single place.
 
-The *Contract* module allows you to leverage both the *Pricing* and *Customers* modules in a single place.
+## Key features
 
-## Key Features
+* Support for multiple contracts for a single user
+* Maintaining the **one contract to one store** relation
+* Support for contracts based on the user group feature
+* Attachments
 
-1. Support for multiple contracts for a single user
-2. Maintaining the *one contract to one store* relation
-3. Support for contracts based on the user group feature
-4. Attachments
-
-## User Scenarios
+## User scenarios
 
 - Creating and managing contracts with customers
 - Providing and managing special prices for specific products for specific customers
@@ -23,21 +21,18 @@ The *Contract* module allows you to leverage both the *Pricing* and *Customers* 
 
 ## Documentation
 
-- [Contract Module Documentation](/docs/index.md)
+- [Contract module documentation](https://docs.virtocommerce.org/platform/user-guide/contracts/overview/)
+- [REST API](https://virtostart-demo-admin.govirto.com/docs/index.html?urls.primaryName=VirtoCommerce.Contracts)
 - [GitHub](https://github.com/VirtoCommerce/vc-module-contract)
 
 
-## Web API
-
-Web API documentation for each module is built automatically and can be accessed via Swagger UI.
-
 ## References
 
-- Deployment: https://virtocommerce.com/docs/latest/developer-guide/deploy-module-from-source-code/
-- Installation: https://www.virtocommerce.com/docs/latest/user-guide/modules/
-- Home: https://virtocommerce.com
-- Community: https://www.virtocommerce.org
-- Download Latest Release: https://github.com/VirtoCommerce/vc-module-contract/releases
+* [Deployment](https://docs.virtocommerce.org/platform/developer-guide/Tutorials-and-How-tos/Tutorials/deploy-module-from-source-code/)
+* [Installation](https://docs.virtocommerce.org/platform/user-guide/modules-installation/)
+* [Home](https://virtocommerce.com)
+* [Community](https://www.virtocommerce.org)
+* [Download latest release](https://github.com/VirtoCommerce/vc-module-contract/releases/latest)
 
 ## License
 
