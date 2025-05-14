@@ -1,7 +1,6 @@
 using GraphQL.Types;
 using VirtoCommerce.Contracts.Core.Models;
 using VirtoCommerce.Xapi.Core.Extensions;
-using VirtoCommerce.Xapi.Core.Helpers;
 using VirtoCommerce.Xapi.Core.Schemas;
 using VirtoCommerce.Xapi.Core.Services;
 
@@ -24,7 +23,7 @@ namespace VirtoCommerce.Contracts.ExperienceApi.Schemas
             ExtendableFieldAsync<ListGraphType<DynamicPropertyValueType>>(
                 nameof(Contract.DynamicProperties),
                 "Contract dynamic property values",
-                QueryArgumentPresets.GetArgumentForDynamicProperties(),
+                null,
                 async context => await dynamicPropertyResolverService.LoadDynamicPropertyValues(context.Source, context.GetArgumentOrValue<string>("cultureName")));
         }
     }
