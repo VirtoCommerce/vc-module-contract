@@ -24,12 +24,15 @@ public class UpdateContractHandler(IPricelistAssignmentService pricelistAssignme
         }
     }
 
-    private static bool IsPriceListShouldBeUpdated(GenericChangedEntry<Contract> entry)
+    private bool IsPriceListShouldBeUpdated(GenericChangedEntry<Contract> entry)
     {
+        var newEntry = entry.NewEntry;
+        var oldEntry = entry.OldEntry;
+
         return entry.EntryState == EntryState.Modified &&
-               (entry.NewEntry.StartDate != entry.OldEntry.StartDate || entry.NewEntry.EndDate != entry.OldEntry.EndDate) &&
-               !string.IsNullOrWhiteSpace(entry.NewEntry.BasePricelistAssignmentId) &&
-               !string.IsNullOrWhiteSpace(entry.NewEntry.PriorityPricelistAssignmentId);
+               (newEntry.StartDate != oldEntry.StartDate || newEntry.EndDate != oldEntry.EndDate) &&
+               newEntry.BasePricelistAssignmentId.IsNullOrEmpty() &&
+               newEntry.PriorityPricelistAssignmentId.IsNullOrEmpty();
     }
 
     private async Task UpdatePricelistAssignmentDates(string pricelistAssignmentId, DateTime? startDate, DateTime? endDate)
