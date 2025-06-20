@@ -81,6 +81,7 @@ namespace VirtoCommerce.Contracts.Web
             serviceCollection.AddTransient<IContractPricesService, ContractPricesService>();
 
             serviceCollection.AddTransient<DeleteContractHandler>();
+            serviceCollection.AddTransient<UpdateContractHandler>();
             serviceCollection.AddTransient<ContractsExportImport>();
 
             // Validation services
@@ -118,6 +119,7 @@ namespace VirtoCommerce.Contracts.Web
             dbContext.Database.Migrate();
 
             appBuilder.RegisterEventHandler<ContractChangedEvent, DeleteContractHandler>();
+            appBuilder.RegisterEventHandler<ContractChangedEvent, UpdateContractHandler>();
         }
 
         public void Uninstall()
