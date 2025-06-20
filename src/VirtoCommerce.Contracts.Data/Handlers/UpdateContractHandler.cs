@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using System.Threading.Tasks;
 using VirtoCommerce.Contracts.Core.Events;
@@ -10,6 +9,8 @@ using VirtoCommerce.PricingModule.Core.Services;
 namespace VirtoCommerce.Contracts.Data.Handlers;
 public class UpdateContractHandler(IPricelistAssignmentService pricelistAssignmentService) : IEventHandler<ContractChangedEvent>
 {
+    private const int ContractsMaxBatchSize = 25;
+
     public async Task Handle(ContractChangedEvent message)
     {
         var contracts = message.ChangedEntries
@@ -17,10 +18,34 @@ public class UpdateContractHandler(IPricelistAssignmentService pricelistAssignme
                 .Select(x => x.NewEntry)
                 .ToList();
 
-        foreach (var contract in contracts)
+        var totalCount = contracts.Count;
+        var skip = 0;
+
+        while (totalCount > skip)
         {
-            await UpdatePricelistAssignmentDates(contract.BasePricelistAssignmentId, contract.StartDate, contract.EndDate);
-            await UpdatePricelistAssignmentDates(contract.PriorityPricelistAssignmentId, contract.StartDate, contract.EndDate);
+            var contractsBatch = contracts.Skip(skip).Take(ContractsMaxBatchSize).ToList();
+
+            var priceListAssignmentIds = contractsBatch
+                .SelectMany(x => new[] { x.BasePricelistAssignmentId, x.PriorityPricelistAssignmentId })
+                .Where(x => !x.IsNullOrEmpty())
+                .Distinct()
+                .ToList();
+
+            var priceListAssignments = await pricelistAssignmentService.GetAsync(priceListAssignmentIds);
+
+            foreach (var priceListAssignment in priceListAssignments)
+            {
+                var contract = contractsBatch.FirstOrDefault(x => x.BasePricelistAssignmentId == priceListAssignment.Id || x.PriorityPricelistAssignmentId == priceListAssignment.Id);
+
+                if (contract != null)
+                {
+                    priceListAssignment.StartDate = contract.StartDate;
+                    priceListAssignment.EndDate = contract.EndDate;
+                }
+            }
+
+            await pricelistAssignmentService.SaveChangesAsync(priceListAssignments);
+            skip += ContractsMaxBatchSize;
         }
     }
 
@@ -31,19 +56,7 @@ public class UpdateContractHandler(IPricelistAssignmentService pricelistAssignme
 
         return entry.EntryState == EntryState.Modified &&
                (newEntry.StartDate != oldEntry.StartDate || newEntry.EndDate != oldEntry.EndDate) &&
-               newEntry.BasePricelistAssignmentId.IsNullOrEmpty() &&
-               newEntry.PriorityPricelistAssignmentId.IsNullOrEmpty();
-    }
-
-    private async Task UpdatePricelistAssignmentDates(string pricelistAssignmentId, DateTime? startDate, DateTime? endDate)
-    {
-        var priceListAssignment = await pricelistAssignmentService.GetByIdAsync(pricelistAssignmentId);
-
-        if (priceListAssignment != null)
-        {
-            priceListAssignment.StartDate = startDate;
-            priceListAssignment.EndDate = endDate;
-            await pricelistAssignmentService.SaveChangesAsync([priceListAssignment]);
-        }
+               !newEntry.BasePricelistAssignmentId.IsNullOrEmpty() &&
+               !newEntry.PriorityPricelistAssignmentId.IsNullOrEmpty();
     }
 }
