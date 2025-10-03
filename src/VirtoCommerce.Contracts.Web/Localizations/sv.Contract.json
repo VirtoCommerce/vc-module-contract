@@ -1,0 +1,205 @@
+{
+  "Contract": {
+    "blades": {
+      "contracts-list": {
+        "title": "Kontrakt",
+        "labels": {
+          "new-filter": "Lägg till nytt filter",
+          "unnamed-filter": "Namnlöst filter",
+          "name": "Namn",
+          "start-date": "Startdatum",
+          "end-date": "Slutdatum"
+        },
+        "placeholders": {
+          "select-filter": "Välj filter"
+        }
+      },
+      "contract-details": {
+        "title-new": "Skapa nytt kontrakt",
+        "subtitle": "Redigera kontrakt",
+        "labels": {
+          "name": "Namn",
+          "description": "Beskrivning",
+          "start-date": "Startdatum",
+          "end-date": "Slutdatum",
+          "store": "Butik",
+          "code": "Kod",
+          "vendor": "Leverantör",
+          "status": "Status"
+        },
+        "placeholders": {
+          "name": "Ange namn",
+          "description": "Ange beskrivning",
+          "start-date": "Välj startdatum",
+          "end-date": "Välj slutdatum",
+          "store": "Välj butik",
+          "code": "Lämna tomt för automatisk kodgenerering",
+          "vendor": "Välj leverantör",
+          "status": "Välj status"
+        },
+        "validation": {
+          "code": "Kontraktkoden får inte innehålla specialtecken annat än bindestreck och understreck"
+        }
+      },
+      "contract-members": {
+        "title": "Kunder",
+        "labels": {
+          "name": "Namn",
+          "type": "Typ"
+        }
+      },
+      "contract-members-select": {
+        "title": "Kontakter och organisationer",
+        "labels": {
+          "name": "Namn",
+          "type": "Typ"
+        }
+      },
+      "contract-prices": {
+        "title": "Kontraktspriser",
+        "subtitle": "Kontraktspriser",
+        "select-products-title": "Välj artiklar",
+        "labels": {
+          "product-image": "Bild",
+          "product-name": "Artikelnamn",
+          "product-code": "Artikelkod",
+          "price-count": "Antal priser",
+          "price-range": "Prisintervall",
+          "state": "Status",
+          "state-new": "Ny",
+          "state-updated": "Uppdaterad",
+          "state-modified": "Ändrad",
+          "no-data": "Det finns ännu inga prislistor"
+        },
+        "commands": {
+          "link-pricelist": "Länka prislista",
+          "restore": "Återställ"
+        }
+      },
+      "product-prices": {
+        "labels": {
+          "currency": "Valuta",
+          "list-price": "Listpris",
+          "sale-price": "Försäljningspris",
+          "min-quantity": "Minsta kvantitet",
+          "state": "Status",
+          "state-new": "Ny",
+          "state-updated": "Uppdaterad"
+        },
+        "commands": {
+          "restore": "Återställ"
+        }
+      },
+      "contract-pricrlist-select": {
+        "title": "Tillgängliga prislistor",
+        "labels": {
+          "name": "Namn",
+          "currency": "Valuta"
+        }
+      },
+      "contract-attachments-list": {
+        "title": "Bilagor",
+        "labels": {
+          "name": "Namn",
+          "copy-url-prompt": "Kopiera till urklipp: Ctrl+C, Enter"
+        }
+      },
+      "contract-attachment-add": {
+        "title": "Ladda upp bilaga",
+        "labels": {
+          "name": "Namn",
+          "type": "Typ",
+          "actions": "Åtgärder",
+          "select": "Välj filer",
+          "drag-drop-comment": "Dra och släpp dina filer här",
+          "progress": "Förlopp"
+        }
+      },
+      "filter-detail": {
+        "subtitle": "Redigera filter",
+        "new-title": "Nytt filter",
+        "new-subtitle": "Skapa nytt filter",
+        "labels": {
+          "name": "Filternamn",
+          "name_": "Namnge detta filter",
+          "criteria": "Filterkriterier",
+          "from": "Startat från",
+          "to": "Giltigt till",
+          "status": "Statusar",
+          "vendor": "Leverantör",
+          "store": "Butik"
+        },
+        "placeholders": {
+          "all": "Ej specificerat",
+          "status": "Status",
+          "vendor": "Välj leverantör",
+          "store": "Butik"
+        }
+      }
+    },
+    "dialogs": {
+      "notification-contract-delete": {
+        "title": "Radera kontrakt",
+        "message": "Är du säker på att du vill radera de valda kontrakten?"
+      },
+      "notification-contract-member-delete": {
+        "title": "Radera medlem",
+        "message": "Är du säker på att du vill radera de valda medlemmarna från kontraktet?"
+      },
+      "notification-prices-save": {
+        "title": "Spara ändringar",
+        "message": "Priserna har ändrats. Vill du spara ändringarna?"
+      },
+      "notification-contract-prices-restore": {
+        "title": "Bekräftelse av återställning",
+        "message": "Är du säker på att du vill återställa dessa produkter med priser till det ursprungliga tillståndet?"
+      },
+      "notification-product-prices-restore": {
+        "title": "Bekräftelse av återställning",
+        "message": "Du är på väg att återställa den valda prisraden till det ursprungliga tillståndet"
+      },
+      "notification-attachement-delete": {
+        "title": "Bekräftelse av radering",
+        "message": "Är du säker på att du vill radera de valda bilagorna?"
+      }
+    },
+    "widgets": {
+      "contract-attachments": {
+        "title": "Bilagor"
+      },
+      "contract-customers": {
+        "title": "Kunder"
+      },
+      "contract-dynamic-properties": {
+        "title": "Dynamiska egenskaper"
+      },
+      "contract-prices": {
+        "title": "Priser"
+      }
+    }
+  },
+  "module": {
+    "VirtoCommerce.Contracts": {
+      "description": "Exportera eller importera kontrakt"
+    }
+  },
+  "permissions": {
+    "Contract:access": "Öppna kontraktsmenyn",
+    "Contract:create": "Skapa kontraktsrelaterade data",
+    "Contract:read": "Visa kontraktsrelaterade data",
+    "Contract:update": "Uppdatera kontraktsrelaterade data",
+    "Contract:delete": "Radera kontraktsrelaterade data"
+  },
+  "settings": {
+    "Contract": {
+      "ContractEnabled": {
+        "title": "Kontrakt aktiverat",
+        "description": "Inställning för aktivering av kontrakt"
+      },
+      "ContractPassword": {
+        "title": "Kontraktlösenord",
+        "description": "Inställning för kontraktlösenord"
+      }
+    }
+  }
+}

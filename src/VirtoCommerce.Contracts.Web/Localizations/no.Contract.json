@@ -1,0 +1,205 @@
+{
+  "Contract": {
+    "blades": {
+      "contracts-list": {
+        "title": "Kontrakter",
+        "labels": {
+          "new-filter": "Legg til nytt filter",
+          "unnamed-filter": "Navnløst filter",
+          "name": "Navn",
+          "start-date": "Startdato",
+          "end-date": "Sluttdato"
+        },
+        "placeholders": {
+          "select-filter": "Velg filter"
+        }
+      },
+      "contract-details": {
+        "title-new": "Opprett ny kontrakt",
+        "subtitle": "Rediger kontrakt",
+        "labels": {
+          "name": "Navn",
+          "description": "Beskrivelse",
+          "start-date": "Startdato",
+          "end-date": "Sluttdato",
+          "store": "Butikk",
+          "code": "Kode",
+          "vendor": "Leverandør",
+          "status": "Status"
+        },
+        "placeholders": {
+          "name": "Skriv inn navn",
+          "description": "Skriv inn beskrivelse",
+          "start-date": "Velg startdato",
+          "end-date": "Velg sluttdato",
+          "store": "Velg butikk",
+          "code": "La stå tomt for automatisk kodegenerering",
+          "vendor": "Velg leverandør",
+          "status": "Velg status"
+        },
+        "validation": {
+          "code": "Kontraktkoden kan ikke inneholde spesialtegn utenom bindestreker og understreker"
+        }
+      },
+      "contract-members": {
+        "title": "Kunder",
+        "labels": {
+          "name": "Navn",
+          "type": "Type"
+        }
+      },
+      "contract-members-select": {
+        "title": "Kontakter og organisasjoner",
+        "labels": {
+          "name": "Navn",
+          "type": "Type"
+        }
+      },
+      "contract-prices": {
+        "title": "Kontraktspriser",
+        "subtitle": "Kontraktspriser",
+        "select-products-title": "Velg elementer",
+        "labels": {
+          "product-image": "Bilde",
+          "product-name": "Varenavn",
+          "product-code": "Varekode",
+          "price-count": "Antall priser",
+          "price-range": "Prisintervall",
+          "state": "Status",
+          "state-new": "Ny",
+          "state-updated": "Oppdatert",
+          "state-modified": "Endret",
+          "no-data": "Det finnes ingen prislisteer ennå"
+        },
+        "commands": {
+          "link-pricelist": "Koble til prisliste",
+          "restore": "Gjenopprett"
+        }
+      },
+      "product-prices": {
+        "labels": {
+          "currency": "Valuta",
+          "list-price": "Listepris",
+          "sale-price": "Salgspris",
+          "min-quantity": "Minimumsantall",
+          "state": "Status",
+          "state-new": "Ny",
+          "state-updated": "Oppdatert"
+        },
+        "commands": {
+          "restore": "Gjenopprett"
+        }
+      },
+      "contract-pricrlist-select": {
+        "title": "Tilgjengelige prislisteer",
+        "labels": {
+          "name": "Navn",
+          "currency": "Valuta"
+        }
+      },
+      "contract-attachments-list": {
+        "title": "Vedlegg",
+        "labels": {
+          "name": "Navn",
+          "copy-url-prompt": "Kopier til utklippstavlen: Ctrl+C, Enter"
+        }
+      },
+      "contract-attachment-add": {
+        "title": "Last opp vedlegg",
+        "labels": {
+          "name": "Navn",
+          "type": "Type",
+          "actions": "Handlinger",
+          "select": "Velg filer",
+          "drag-drop-comment": "Dra og slipp filene dine her",
+          "progress": "Fremdrift"
+        }
+      },
+      "filter-detail": {
+        "subtitle": "Rediger filter",
+        "new-title": "Nytt filter",
+        "new-subtitle": "Opprett nytt filter",
+        "labels": {
+          "name": "Filternavn",
+          "name_": "Navngi dette filteret",
+          "criteria": "Filterkriterier",
+          "from": "Startet fra",
+          "to": "Gyldig til",
+          "status": "Statuser",
+          "vendor": "Leverandør",
+          "store": "Butikk"
+        },
+        "placeholders": {
+          "all": "Ikke spesifisert",
+          "status": "Status",
+          "vendor": "Velg leverandør",
+          "store": "Butikk"
+        }
+      }
+    },
+    "dialogs": {
+      "notification-contract-delete": {
+        "title": "Slett kontrakt",
+        "message": "Er du sikker på at du vil slette de valgte kontraktene?"
+      },
+      "notification-contract-member-delete": {
+        "title": "Slett medlem",
+        "message": "Er du sikker på at du vil slette de valgte medlemmene fra kontrakten?"
+      },
+      "notification-prices-save": {
+        "title": "Lagre endringer",
+        "message": "Prisene har blitt endret. Vil du lagre endringene?"
+      },
+      "notification-contract-prices-restore": {
+        "title": "Bekreftelse på gjenoppretting",
+        "message": "Er du sikker på at du vil gjenopprette disse produktene med priser til den opprinnelige tilstanden?"
+      },
+      "notification-product-prices-restore": {
+        "title": "Bekreftelse på gjenoppretting",
+        "message": "Du er i ferd med å gjenopprette den valgte prislinjen til den opprinnelige tilstanden"
+      },
+      "notification-attachement-delete": {
+        "title": "Bekreftelse på sletting",
+        "message": "Er du sikker på at du vil slette de valgte vedleggene?"
+      }
+    },
+    "widgets": {
+      "contract-attachments": {
+        "title": "Vedlegg"
+      },
+      "contract-customers": {
+        "title": "Kunder"
+      },
+      "contract-dynamic-properties": {
+        "title": "Dynamiske egenskaper"
+      },
+      "contract-prices": {
+        "title": "Priser"
+      }
+    }
+  },
+  "module": {
+    "VirtoCommerce.Contracts": {
+      "description": "Eksporter eller importer kontrakter"
+    }
+  },
+  "permissions": {
+    "Contract:access": "Åpne kontraktsmenyen",
+    "Contract:create": "Opprett kontraktsrelaterte data",
+    "Contract:read": "Vis kontraktsrelaterte data",
+    "Contract:update": "Oppdater kontraktsrelaterte data",
+    "Contract:delete": "Slett kontraktsrelaterte data"
+  },
+  "settings": {
+    "Contract": {
+      "ContractEnabled": {
+        "title": "Kontrakt aktivert",
+        "description": "Innstilling for aktivering av kontrakter"
+      },
+      "ContractPassword": {
+        "title": "Kontraktpassord",
+        "description": "Innstilling for kontrakts-passord"
+      }
+    }
+  }
+}

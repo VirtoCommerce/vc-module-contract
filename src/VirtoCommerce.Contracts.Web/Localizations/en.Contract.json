@@ -49,7 +49,7 @@
         }
       },
       "contract-members-select": {
-        "title": "Contact & organizations",
+        "title": "Contact and organizations",
         "labels": {
           "name": "Name",
           "type": "Type"
@@ -69,10 +69,10 @@
           "state-new": "New",
           "state-updated": "Updated",
           "state-modified": "Modified",
-          "no-data": "There are no pricelists yet"
+          "no-data": "There are no price lists yet"
         },
         "commands": {
-          "link-pricelist": "Link pricelist",
+          "link-pricelist": "Link price list",
           "restore": "Restore"
         }
       },
@@ -91,7 +91,7 @@
         }
       },
       "contract-pricrlist-select": {
-        "title": "Available pricelists",
+        "title": "Available price lists",
         "labels": {
           "name": "Name",
           "currency": "Currency"
@@ -118,7 +118,7 @@
       "filter-detail": {
         "subtitle": "Edit filter",
         "new-title": "New filter",
-        "new-subtitle": "Create a new filter",
+        "new-subtitle": "Create new filter",
         "labels": {
           "name": "Filter name",
           "name_": "Name this filter",
