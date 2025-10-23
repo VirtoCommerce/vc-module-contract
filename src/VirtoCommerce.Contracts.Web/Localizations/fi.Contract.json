@@ -1,0 +1,205 @@
+{
+  "Contract": {
+    "blades": {
+      "contracts-list": {
+        "title": "Sopimukset",
+        "labels": {
+          "new-filter": "Lisää uusi suodatin",
+          "unnamed-filter": "Nimetön suodatin",
+          "name": "Nimi",
+          "start-date": "Alkamispäivä",
+          "end-date": "Päättymispäivä"
+        },
+        "placeholders": {
+          "select-filter": "Valitse suodatin"
+        }
+      },
+      "contract-details": {
+        "title-new": "Luo uusi sopimus",
+        "subtitle": "Muokkaa sopimusta",
+        "labels": {
+          "name": "Nimi",
+          "description": "Kuvaus",
+          "start-date": "Alkamispäivä",
+          "end-date": "Päättymispäivä",
+          "store": "Kauppa",
+          "code": "Koodi",
+          "vendor": "Toimittaja",
+          "status": "Tila"
+        },
+        "placeholders": {
+          "name": "Syötä nimi",
+          "description": "Syötä kuvaus",
+          "start-date": "Valitse alkamispäivä",
+          "end-date": "Valitse päättymispäivä",
+          "store": "Valitse kauppa",
+          "code": "Jätä tyhjäksi automaattista koodin luontia varten",
+          "vendor": "Valitse toimittaja",
+          "status": "Valitse tila"
+        },
+        "validation": {
+          "code": "Sopimuskoodi ei voi sisältää muita erikoismerkkejä kuin viivoja ja alaviivoja"
+        }
+      },
+      "contract-members": {
+        "title": "Asiakkaat",
+        "labels": {
+          "name": "Nimi",
+          "type": "Tyyppi"
+        }
+      },
+      "contract-members-select": {
+        "title": "Yhteystiedot ja organisaatiot",
+        "labels": {
+          "name": "Nimi",
+          "type": "Tyyppi"
+        }
+      },
+      "contract-prices": {
+        "title": "Sopimushinnat",
+        "subtitle": "Sopimushinnat",
+        "select-products-title": "Valitse kohteet",
+        "labels": {
+          "product-image": "Kuva",
+          "product-name": "Tuotteen nimi",
+          "product-code": "Tuotekoodi",
+          "price-count": "Hintojen määrä",
+          "price-range": "Hintaväli",
+          "state": "Tila",
+          "state-new": "Uusi",
+          "state-updated": "Päivitetty",
+          "state-modified": "Muokattu",
+          "no-data": "Hinnastoja ei vielä ole"
+        },
+        "commands": {
+          "link-pricelist": "Linkitä hinnasto",
+          "restore": "Palauta"
+        }
+      },
+      "product-prices": {
+        "labels": {
+          "currency": "Valuutta",
+          "list-price": "Listahinta",
+          "sale-price": "Myyntihinta",
+          "min-quantity": "Vähimmäismäärä",
+          "state": "Tila",
+          "state-new": "Uusi",
+          "state-updated": "Päivitetty"
+        },
+        "commands": {
+          "restore": "Palauta"
+        }
+      },
+      "contract-pricrlist-select": {
+        "title": "Saatavilla olevat hinnastot",
+        "labels": {
+          "name": "Nimi",
+          "currency": "Valuutta"
+        }
+      },
+      "contract-attachments-list": {
+        "title": "Liitteet",
+        "labels": {
+          "name": "Nimi",
+          "copy-url-prompt": "Kopioi leikepöydälle: Ctrl+C, Enter"
+        }
+      },
+      "contract-attachment-add": {
+        "title": "Lataa liite",
+        "labels": {
+          "name": "Nimi",
+          "type": "Tyyppi",
+          "actions": "Toiminnot",
+          "select": "Valitse tiedostot",
+          "drag-drop-comment": "Raahaa ja pudota tiedostosi tähän",
+          "progress": "Edistyminen"
+        }
+      },
+      "filter-detail": {
+        "subtitle": "Muokkaa suodatinta",
+        "new-title": "Uusi suodatin",
+        "new-subtitle": "Luo uusi suodatin",
+        "labels": {
+          "name": "Suodattimen nimi",
+          "name_": "Nimeä tämä suodatin",
+          "criteria": "Suodatinkriteerit",
+          "from": "Alkaen",
+          "to": "Voimassa asti",
+          "status": "Tilat",
+          "vendor": "Toimittaja",
+          "store": "Kauppa"
+        },
+        "placeholders": {
+          "all": "Ei määritelty",
+          "status": "Tila",
+          "vendor": "Valitse toimittaja",
+          "store": "Kauppa"
+        }
+      }
+    },
+    "dialogs": {
+      "notification-contract-delete": {
+        "title": "Poista sopimus",
+        "message": "Oletko varma, että haluat poistaa valitut sopimukset?"
+      },
+      "notification-contract-member-delete": {
+        "title": "Poista jäsen",
+        "message": "Oletko varma, että haluat poistaa valitut jäsenet sopimuksesta?"
+      },
+      "notification-prices-save": {
+        "title": "Tallenna muutokset",
+        "message": "Hintoja on muokattu. Haluatko tallentaa muutokset?"
+      },
+      "notification-contract-prices-restore": {
+        "title": "Palautuksen vahvistus",
+        "message": "Oletko varma, että haluat palauttaa nämä tuotteet hinnoineen alkuperäiseen tilaan?"
+      },
+      "notification-product-prices-restore": {
+        "title": "Palautuksen vahvistus",
+        "message": "Olet palauttamassa valitun hintarivin alkuperäiseen tilaan"
+      },
+      "notification-attachement-delete": {
+        "title": "Poiston vahvistus",
+        "message": "Oletko varma, että haluat poistaa valitut liitteet?"
+      }
+    },
+    "widgets": {
+      "contract-attachments": {
+        "title": "Liitteet"
+      },
+      "contract-customers": {
+        "title": "Asiakkaat"
+      },
+      "contract-dynamic-properties": {
+        "title": "Dynaamiset ominaisuudet"
+      },
+      "contract-prices": {
+        "title": "Hinnat"
+      }
+    }
+  },
+  "module": {
+    "VirtoCommerce.Contracts": {
+      "description": "Vie tai tuo sopimuksia"
+    }
+  },
+  "permissions": {
+    "Contract:access": "Avaa sopimusvalikko",
+    "Contract:create": "Luo sopimukseen liittyviä tietoja",
+    "Contract:read": "Näytä sopimukseen liittyviä tietoja",
+    "Contract:update": "Päivitä sopimukseen liittyviä tietoja",
+    "Contract:delete": "Poista sopimukseen liittyviä tietoja"
+  },
+  "settings": {
+    "Contract": {
+      "ContractEnabled": {
+        "title": "Sopimus käytössä",
+        "description": "Sopimuksen käytössä oleva asetus"
+      },
+      "ContractPassword": {
+        "title": "Sopimuksen salasana",
+        "description": "Sopimuksen salasana-asetus"
+      }
+    }
+  }
+}
