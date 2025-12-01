@@ -4,12 +4,12 @@
   <version>3.906.0</version>
   <version-tag />
 
-  <platformVersion>3.867.0</platformVersion>
+  <platformVersion>3.917.0</platformVersion>
   <dependencies>
-    <dependency id="VirtoCommerce.Customer" version="3.817.0" />
-    <dependency id="VirtoCommerce.Pricing" version="3.809.0" />
-    <dependency id="VirtoCommerce.Store" version="3.809.0" />
-    <dependency id="VirtoCommerce.Xapi" version="3.904.0" />
+    <dependency id="VirtoCommerce.Customer" version="3.846.0" />
+    <dependency id="VirtoCommerce.Pricing" version="3.822.0" />
+    <dependency id="VirtoCommerce.Store" version="3.823.0" />
+    <dependency id="VirtoCommerce.Xapi" version="3.929.0" />
   </dependencies>
 
   <title>Contracts</title>
