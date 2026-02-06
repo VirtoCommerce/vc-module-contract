@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using VirtoCommerce.Platform.Core.Common;
 
 namespace VirtoCommerce.Contracts.Core.Models.Search
@@ -10,7 +11,21 @@ namespace VirtoCommerce.Contracts.Core.Models.Search
 
         public string VendorId { get; set; }
 
-        public string StoreId { get; set; }
+        public string StoreId
+        {
+            get
+            {
+                return StoreIds?.FirstOrDefault();
+            }
+            set
+            {
+                StoreIds = value is null
+                    ? null
+                    : [value];
+            }
+        }
+
+        public IList<string> StoreIds { get; set; }
 
         public IList<string> Codes { get; set; }
 
