@@ -12,6 +12,8 @@ namespace VirtoCommerce.Contracts.Core.Models.Search
 
         public string StoreId { get; set; }
 
+        public IList<string> StoreIds { get; set; }
+
         public IList<string> Codes { get; set; }
 
         public IList<string> Statuses { get; set; }
