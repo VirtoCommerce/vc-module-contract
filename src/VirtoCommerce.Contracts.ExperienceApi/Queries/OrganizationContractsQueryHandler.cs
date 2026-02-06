@@ -2,8 +2,8 @@ using VirtoCommerce.Contracts.Core.Models.Search;
 using VirtoCommerce.Contracts.Core.Services;
 using VirtoCommerce.CustomerModule.Core.Model;
 using VirtoCommerce.CustomerModule.Core.Services;
-using VirtoCommerce.Xapi.Core.Infrastructure;
 using VirtoCommerce.Platform.Core.Common;
+using VirtoCommerce.Xapi.Core.Infrastructure;
 
 namespace VirtoCommerce.Contracts.ExperienceApi.Queries
 {
@@ -38,7 +38,7 @@ namespace VirtoCommerce.Contracts.ExperienceApi.Queries
         protected virtual ContractSearchCriteria GetSearchCriteria(OrganizationContractsQuery request)
         {
             var criteria = request.GetSearchCriteria<ContractSearchCriteria>();
-            criteria.StoreId = request.StoreId;
+            criteria.StoreIds = [request.StoreId];
             criteria.VendorId = request.VendorId;
             criteria.Statuses = request.Statuses;
             criteria.ActiveStartDate = request.StartDate;

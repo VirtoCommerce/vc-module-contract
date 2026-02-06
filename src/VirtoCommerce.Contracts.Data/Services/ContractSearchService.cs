@@ -54,11 +54,6 @@ namespace VirtoCommerce.Contracts.Data.Services
                 query = query.Where(x => x.VendorId == criteria.VendorId);
             }
 
-            if (!string.IsNullOrEmpty(criteria.StoreId))
-            {
-                query = query.Where(x => x.StoreId == criteria.StoreId);
-            }
-
             if (!criteria.StoreIds.IsNullOrEmpty())
             {
                 query = query.Where(x => criteria.StoreIds.Contains(x.StoreId));
