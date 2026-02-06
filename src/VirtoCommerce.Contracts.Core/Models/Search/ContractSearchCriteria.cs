@@ -19,7 +19,14 @@ namespace VirtoCommerce.Contracts.Core.Models.Search
             }
             set
             {
-                StoreIds = [value];
+                if (value == null)
+                {
+                    StoreIds = null;
+                }
+                else
+                {
+                    StoreIds = [value];
+                }
             }
         }
 
