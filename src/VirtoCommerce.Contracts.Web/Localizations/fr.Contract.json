@@ -199,6 +199,10 @@
       "ContractPassword": {
         "title": "Mot de passe du contrat",
         "description": "Paramètre du mot de passe du contrat"
+      },
+      "Status": {
+        "title": "Statuts de contrat",
+        "description": "Dictionnaire des statuts de contrat disponibles"
       }
     }
   }

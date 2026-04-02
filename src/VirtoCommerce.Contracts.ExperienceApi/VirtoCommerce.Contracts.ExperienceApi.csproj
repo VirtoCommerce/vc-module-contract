@@ -13,4 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\VirtoCommerce.Contracts.Core\VirtoCommerce.Contracts.Core.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <NuGetAuditSuppress Include="https://github.com/advisories/GHSA-rvv3-g6hj-g44x" />
+  </ItemGroup>
 </Project>
