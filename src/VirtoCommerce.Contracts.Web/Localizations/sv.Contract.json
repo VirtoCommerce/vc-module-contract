@@ -199,6 +199,10 @@
       "ContractPassword": {
         "title": "Kontraktlösenord",
         "description": "Inställning för kontraktlösenord"
+      },
+      "Status": {
+        "title": "Kontraktsstatus",
+        "description": "Ordlista med tillgängliga kontraktsstatus"
       }
     }
   }

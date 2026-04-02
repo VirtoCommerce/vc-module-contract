@@ -199,6 +199,10 @@
       "ContractPassword": {
         "title": "Sopimuksen salasana",
         "description": "Sopimuksen salasana-asetus"
+      },
+      "Status": {
+        "title": "Sopimustilat",
+        "description": "Hakemisto käytettävissä olevista sopimustiloista"
       }
     }
   }
