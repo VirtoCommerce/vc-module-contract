@@ -199,6 +199,10 @@
       "ContractPassword": {
         "title": "契約パスワード",
         "description": "契約パスワード設定"
+      },
+      "Status": {
+        "title": "契約ステータス",
+        "description": "利用可能な契約ステータスの辞書"
       }
     }
   }
