@@ -5,9 +5,12 @@
   </PropertyGroup>
   <ItemGroup>
     
-    <PackageReference Include="VirtoCommerce.Xapi.Core" Version="3.1000.0" />
+    <PackageReference Include="VirtoCommerce.Xapi.Core" Version="3.1001.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\VirtoCommerce.Contracts.Core\VirtoCommerce.Contracts.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <NuGetAuditSuppress Include="https://github.com/advisories/GHSA-rvv3-g6hj-g44x" />
   </ItemGroup>
 </Project>

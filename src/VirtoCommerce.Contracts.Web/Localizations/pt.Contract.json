@@ -199,6 +199,10 @@
       "ContractPassword": {
         "title": "Senha do contrato",
         "description": "Configuração de senha do contrato"
+      },
+      "Status": {
+        "title": "Status do contrato",
+        "description": "Dicionário de status de contrato disponíveis"
       }
     }
   }

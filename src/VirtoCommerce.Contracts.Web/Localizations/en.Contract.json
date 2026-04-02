@@ -199,6 +199,10 @@
       "ContractPassword": {
         "title": "Contract password",
         "description": "Contract password setting"
+      },
+      "Status": {
+        "title": "Contract statuses",
+        "description": "Dictionary of available contract statuses"
       }
     }
   }

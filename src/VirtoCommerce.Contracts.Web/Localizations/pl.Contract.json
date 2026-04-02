@@ -199,6 +199,10 @@
       "ContractPassword": {
         "title": "Hasło umowy",
         "description": "Ustawienie hasła umowy"
+      },
+      "Status": {
+        "title": "Statusy umów",
+        "description": "Słownik dostępnych statusów umów"
       }
     }
   }

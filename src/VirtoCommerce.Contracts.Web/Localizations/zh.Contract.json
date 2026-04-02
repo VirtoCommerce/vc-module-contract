@@ -199,6 +199,10 @@
       "ContractPassword": {
         "title": "合同密码",
         "description": "合同密码设置"
+      },
+      "Status": {
+        "title": "合同状态",
+        "description": "可用合同状态字典"
       }
     }
   }
