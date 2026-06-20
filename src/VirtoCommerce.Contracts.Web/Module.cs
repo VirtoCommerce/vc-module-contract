@@ -1,4 +1,5 @@
-using System;
+using System;
+using System.Threading;
 using System.IO;
 using System.Threading.Tasks;
 using FluentValidation;
@@ -131,14 +132,14 @@ namespace VirtoCommerce.Contracts.Web
         }
 
         public async Task ExportAsync(Stream outStream, ExportImportOptions options, Action<ExportImportProgressInfo> progressCallback,
-            ICancellationToken cancellationToken)
+            CancellationToken cancellationToken)
         {
             await _appBuilder.ApplicationServices.GetRequiredService<ContractsExportImport>().DoExportAsync(outStream, progressCallback, cancellationToken);
 
         }
 
         public async Task ImportAsync(Stream inputStream, ExportImportOptions options, Action<ExportImportProgressInfo> progressCallback,
-            ICancellationToken cancellationToken)
+            CancellationToken cancellationToken)
         {
             await _appBuilder.ApplicationServices.GetRequiredService<ContractsExportImport>().DoImportAsync(inputStream, progressCallback, cancellationToken);
 
