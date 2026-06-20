@@ -1,4 +1,5 @@
-using System;
+using System;
+
 using System.Threading;
 using System.Collections.Generic;
 using System.IO;
@@ -29,12 +30,12 @@ public class ContractsExportImport(
 
         await using var sw = new StreamWriter(outStream);
         await using var writer = new JsonTextWriter(sw);
-        await writer.WriteStartObjectAsync();
+        await writer.WriteStartObjectAsync(cancellationToken);
 
         progressInfo.Description = "Contracts are started to export";
         progressCallback(progressInfo);
 
-        await writer.WritePropertyNameAsync("Contracts");
+        await writer.WritePropertyNameAsync("Contracts", cancellationToken);
         await writer.SerializeArrayWithPagingAsync(jsonSerializer, BatchSize, async (skip, take) =>
         {
             var searchCriteria = AbstractTypeFactory<ContractSearchCriteria>.TryCreateInstance();
@@ -48,8 +49,8 @@ public class ContractsExportImport(
             progressCallback(progressInfo);
         }, cancellationToken);
 
-        await writer.WriteEndObjectAsync();
-        await writer.FlushAsync();
+        await writer.WriteEndObjectAsync(cancellationToken);
+        await writer.FlushAsync(cancellationToken);
     }
 
     public async Task DoImportAsync(Stream inputStream, Action<ExportImportProgressInfo> progressCallback, CancellationToken cancellationToken)
@@ -60,7 +61,7 @@ public class ContractsExportImport(
 
         using var streamReader = new StreamReader(inputStream);
         await using var reader = new JsonTextReader(streamReader);
-        while (await reader.ReadAsync())
+        while (await reader.ReadAsync(cancellationToken))
         {
             if (reader.TokenType == JsonToken.PropertyName &&
                 reader.Value?.ToString() == "Contracts")
@@ -79,10 +80,10 @@ public class ContractsExportImport(
     private static async Task SafeDeserializeArrayWithPagingAsync<T>(JsonTextReader reader, JsonSerializer serializer, int pageSize,
        ExportImportProgressInfo progressInfo, Func<IList<T>, Task> action, Action<int> progressCallback, CancellationToken cancellationToken)
     {
-        await reader.ReadAsync();
+        await reader.ReadAsync(cancellationToken);
         if (reader.TokenType == JsonToken.StartArray)
         {
-            await reader.ReadAsync();
+            await reader.ReadAsync(cancellationToken);
 
             var items = new List<T>();
             var processedCount = 0;
@@ -101,7 +102,7 @@ public class ContractsExportImport(
                 }
 
                 processedCount++;
-                await reader.ReadAsync();
+                await reader.ReadAsync(cancellationToken);
                 if (processedCount % pageSize == 0 || reader.TokenType == JsonToken.EndArray)
                 {
                     await action(items);
