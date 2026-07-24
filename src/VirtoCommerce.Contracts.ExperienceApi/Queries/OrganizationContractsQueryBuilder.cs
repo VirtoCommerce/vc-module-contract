@@ -14,8 +14,8 @@ namespace VirtoCommerce.Contracts.ExperienceApi.Queries
     {
         protected override string Name => "organizationContracts";
 
-        public OrganizationContractsQueryBuilder(IMediator mediator, IAuthorizationService authorizationService)
-            : base(mediator, authorizationService)
+        public OrganizationContractsQueryBuilder(IAuthorizationService authorizationService)
+            : base(authorizationService)
         {
 
         }
