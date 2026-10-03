@@ -14,6 +14,7 @@ using VirtoCommerce.Contracts.Core;
 using VirtoCommerce.Contracts.Core.Events;
 using VirtoCommerce.Contracts.Core.Models;
 using VirtoCommerce.Contracts.Core.Services;
+using VirtoCommerce.Contracts.Data.BackgroundJobs;
 using VirtoCommerce.Contracts.Data.ExportImport;
 using VirtoCommerce.Contracts.Data.Handlers;
 using VirtoCommerce.Contracts.Data.MySql;
@@ -28,6 +29,7 @@ using VirtoCommerce.Platform.Core.Common;
 using VirtoCommerce.Platform.Core.DynamicProperties;
 using VirtoCommerce.Platform.Core.Events;
 using VirtoCommerce.Platform.Core.ExportImport;
+using VirtoCommerce.Platform.Core.Jobs;
 using VirtoCommerce.Platform.Core.Modularity;
 using VirtoCommerce.Platform.Core.Security;
 using VirtoCommerce.Platform.Core.Settings;
@@ -85,6 +87,8 @@ namespace VirtoCommerce.Contracts.Web
             serviceCollection.AddTransient<IContractPricesService, ContractPricesService>();
 
             serviceCollection.AddTransient<DeleteContractHandler>();
+            serviceCollection.AddBackgroundJob<DeletePricelistAssignmentsJob, DeletePricelistAssignmentsJobPayload>(triggerable: false);
+            serviceCollection.AddBackgroundJob<DeleteContractsMembersJob, DeleteContractsMembersJobPayload>(triggerable: false);
             serviceCollection.AddTransient<UpdateContractHandler>();
             serviceCollection.AddTransient<ContractsExportImport>();
 
