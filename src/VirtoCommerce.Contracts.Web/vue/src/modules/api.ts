@@ -112,7 +112,8 @@ export async function searchProducts(keyword: string | undefined, skip: number, 
 export async function uploadAttachment(file: File, code: string) {
   const body = new FormData();
   body.append("file", file, file.name);
-  const res = await fetch(`/api/assets?folderUrl=${encodeURIComponent(`contracts/${code}`)}`, { method: "POST", body });
+  const folder = `contracts/${code}`;
+  const res = await fetch(`/api/assets?folderUrl=${encodeURIComponent(folder)}`, { method: "POST", body });
   if (!res.ok) throw new Error(`${file.name}: ${res.status} ${res.statusText}`);
   return (await res.json()) as { name: string; url: string; size?: number; contentType?: string }[];
 }
@@ -132,7 +133,7 @@ export const codeFromName = (name?: string) => {
   const trimmed = name?.trim();
   return trimmed ? `contract-${trimmed.toLowerCase().replace(/\W+/g, "-")}` : undefined;
 };
-export const isValidCode = (code?: string) => !code || !/[^\w_-]/.test(code);
+export const isValidCode = (code?: string) => !code || !/[^\w-]/.test(code);
 
 // --- price rules (legacy pricing priceValidatorsService) ----------------------------------------------------
 
