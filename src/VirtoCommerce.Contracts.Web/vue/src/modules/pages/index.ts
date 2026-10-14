@@ -1,0 +1,11 @@
+export { default as ContractsList } from "./list.vue";
+export { default as ContractDetails } from "./details.vue";
+export { default as ContractFilterDetails } from "./filter-details.vue";
+export { default as ContractAttachments } from "./attachments.vue";
+export { default as ContractMembers } from "./members.vue";
+export { default as ContractMemberSelect } from "./member-select.vue";
+export { default as ContractDynamicProperties } from "./dynamic-properties.vue";
+export { default as ContractPrices } from "./prices.vue";
+export { default as ContractPricelistSelect } from "./pricelist-select.vue";
+export { default as ContractProductPicker } from "./product-picker.vue";
+export { default as ContractProductPrices } from "./product-prices.vue";

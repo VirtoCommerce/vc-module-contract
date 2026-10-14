@@ -1,0 +1,147 @@
+{
+  "CONTRACTS": {
+    "MENU": {
+      "TITLE": "Contracts"
+    },
+    "TOOLBAR": {
+      "REFRESH": "Refresh",
+      "ADD": "Add",
+      "DELETE": "Delete",
+      "SAVE": "Save",
+      "CREATE": "Create",
+      "RESET": "Reset",
+      "APPLY": "OK"
+    },
+    "FIELDS": {
+      "NAME": "Name",
+      "CODE": "Code",
+      "STATUS": "Status",
+      "DESCRIPTION": "Description",
+      "START_DATE": "Start date",
+      "END_DATE": "End date",
+      "VENDOR": "Vendor",
+      "STORE": "Store"
+    },
+    "LIST": {
+      "TITLE": "Contracts",
+      "EMPTY": "No contracts yet",
+      "SAVED_FILTERS": {
+        "PLACEHOLDER": "Select filter",
+        "NEW": "Add new filter",
+        "EDIT": "Edit filter"
+      }
+    },
+    "FILTER": {
+      "NEW_TITLE": "New filter",
+      "NEW_SUBTITLE": "Create new filter",
+      "SUBTITLE": "Edit filter",
+      "UNNAMED": "Unnamed filter",
+      "NAME": "Filter name",
+      "ALL": "Not specified",
+      "FROM": "Started from",
+      "TO": "Valid until",
+      "APPLY": "Apply filter"
+    },
+    "DETAILS": {
+      "NEW_TITLE": "Create new contract",
+      "SUBTITLE": "Edit contract",
+      "EDIT_STATUSES": "Edit contract statuses",
+      "PLACEHOLDERS": {
+        "NAME": "Enter name",
+        "CODE": "Leave empty for auto code generation",
+        "STATUS": "Select status",
+        "DESCRIPTION": "Enter description",
+        "START_DATE": "Select start date",
+        "END_DATE": "Select end date",
+        "VENDOR": "Select vendor",
+        "STORE": "Select store"
+      }
+    },
+    "WIDGETS": {
+      "ATTACHMENTS": "Attachments",
+      "CUSTOMERS": "Customers",
+      "PROPERTIES": "Dynamic properties",
+      "PRICES": "Prices"
+    },
+    "ATTACHMENTS": {
+      "TITLE": "Attachments",
+      "EMPTY": "No attachments yet",
+      "UPLOAD": "Upload",
+      "DOWNLOAD": "Download",
+      "COPY_LINK": "Copy link"
+    },
+    "MEMBERS": {
+      "TITLE": "Customers",
+      "EMPTY": "No customers",
+      "TYPE": "Type",
+      "MANAGE": "Manage"
+    },
+    "MEMBER_SELECT": {
+      "TITLE": "Contacts and organizations",
+      "ALL": "All",
+      "UP": "Up",
+      "IN_CONTRACT": "already in the contract",
+      "CONFIRM": "Add selected ({count})"
+    },
+    "PROPERTIES": {
+      "LANGUAGE": "Language",
+      "EMPTY": "No dynamic properties are defined for contracts"
+    },
+    "PRICES": {
+      "TITLE": "Contract prices",
+      "EMPTY": "No prices",
+      "NOT_LINKED": "There are no price lists yet",
+      "LINK_PRICELIST": "Link price list",
+      "RESTORE": "Restore",
+      "MODIFIED": "Modified",
+      "COLUMNS": {
+        "IMAGE": "Pic",
+        "NAME": "Item name",
+        "CODE": "Item code",
+        "COUNT": "Price count",
+        "RANGE": "Price range",
+        "STATE": "State"
+      }
+    },
+    "PRICELIST_SELECT": {
+      "TITLE": "Available price lists",
+      "EMPTY": "No price lists",
+      "CURRENCY": "Currency",
+      "CONFIRM": "Link"
+    },
+    "PRODUCT_PICKER": {
+      "TITLE": "Select items",
+      "EMPTY": "No items found",
+      "ADD_SELECTED": "Add selected"
+    },
+    "PRODUCT_PRICES": {
+      "TITLE": "Prices of {name}",
+      "CURRENCY": "Currency",
+      "LIST": "List price",
+      "SALE": "Sale price",
+      "MIN_QTY": "Min quantity",
+      "STATE_NEW": "New",
+      "STATE_UPDATED": "Updated"
+    },
+    "VALIDATION": {
+      "CODE": "Contract code can't contain special symbols other than hyphens and underscores",
+      "LIST": "List price is required and can't be negative",
+      "SALE": "Sale price must not exceed the list price",
+      "QTY": "Min quantity must be a positive number",
+      "QTY_UNIQUE": "Min quantity must be unique",
+      "SINGLE_ITEM": "One price must have min quantity 1"
+    },
+    "ALERTS": {
+      "CLOSE_CONFIRMATION": "You have unsaved changes. Close anyway?",
+      "DELETE": "Are you sure you want to delete {count} selected contract(s)?",
+      "DELETE_MEMBERS": "Are you sure you want to delete {count} selected member(s) from the contract?",
+      "DELETE_ATTACHMENTS": "Are you sure you want to delete {count} selected attachment(s)?",
+      "RESTORE_PRODUCTS": "Are you sure you want to restore the prices of {count} product(s) to the initial state?",
+      "RESTORE_PRICES": "You are going to restore {count} selected price line(s) to the initial state",
+      "COPIED": "Link copied to the clipboard",
+      "UNKNOWN_MEMBER_TYPE": "Unknown member type: {type}",
+      "MEMBER_UNAVAILABLE": "The member can't be opened here: the Contacts module UI isn't loaded",
+      "PRICELIST_NOT_LINKED": "The price list wasn't linked: it or the contract no longer exists"
+    }
+  }
+}

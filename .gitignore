@@ -337,3 +337,6 @@ ASALocalRun/
 .nuke
 dist/
 **/Properties/launchSettings.json
+
+# Admin Shell plugin build output
+src/VirtoCommerce.Contracts.Web/plugins/
