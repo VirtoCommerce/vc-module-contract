@@ -1,0 +1,147 @@
+{
+  "CONTRACTS": {
+    "MENU": {
+      "TITLE": "Sopimukset"
+    },
+    "TOOLBAR": {
+      "REFRESH": "Päivitä",
+      "ADD": "Lisää",
+      "DELETE": "Poista",
+      "SAVE": "Tallenna",
+      "CREATE": "Luo",
+      "RESET": "Nollaa",
+      "APPLY": "OK"
+    },
+    "FIELDS": {
+      "NAME": "Nimi",
+      "CODE": "Koodi",
+      "STATUS": "Tila",
+      "DESCRIPTION": "Kuvaus",
+      "START_DATE": "Alkamispäivä",
+      "END_DATE": "Päättymispäivä",
+      "VENDOR": "Toimittaja",
+      "STORE": "Kauppa"
+    },
+    "LIST": {
+      "TITLE": "Sopimukset",
+      "EMPTY": "Ei vielä sopimuksia",
+      "SAVED_FILTERS": {
+        "PLACEHOLDER": "Valitse suodatin",
+        "NEW": "Lisää uusi suodatin",
+        "EDIT": "Muokkaa suodatinta"
+      }
+    },
+    "FILTER": {
+      "NEW_TITLE": "Uusi suodatin",
+      "NEW_SUBTITLE": "Luo uusi suodatin",
+      "SUBTITLE": "Muokkaa suodatinta",
+      "UNNAMED": "Nimetön suodatin",
+      "NAME": "Suodattimen nimi",
+      "ALL": "Ei määritelty",
+      "FROM": "Alkaen",
+      "TO": "Voimassa asti",
+      "APPLY": "Käytä suodatinta"
+    },
+    "DETAILS": {
+      "NEW_TITLE": "Luo uusi sopimus",
+      "SUBTITLE": "Muokkaa sopimusta",
+      "EDIT_STATUSES": "Muokkaa sopimustiloja",
+      "PLACEHOLDERS": {
+        "NAME": "Syötä nimi",
+        "CODE": "Jätä tyhjäksi, niin koodi luodaan automaattisesti",
+        "STATUS": "Valitse tila",
+        "DESCRIPTION": "Syötä kuvaus",
+        "START_DATE": "Valitse alkamispäivä",
+        "END_DATE": "Valitse päättymispäivä",
+        "VENDOR": "Valitse toimittaja",
+        "STORE": "Valitse kauppa"
+      }
+    },
+    "WIDGETS": {
+      "ATTACHMENTS": "Liitteet",
+      "CUSTOMERS": "Asiakkaat",
+      "PROPERTIES": "Dynaamiset ominaisuudet",
+      "PRICES": "Hinnat"
+    },
+    "ATTACHMENTS": {
+      "TITLE": "Liitteet",
+      "EMPTY": "Ei vielä liitteitä",
+      "UPLOAD": "Lataa palvelimelle",
+      "DOWNLOAD": "Lataa",
+      "COPY_LINK": "Kopioi linkki"
+    },
+    "MEMBERS": {
+      "TITLE": "Asiakkaat",
+      "EMPTY": "Ei asiakkaita",
+      "TYPE": "Tyyppi",
+      "MANAGE": "Hallitse"
+    },
+    "MEMBER_SELECT": {
+      "TITLE": "Yhteystiedot ja organisaatiot",
+      "ALL": "Kaikki",
+      "UP": "Ylös",
+      "IN_CONTRACT": "on jo sopimuksessa",
+      "CONFIRM": "Lisää valitut ({count})"
+    },
+    "PROPERTIES": {
+      "LANGUAGE": "Kieli",
+      "EMPTY": "Sopimuksille ei ole määritetty dynaamisia ominaisuuksia"
+    },
+    "PRICES": {
+      "TITLE": "Sopimushinnat",
+      "EMPTY": "Ei hintoja",
+      "NOT_LINKED": "Hinnastoja ei vielä ole",
+      "LINK_PRICELIST": "Linkitä hinnasto",
+      "RESTORE": "Palauta",
+      "MODIFIED": "Muokattu",
+      "COLUMNS": {
+        "IMAGE": "Kuva",
+        "NAME": "Tuotteen nimi",
+        "CODE": "Tuotekoodi",
+        "COUNT": "Hintojen määrä",
+        "RANGE": "Hintaväli",
+        "STATE": "Tila"
+      }
+    },
+    "PRICELIST_SELECT": {
+      "TITLE": "Saatavilla olevat hinnastot",
+      "EMPTY": "Ei hinnastoja",
+      "CURRENCY": "Valuutta",
+      "CONFIRM": "Linkitä"
+    },
+    "PRODUCT_PICKER": {
+      "TITLE": "Valitse tuotteet",
+      "EMPTY": "Tuotteita ei löytynyt",
+      "ADD_SELECTED": "Lisää valitut"
+    },
+    "PRODUCT_PRICES": {
+      "TITLE": "Tuotteen {name} hinnat",
+      "CURRENCY": "Valuutta",
+      "LIST": "Listahinta",
+      "SALE": "Myyntihinta",
+      "MIN_QTY": "Vähimmäismäärä",
+      "STATE_NEW": "Uusi",
+      "STATE_UPDATED": "Päivitetty"
+    },
+    "VALIDATION": {
+      "CODE": "Sopimuskoodi ei voi sisältää muita erikoismerkkejä kuin yhdysmerkkejä ja alaviivoja",
+      "LIST": "Listahinta on pakollinen eikä se voi olla negatiivinen",
+      "SALE": "Myyntihinta ei saa ylittää listahintaa",
+      "QTY": "Vähimmäismäärän on oltava positiivinen luku",
+      "QTY_UNIQUE": "Vähimmäismäärän on oltava yksilöllinen",
+      "SINGLE_ITEM": "Yhdellä hinnalla on oltava vähimmäismäärä 1"
+    },
+    "ALERTS": {
+      "CLOSE_CONFIRMATION": "Tallentamattomia muutoksia on olemassa. Suljetaanko silti?",
+      "DELETE": "Haluatko varmasti poistaa valitut sopimukset ({count})?",
+      "DELETE_MEMBERS": "Haluatko varmasti poistaa valitut jäsenet ({count}) sopimuksesta?",
+      "DELETE_ATTACHMENTS": "Haluatko varmasti poistaa valitut liitteet ({count})?",
+      "RESTORE_PRODUCTS": "Haluatko varmasti palauttaa tuotteiden ({count}) hinnat alkuperäiseen tilaan?",
+      "RESTORE_PRICES": "Valitut hintarivit ({count}) palautetaan alkuperäiseen tilaan",
+      "COPIED": "Linkki kopioitu leikepöydälle",
+      "UNKNOWN_MEMBER_TYPE": "Tuntematon jäsentyyppi: {type}",
+      "MEMBER_UNAVAILABLE": "Jäsentä ei voi avata tässä: Yhteystiedot-moduulin käyttöliittymää ei ole ladattu",
+      "PRICELIST_NOT_LINKED": "Hinnastoa ei linkitetty: se tai sopimus ei ole enää olemassa"
+    }
+  }
+}

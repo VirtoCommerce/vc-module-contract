@@ -1,0 +1,147 @@
+{
+  "CONTRACTS": {
+    "MENU": {
+      "TITLE": "Verträge"
+    },
+    "TOOLBAR": {
+      "REFRESH": "Aktualisieren",
+      "ADD": "Hinzufügen",
+      "DELETE": "Löschen",
+      "SAVE": "Speichern",
+      "CREATE": "Erstellen",
+      "RESET": "Zurücksetzen",
+      "APPLY": "OK"
+    },
+    "FIELDS": {
+      "NAME": "Name",
+      "CODE": "Code",
+      "STATUS": "Status",
+      "DESCRIPTION": "Beschreibung",
+      "START_DATE": "Startdatum",
+      "END_DATE": "Enddatum",
+      "VENDOR": "Lieferant",
+      "STORE": "Geschäft"
+    },
+    "LIST": {
+      "TITLE": "Verträge",
+      "EMPTY": "Noch keine Verträge",
+      "SAVED_FILTERS": {
+        "PLACEHOLDER": "Filter auswählen",
+        "NEW": "Neuen Filter hinzufügen",
+        "EDIT": "Filter bearbeiten"
+      }
+    },
+    "FILTER": {
+      "NEW_TITLE": "Neuer Filter",
+      "NEW_SUBTITLE": "Neuen Filter erstellen",
+      "SUBTITLE": "Filter bearbeiten",
+      "UNNAMED": "Unbenannter Filter",
+      "NAME": "Filtername",
+      "ALL": "Nicht angegeben",
+      "FROM": "Begonnen ab",
+      "TO": "Gültig bis",
+      "APPLY": "Filter anwenden"
+    },
+    "DETAILS": {
+      "NEW_TITLE": "Neuen Vertrag erstellen",
+      "SUBTITLE": "Vertrag bearbeiten",
+      "EDIT_STATUSES": "Vertragsstatus bearbeiten",
+      "PLACEHOLDERS": {
+        "NAME": "Namen eingeben",
+        "CODE": "Leer lassen für automatische Code-Generierung",
+        "STATUS": "Status auswählen",
+        "DESCRIPTION": "Beschreibung eingeben",
+        "START_DATE": "Startdatum auswählen",
+        "END_DATE": "Enddatum auswählen",
+        "VENDOR": "Lieferanten auswählen",
+        "STORE": "Geschäft auswählen"
+      }
+    },
+    "WIDGETS": {
+      "ATTACHMENTS": "Anhänge",
+      "CUSTOMERS": "Kunden",
+      "PROPERTIES": "Dynamische Eigenschaften",
+      "PRICES": "Preise"
+    },
+    "ATTACHMENTS": {
+      "TITLE": "Anhänge",
+      "EMPTY": "Noch keine Anhänge",
+      "UPLOAD": "Hochladen",
+      "DOWNLOAD": "Herunterladen",
+      "COPY_LINK": "Link kopieren"
+    },
+    "MEMBERS": {
+      "TITLE": "Kunden",
+      "EMPTY": "Keine Kunden",
+      "TYPE": "Typ",
+      "MANAGE": "Verwalten"
+    },
+    "MEMBER_SELECT": {
+      "TITLE": "Kontakte und Organisationen",
+      "ALL": "Alle",
+      "UP": "Nach oben",
+      "IN_CONTRACT": "bereits im Vertrag",
+      "CONFIRM": "Ausgewählte hinzufügen ({count})"
+    },
+    "PROPERTIES": {
+      "LANGUAGE": "Sprache",
+      "EMPTY": "Für Verträge sind keine dynamischen Eigenschaften definiert"
+    },
+    "PRICES": {
+      "TITLE": "Vertragspreise",
+      "EMPTY": "Keine Preise",
+      "NOT_LINKED": "Es gibt noch keine Preislisten",
+      "LINK_PRICELIST": "Preisliste verknüpfen",
+      "RESTORE": "Wiederherstellen",
+      "MODIFIED": "Geändert",
+      "COLUMNS": {
+        "IMAGE": "Bild",
+        "NAME": "Artikelname",
+        "CODE": "Artikelcode",
+        "COUNT": "Preisanzahl",
+        "RANGE": "Preisbereich",
+        "STATE": "Status"
+      }
+    },
+    "PRICELIST_SELECT": {
+      "TITLE": "Verfügbare Preislisten",
+      "EMPTY": "Keine Preislisten",
+      "CURRENCY": "Währung",
+      "CONFIRM": "Verknüpfen"
+    },
+    "PRODUCT_PICKER": {
+      "TITLE": "Artikel auswählen",
+      "EMPTY": "Keine Artikel gefunden",
+      "ADD_SELECTED": "Ausgewählte hinzufügen"
+    },
+    "PRODUCT_PRICES": {
+      "TITLE": "Preise von {name}",
+      "CURRENCY": "Währung",
+      "LIST": "Listenpreis",
+      "SALE": "Verkaufspreis",
+      "MIN_QTY": "Mindestmenge",
+      "STATE_NEW": "Neu",
+      "STATE_UPDATED": "Aktualisiert"
+    },
+    "VALIDATION": {
+      "CODE": "Der Vertragscode darf außer Bindestrichen und Unterstrichen keine Sonderzeichen enthalten",
+      "LIST": "Der Listenpreis ist erforderlich und darf nicht negativ sein",
+      "SALE": "Der Verkaufspreis darf den Listenpreis nicht überschreiten",
+      "QTY": "Die Mindestmenge muss eine positive Zahl sein",
+      "QTY_UNIQUE": "Die Mindestmenge muss eindeutig sein",
+      "SINGLE_ITEM": "Ein Preis muss die Mindestmenge 1 haben"
+    },
+    "ALERTS": {
+      "CLOSE_CONFIRMATION": "Es gibt nicht gespeicherte Änderungen. Trotzdem schließen?",
+      "DELETE": "Möchten Sie die ausgewählten Verträge ({count}) wirklich löschen?",
+      "DELETE_MEMBERS": "Möchten Sie die ausgewählten Mitglieder ({count}) wirklich aus dem Vertrag löschen?",
+      "DELETE_ATTACHMENTS": "Möchten Sie die ausgewählten Anhänge ({count}) wirklich löschen?",
+      "RESTORE_PRODUCTS": "Möchten Sie die Preise der Produkte ({count}) wirklich auf den Ausgangszustand zurücksetzen?",
+      "RESTORE_PRICES": "Die ausgewählten Preiszeilen ({count}) werden auf den Ausgangszustand zurückgesetzt",
+      "COPIED": "Link in die Zwischenablage kopiert",
+      "UNKNOWN_MEMBER_TYPE": "Unbekannter Mitgliedstyp: {type}",
+      "MEMBER_UNAVAILABLE": "Das Mitglied kann hier nicht geöffnet werden: Die Oberfläche des Kontaktmoduls ist nicht geladen",
+      "PRICELIST_NOT_LINKED": "Die Preisliste wurde nicht verknüpft: Sie oder der Vertrag existiert nicht mehr"
+    }
+  }
+}

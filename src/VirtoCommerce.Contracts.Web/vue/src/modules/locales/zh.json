@@ -1,0 +1,147 @@
+{
+  "CONTRACTS": {
+    "MENU": {
+      "TITLE": "合同"
+    },
+    "TOOLBAR": {
+      "REFRESH": "刷新",
+      "ADD": "添加",
+      "DELETE": "删除",
+      "SAVE": "保存",
+      "CREATE": "创建",
+      "RESET": "重置",
+      "APPLY": "确定"
+    },
+    "FIELDS": {
+      "NAME": "名称",
+      "CODE": "代码",
+      "STATUS": "状态",
+      "DESCRIPTION": "描述",
+      "START_DATE": "开始日期",
+      "END_DATE": "结束日期",
+      "VENDOR": "供应商",
+      "STORE": "商店"
+    },
+    "LIST": {
+      "TITLE": "合同",
+      "EMPTY": "暂无合同",
+      "SAVED_FILTERS": {
+        "PLACEHOLDER": "选择筛选器",
+        "NEW": "添加新筛选器",
+        "EDIT": "编辑筛选器"
+      }
+    },
+    "FILTER": {
+      "NEW_TITLE": "新筛选器",
+      "NEW_SUBTITLE": "创建新筛选器",
+      "SUBTITLE": "编辑筛选器",
+      "UNNAMED": "未命名筛选器",
+      "NAME": "筛选器名称",
+      "ALL": "未指定",
+      "FROM": "开始时间不早于",
+      "TO": "有效期至",
+      "APPLY": "应用筛选器"
+    },
+    "DETAILS": {
+      "NEW_TITLE": "创建新合同",
+      "SUBTITLE": "编辑合同",
+      "EDIT_STATUSES": "编辑合同状态",
+      "PLACEHOLDERS": {
+        "NAME": "输入名称",
+        "CODE": "留空以自动生成代码",
+        "STATUS": "选择状态",
+        "DESCRIPTION": "输入描述",
+        "START_DATE": "选择开始日期",
+        "END_DATE": "选择结束日期",
+        "VENDOR": "选择供应商",
+        "STORE": "选择商店"
+      }
+    },
+    "WIDGETS": {
+      "ATTACHMENTS": "附件",
+      "CUSTOMERS": "客户",
+      "PROPERTIES": "动态属性",
+      "PRICES": "价格"
+    },
+    "ATTACHMENTS": {
+      "TITLE": "附件",
+      "EMPTY": "暂无附件",
+      "UPLOAD": "上传",
+      "DOWNLOAD": "下载",
+      "COPY_LINK": "复制链接"
+    },
+    "MEMBERS": {
+      "TITLE": "客户",
+      "EMPTY": "无客户",
+      "TYPE": "类型",
+      "MANAGE": "管理"
+    },
+    "MEMBER_SELECT": {
+      "TITLE": "联系人和组织",
+      "ALL": "全部",
+      "UP": "向上",
+      "IN_CONTRACT": "已在合同中",
+      "CONFIRM": "添加所选项（{count}）"
+    },
+    "PROPERTIES": {
+      "LANGUAGE": "语言",
+      "EMPTY": "未为合同定义动态属性"
+    },
+    "PRICES": {
+      "TITLE": "合同价格",
+      "EMPTY": "无价格",
+      "NOT_LINKED": "还没有价目表",
+      "LINK_PRICELIST": "链接价目表",
+      "RESTORE": "恢复",
+      "MODIFIED": "已修改",
+      "COLUMNS": {
+        "IMAGE": "图片",
+        "NAME": "商品名称",
+        "CODE": "商品代码",
+        "COUNT": "价格数量",
+        "RANGE": "价格范围",
+        "STATE": "状态"
+      }
+    },
+    "PRICELIST_SELECT": {
+      "TITLE": "可用价目表",
+      "EMPTY": "无价目表",
+      "CURRENCY": "货币",
+      "CONFIRM": "链接"
+    },
+    "PRODUCT_PICKER": {
+      "TITLE": "选择商品",
+      "EMPTY": "未找到商品",
+      "ADD_SELECTED": "添加所选项"
+    },
+    "PRODUCT_PRICES": {
+      "TITLE": "{name} 的价格",
+      "CURRENCY": "货币",
+      "LIST": "目录价",
+      "SALE": "销售价",
+      "MIN_QTY": "最小数量",
+      "STATE_NEW": "新建",
+      "STATE_UPDATED": "已更新"
+    },
+    "VALIDATION": {
+      "CODE": "合同代码不能包含除连字符和下划线以外的特殊符号",
+      "LIST": "目录价为必填项，且不能为负数",
+      "SALE": "销售价不得超过目录价",
+      "QTY": "最小数量必须为正数",
+      "QTY_UNIQUE": "最小数量必须唯一",
+      "SINGLE_ITEM": "必须有一个价格的最小数量为 1"
+    },
+    "ALERTS": {
+      "CLOSE_CONFIRMATION": "有未保存的更改。仍要关闭吗？",
+      "DELETE": "确定要删除所选的 {count} 个合同吗？",
+      "DELETE_MEMBERS": "确定要从合同中删除所选的 {count} 个成员吗？",
+      "DELETE_ATTACHMENTS": "确定要删除所选的 {count} 个附件吗？",
+      "RESTORE_PRODUCTS": "确定要将 {count} 个商品的价格恢复到初始状态吗？",
+      "RESTORE_PRICES": "将把所选的 {count} 行价格恢复到初始状态",
+      "COPIED": "链接已复制到剪贴板",
+      "UNKNOWN_MEMBER_TYPE": "未知成员类型：{type}",
+      "MEMBER_UNAVAILABLE": "无法在此处打开该成员：联系人模块界面未加载",
+      "PRICELIST_NOT_LINKED": "价目表未链接：价目表或合同已不存在"
+    }
+  }
+}

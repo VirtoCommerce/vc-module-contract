@@ -1,0 +1,147 @@
+{
+  "CONTRACTS": {
+    "MENU": {
+      "TITLE": "契約"
+    },
+    "TOOLBAR": {
+      "REFRESH": "更新",
+      "ADD": "追加",
+      "DELETE": "削除",
+      "SAVE": "保存",
+      "CREATE": "作成",
+      "RESET": "リセット",
+      "APPLY": "OK"
+    },
+    "FIELDS": {
+      "NAME": "名前",
+      "CODE": "コード",
+      "STATUS": "ステータス",
+      "DESCRIPTION": "説明",
+      "START_DATE": "開始日",
+      "END_DATE": "終了日",
+      "VENDOR": "ベンダー",
+      "STORE": "店舗"
+    },
+    "LIST": {
+      "TITLE": "契約",
+      "EMPTY": "契約はまだありません",
+      "SAVED_FILTERS": {
+        "PLACEHOLDER": "フィルターを選択",
+        "NEW": "新しいフィルターを追加",
+        "EDIT": "フィルターを編集"
+      }
+    },
+    "FILTER": {
+      "NEW_TITLE": "新規フィルター",
+      "NEW_SUBTITLE": "新しいフィルターを作成",
+      "SUBTITLE": "フィルターを編集",
+      "UNNAMED": "名称未設定のフィルター",
+      "NAME": "フィルター名",
+      "ALL": "指定なし",
+      "FROM": "開始日（以降）",
+      "TO": "有効期限",
+      "APPLY": "フィルターを適用"
+    },
+    "DETAILS": {
+      "NEW_TITLE": "新規契約を作成",
+      "SUBTITLE": "契約を編集",
+      "EDIT_STATUSES": "契約ステータスを編集",
+      "PLACEHOLDERS": {
+        "NAME": "名前を入力",
+        "CODE": "コードを自動生成する場合は空白のままにしてください",
+        "STATUS": "ステータスを選択",
+        "DESCRIPTION": "説明を入力",
+        "START_DATE": "開始日を選択",
+        "END_DATE": "終了日を選択",
+        "VENDOR": "ベンダーを選択",
+        "STORE": "店舗を選択"
+      }
+    },
+    "WIDGETS": {
+      "ATTACHMENTS": "添付ファイル",
+      "CUSTOMERS": "顧客",
+      "PROPERTIES": "動的プロパティ",
+      "PRICES": "価格"
+    },
+    "ATTACHMENTS": {
+      "TITLE": "添付ファイル",
+      "EMPTY": "添付ファイルはまだありません",
+      "UPLOAD": "アップロード",
+      "DOWNLOAD": "ダウンロード",
+      "COPY_LINK": "リンクをコピー"
+    },
+    "MEMBERS": {
+      "TITLE": "顧客",
+      "EMPTY": "顧客がいません",
+      "TYPE": "タイプ",
+      "MANAGE": "管理"
+    },
+    "MEMBER_SELECT": {
+      "TITLE": "連絡先と組織",
+      "ALL": "すべて",
+      "UP": "上へ",
+      "IN_CONTRACT": "契約に追加済み",
+      "CONFIRM": "選択項目を追加（{count}）"
+    },
+    "PROPERTIES": {
+      "LANGUAGE": "言語",
+      "EMPTY": "契約に定義された動的プロパティはありません"
+    },
+    "PRICES": {
+      "TITLE": "契約価格",
+      "EMPTY": "価格がありません",
+      "NOT_LINKED": "まだ価格表がありません",
+      "LINK_PRICELIST": "価格表をリンク",
+      "RESTORE": "復元",
+      "MODIFIED": "変更済み",
+      "COLUMNS": {
+        "IMAGE": "画像",
+        "NAME": "商品名",
+        "CODE": "商品コード",
+        "COUNT": "価格数",
+        "RANGE": "価格範囲",
+        "STATE": "状態"
+      }
+    },
+    "PRICELIST_SELECT": {
+      "TITLE": "利用可能な価格表",
+      "EMPTY": "価格表がありません",
+      "CURRENCY": "通貨",
+      "CONFIRM": "リンク"
+    },
+    "PRODUCT_PICKER": {
+      "TITLE": "商品を選択",
+      "EMPTY": "商品が見つかりません",
+      "ADD_SELECTED": "選択項目を追加"
+    },
+    "PRODUCT_PRICES": {
+      "TITLE": "{name} の価格",
+      "CURRENCY": "通貨",
+      "LIST": "定価",
+      "SALE": "販売価格",
+      "MIN_QTY": "最小数量",
+      "STATE_NEW": "新規",
+      "STATE_UPDATED": "更新済み"
+    },
+    "VALIDATION": {
+      "CODE": "契約コードには、ハイフンとアンダースコア以外の特殊文字を使用できません",
+      "LIST": "定価は必須で、負の値は使用できません",
+      "SALE": "販売価格は定価を超えてはいけません",
+      "QTY": "最小数量は正の数である必要があります",
+      "QTY_UNIQUE": "最小数量は一意である必要があります",
+      "SINGLE_ITEM": "最小数量が 1 の価格が 1 つ必要です"
+    },
+    "ALERTS": {
+      "CLOSE_CONFIRMATION": "保存されていない変更があります。閉じてもよろしいですか？",
+      "DELETE": "選択した {count} 件の契約を削除してもよろしいですか？",
+      "DELETE_MEMBERS": "選択した {count} 件のメンバーを契約から削除してもよろしいですか？",
+      "DELETE_ATTACHMENTS": "選択した {count} 件の添付ファイルを削除してもよろしいですか？",
+      "RESTORE_PRODUCTS": "{count} 件の商品の価格を初期状態に復元してもよろしいですか？",
+      "RESTORE_PRICES": "選択した {count} 行の価格を初期状態に復元します",
+      "COPIED": "リンクをクリップボードにコピーしました",
+      "UNKNOWN_MEMBER_TYPE": "不明なメンバータイプ: {type}",
+      "MEMBER_UNAVAILABLE": "ここではメンバーを開けません: 連絡先モジュールの UI が読み込まれていません",
+      "PRICELIST_NOT_LINKED": "価格表をリンクできませんでした: 価格表または契約が存在しません"
+    }
+  }
+}

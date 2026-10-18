@@ -1,0 +1,147 @@
+{
+  "CONTRACTS": {
+    "MENU": {
+      "TITLE": "Umowy"
+    },
+    "TOOLBAR": {
+      "REFRESH": "Odśwież",
+      "ADD": "Dodaj",
+      "DELETE": "Usuń",
+      "SAVE": "Zapisz",
+      "CREATE": "Utwórz",
+      "RESET": "Resetuj",
+      "APPLY": "OK"
+    },
+    "FIELDS": {
+      "NAME": "Nazwa",
+      "CODE": "Kod",
+      "STATUS": "Status",
+      "DESCRIPTION": "Opis",
+      "START_DATE": "Data rozpoczęcia",
+      "END_DATE": "Data zakończenia",
+      "VENDOR": "Dostawca",
+      "STORE": "Sklep"
+    },
+    "LIST": {
+      "TITLE": "Umowy",
+      "EMPTY": "Brak umów",
+      "SAVED_FILTERS": {
+        "PLACEHOLDER": "Wybierz filtr",
+        "NEW": "Dodaj nowy filtr",
+        "EDIT": "Edytuj filtr"
+      }
+    },
+    "FILTER": {
+      "NEW_TITLE": "Nowy filtr",
+      "NEW_SUBTITLE": "Utwórz nowy filtr",
+      "SUBTITLE": "Edytuj filtr",
+      "UNNAMED": "Nienazwany filtr",
+      "NAME": "Nazwa filtra",
+      "ALL": "Nie określono",
+      "FROM": "Rozpoczęte od",
+      "TO": "Ważne do",
+      "APPLY": "Zastosuj filtr"
+    },
+    "DETAILS": {
+      "NEW_TITLE": "Utwórz nową umowę",
+      "SUBTITLE": "Edytuj umowę",
+      "EDIT_STATUSES": "Edytuj statusy umów",
+      "PLACEHOLDERS": {
+        "NAME": "Wprowadź nazwę",
+        "CODE": "Pozostaw puste, aby kod został wygenerowany automatycznie",
+        "STATUS": "Wybierz status",
+        "DESCRIPTION": "Wprowadź opis",
+        "START_DATE": "Wybierz datę rozpoczęcia",
+        "END_DATE": "Wybierz datę zakończenia",
+        "VENDOR": "Wybierz dostawcę",
+        "STORE": "Wybierz sklep"
+      }
+    },
+    "WIDGETS": {
+      "ATTACHMENTS": "Załączniki",
+      "CUSTOMERS": "Klienci",
+      "PROPERTIES": "Właściwości dynamiczne",
+      "PRICES": "Ceny"
+    },
+    "ATTACHMENTS": {
+      "TITLE": "Załączniki",
+      "EMPTY": "Brak załączników",
+      "UPLOAD": "Prześlij",
+      "DOWNLOAD": "Pobierz",
+      "COPY_LINK": "Kopiuj link"
+    },
+    "MEMBERS": {
+      "TITLE": "Klienci",
+      "EMPTY": "Brak klientów",
+      "TYPE": "Typ",
+      "MANAGE": "Zarządzaj"
+    },
+    "MEMBER_SELECT": {
+      "TITLE": "Kontakty i organizacje",
+      "ALL": "Wszystkie",
+      "UP": "W górę",
+      "IN_CONTRACT": "już w umowie",
+      "CONFIRM": "Dodaj wybrane ({count})"
+    },
+    "PROPERTIES": {
+      "LANGUAGE": "Język",
+      "EMPTY": "Dla umów nie zdefiniowano właściwości dynamicznych"
+    },
+    "PRICES": {
+      "TITLE": "Ceny umowy",
+      "EMPTY": "Brak cen",
+      "NOT_LINKED": "Nie ma jeszcze cenników",
+      "LINK_PRICELIST": "Połącz cennik",
+      "RESTORE": "Przywróć",
+      "MODIFIED": "Zmodyfikowano",
+      "COLUMNS": {
+        "IMAGE": "Zdjęcie",
+        "NAME": "Nazwa produktu",
+        "CODE": "Kod produktu",
+        "COUNT": "Liczba cen",
+        "RANGE": "Zakres cen",
+        "STATE": "Stan"
+      }
+    },
+    "PRICELIST_SELECT": {
+      "TITLE": "Dostępne cenniki",
+      "EMPTY": "Brak cenników",
+      "CURRENCY": "Waluta",
+      "CONFIRM": "Połącz"
+    },
+    "PRODUCT_PICKER": {
+      "TITLE": "Wybierz produkty",
+      "EMPTY": "Nie znaleziono produktów",
+      "ADD_SELECTED": "Dodaj wybrane"
+    },
+    "PRODUCT_PRICES": {
+      "TITLE": "Ceny: {name}",
+      "CURRENCY": "Waluta",
+      "LIST": "Cena katalogowa",
+      "SALE": "Cena sprzedaży",
+      "MIN_QTY": "Minimalna ilość",
+      "STATE_NEW": "Nowy",
+      "STATE_UPDATED": "Zaktualizowany"
+    },
+    "VALIDATION": {
+      "CODE": "Kod umowy nie może zawierać znaków specjalnych innych niż łączniki i podkreślenia",
+      "LIST": "Cena katalogowa jest wymagana i nie może być ujemna",
+      "SALE": "Cena sprzedaży nie może przekraczać ceny katalogowej",
+      "QTY": "Minimalna ilość musi być liczbą dodatnią",
+      "QTY_UNIQUE": "Minimalna ilość musi być unikalna",
+      "SINGLE_ITEM": "Jedna cena musi mieć minimalną ilość 1"
+    },
+    "ALERTS": {
+      "CLOSE_CONFIRMATION": "Istnieją niezapisane zmiany. Zamknąć mimo to?",
+      "DELETE": "Czy na pewno usunąć wybrane umowy ({count})?",
+      "DELETE_MEMBERS": "Czy na pewno usunąć wybranych członków ({count}) z umowy?",
+      "DELETE_ATTACHMENTS": "Czy na pewno usunąć wybrane załączniki ({count})?",
+      "RESTORE_PRODUCTS": "Czy na pewno przywrócić ceny produktów ({count}) do stanu początkowego?",
+      "RESTORE_PRICES": "Wybrane wiersze cen ({count}) zostaną przywrócone do stanu początkowego",
+      "COPIED": "Link skopiowano do schowka",
+      "UNKNOWN_MEMBER_TYPE": "Nieznany typ członka: {type}",
+      "MEMBER_UNAVAILABLE": "Nie można tu otworzyć członka: interfejs modułu Kontakty nie jest załadowany",
+      "PRICELIST_NOT_LINKED": "Cennik nie został połączony: cennik lub umowa już nie istnieje"
+    }
+  }
+}

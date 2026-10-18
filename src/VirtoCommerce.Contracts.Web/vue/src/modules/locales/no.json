@@ -1,0 +1,147 @@
+{
+  "CONTRACTS": {
+    "MENU": {
+      "TITLE": "Kontrakter"
+    },
+    "TOOLBAR": {
+      "REFRESH": "Oppdater",
+      "ADD": "Legg til",
+      "DELETE": "Slett",
+      "SAVE": "Lagre",
+      "CREATE": "Opprett",
+      "RESET": "Tilbakestill",
+      "APPLY": "OK"
+    },
+    "FIELDS": {
+      "NAME": "Navn",
+      "CODE": "Kode",
+      "STATUS": "Status",
+      "DESCRIPTION": "Beskrivelse",
+      "START_DATE": "Startdato",
+      "END_DATE": "Sluttdato",
+      "VENDOR": "Leverandør",
+      "STORE": "Butikk"
+    },
+    "LIST": {
+      "TITLE": "Kontrakter",
+      "EMPTY": "Ingen kontrakter ennå",
+      "SAVED_FILTERS": {
+        "PLACEHOLDER": "Velg filter",
+        "NEW": "Legg til nytt filter",
+        "EDIT": "Rediger filter"
+      }
+    },
+    "FILTER": {
+      "NEW_TITLE": "Nytt filter",
+      "NEW_SUBTITLE": "Opprett nytt filter",
+      "SUBTITLE": "Rediger filter",
+      "UNNAMED": "Navnløst filter",
+      "NAME": "Filternavn",
+      "ALL": "Ikke spesifisert",
+      "FROM": "Startet fra",
+      "TO": "Gyldig til",
+      "APPLY": "Bruk filter"
+    },
+    "DETAILS": {
+      "NEW_TITLE": "Opprett ny kontrakt",
+      "SUBTITLE": "Rediger kontrakt",
+      "EDIT_STATUSES": "Rediger kontraktstatuser",
+      "PLACEHOLDERS": {
+        "NAME": "Skriv inn navn",
+        "CODE": "La stå tomt for automatisk kodegenerering",
+        "STATUS": "Velg status",
+        "DESCRIPTION": "Skriv inn beskrivelse",
+        "START_DATE": "Velg startdato",
+        "END_DATE": "Velg sluttdato",
+        "VENDOR": "Velg leverandør",
+        "STORE": "Velg butikk"
+      }
+    },
+    "WIDGETS": {
+      "ATTACHMENTS": "Vedlegg",
+      "CUSTOMERS": "Kunder",
+      "PROPERTIES": "Dynamiske egenskaper",
+      "PRICES": "Priser"
+    },
+    "ATTACHMENTS": {
+      "TITLE": "Vedlegg",
+      "EMPTY": "Ingen vedlegg ennå",
+      "UPLOAD": "Last opp",
+      "DOWNLOAD": "Last ned",
+      "COPY_LINK": "Kopier lenke"
+    },
+    "MEMBERS": {
+      "TITLE": "Kunder",
+      "EMPTY": "Ingen kunder",
+      "TYPE": "Type",
+      "MANAGE": "Administrer"
+    },
+    "MEMBER_SELECT": {
+      "TITLE": "Kontakter og organisasjoner",
+      "ALL": "Alle",
+      "UP": "Opp",
+      "IN_CONTRACT": "allerede i kontrakten",
+      "CONFIRM": "Legg til valgte ({count})"
+    },
+    "PROPERTIES": {
+      "LANGUAGE": "Språk",
+      "EMPTY": "Ingen dynamiske egenskaper er definert for kontrakter"
+    },
+    "PRICES": {
+      "TITLE": "Kontraktspriser",
+      "EMPTY": "Ingen priser",
+      "NOT_LINKED": "Det finnes ingen prislister ennå",
+      "LINK_PRICELIST": "Koble til prisliste",
+      "RESTORE": "Gjenopprett",
+      "MODIFIED": "Endret",
+      "COLUMNS": {
+        "IMAGE": "Bilde",
+        "NAME": "Varenavn",
+        "CODE": "Varekode",
+        "COUNT": "Antall priser",
+        "RANGE": "Prisintervall",
+        "STATE": "Status"
+      }
+    },
+    "PRICELIST_SELECT": {
+      "TITLE": "Tilgjengelige prislister",
+      "EMPTY": "Ingen prislister",
+      "CURRENCY": "Valuta",
+      "CONFIRM": "Koble til"
+    },
+    "PRODUCT_PICKER": {
+      "TITLE": "Velg varer",
+      "EMPTY": "Ingen varer funnet",
+      "ADD_SELECTED": "Legg til valgte"
+    },
+    "PRODUCT_PRICES": {
+      "TITLE": "Priser for {name}",
+      "CURRENCY": "Valuta",
+      "LIST": "Listepris",
+      "SALE": "Salgspris",
+      "MIN_QTY": "Minimumsantall",
+      "STATE_NEW": "Ny",
+      "STATE_UPDATED": "Oppdatert"
+    },
+    "VALIDATION": {
+      "CODE": "Kontraktkoden kan ikke inneholde andre spesialtegn enn bindestreker og understreker",
+      "LIST": "Listepris er påkrevd og kan ikke være negativ",
+      "SALE": "Salgsprisen kan ikke overstige listeprisen",
+      "QTY": "Minimumsantallet må være et positivt tall",
+      "QTY_UNIQUE": "Minimumsantallet må være unikt",
+      "SINGLE_ITEM": "Én pris må ha minimumsantall 1"
+    },
+    "ALERTS": {
+      "CLOSE_CONFIRMATION": "Du har ulagrede endringer. Vil du lukke likevel?",
+      "DELETE": "Er du sikker på at du vil slette de valgte kontraktene ({count})?",
+      "DELETE_MEMBERS": "Er du sikker på at du vil slette de valgte medlemmene ({count}) fra kontrakten?",
+      "DELETE_ATTACHMENTS": "Er du sikker på at du vil slette de valgte vedleggene ({count})?",
+      "RESTORE_PRODUCTS": "Er du sikker på at du vil gjenopprette prisene for produktene ({count}) til den opprinnelige tilstanden?",
+      "RESTORE_PRICES": "De valgte prislinjene ({count}) blir gjenopprettet til den opprinnelige tilstanden",
+      "COPIED": "Lenken er kopiert til utklippstavlen",
+      "UNKNOWN_MEMBER_TYPE": "Ukjent medlemstype: {type}",
+      "MEMBER_UNAVAILABLE": "Medlemmet kan ikke åpnes her: brukergrensesnittet for Kontakter-modulen er ikke lastet inn",
+      "PRICELIST_NOT_LINKED": "Prislisten ble ikke koblet til: den eller kontrakten finnes ikke lenger"
+    }
+  }
+}
