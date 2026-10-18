@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "Contract:access": "فتح قائمة العقود",
+    "Contract:create": "إنشاء البيانات المتعلقة بالعقود",
+    "Contract:read": "عرض البيانات المتعلقة بالعقود",
+    "Contract:update": "تحديث البيانات المتعلقة بالعقود",
+    "Contract:delete": "حذف البيانات المتعلقة بالعقود"
+  },
+  "settings": {
+    "Contract": {
+      "ContractEnabled": {
+        "title": "تفعيل العقود",
+        "description": "يحدد ما إذا كانت العقود مفعّلة."
+      },
+      "ContractPassword": {
+        "title": "كلمة مرور العقود",
+        "description": "إعداد كلمة مرور العقود."
+      },
+      "Status": {
+        "title": "حالات العقود",
+        "description": "قاموس حالات العقود المتاحة."
+      }
+    }
+  }
+}
