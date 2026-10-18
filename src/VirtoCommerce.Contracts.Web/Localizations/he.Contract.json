@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "Contract:access": "פתיחת תפריט החוזים",
+    "Contract:create": "יצירת נתונים הקשורים לחוזים",
+    "Contract:read": "הצגת נתונים הקשורים לחוזים",
+    "Contract:update": "עדכון נתונים הקשורים לחוזים",
+    "Contract:delete": "מחיקת נתונים הקשורים לחוזים"
+  },
+  "settings": {
+    "Contract": {
+      "ContractEnabled": {
+        "title": "חוזים מופעלים",
+        "description": "הגדרת הפעלת החוזים"
+      },
+      "ContractPassword": {
+        "title": "סיסמת חוזים",
+        "description": "הגדרת סיסמת החוזים"
+      },
+      "Status": {
+        "title": "סטטוסי חוזה",
+        "description": "מילון הסטטוסים הזמינים לחוזים"
+      }
+    }
+  }
+}
