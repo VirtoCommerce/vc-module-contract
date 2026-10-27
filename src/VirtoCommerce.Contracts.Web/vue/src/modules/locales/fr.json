@@ -1,0 +1,147 @@
+{
+  "CONTRACTS": {
+    "MENU": {
+      "TITLE": "Contrats"
+    },
+    "TOOLBAR": {
+      "REFRESH": "Actualiser",
+      "ADD": "Ajouter",
+      "DELETE": "Supprimer",
+      "SAVE": "Enregistrer",
+      "CREATE": "Créer",
+      "RESET": "Réinitialiser",
+      "APPLY": "OK"
+    },
+    "FIELDS": {
+      "NAME": "Nom",
+      "CODE": "Code",
+      "STATUS": "Statut",
+      "DESCRIPTION": "Description",
+      "START_DATE": "Date de début",
+      "END_DATE": "Date de fin",
+      "VENDOR": "Fournisseur",
+      "STORE": "Magasin"
+    },
+    "LIST": {
+      "TITLE": "Contrats",
+      "EMPTY": "Aucun contrat pour le moment",
+      "SAVED_FILTERS": {
+        "PLACEHOLDER": "Sélectionner un filtre",
+        "NEW": "Ajouter un nouveau filtre",
+        "EDIT": "Modifier le filtre"
+      }
+    },
+    "FILTER": {
+      "NEW_TITLE": "Nouveau filtre",
+      "NEW_SUBTITLE": "Créer un nouveau filtre",
+      "SUBTITLE": "Modifier le filtre",
+      "UNNAMED": "Filtre sans nom",
+      "NAME": "Nom du filtre",
+      "ALL": "Non spécifié",
+      "FROM": "Commencé à partir de",
+      "TO": "Valable jusqu'à",
+      "APPLY": "Appliquer le filtre"
+    },
+    "DETAILS": {
+      "NEW_TITLE": "Créer un nouveau contrat",
+      "SUBTITLE": "Modifier le contrat",
+      "EDIT_STATUSES": "Modifier les statuts de contrat",
+      "PLACEHOLDERS": {
+        "NAME": "Saisir le nom",
+        "CODE": "Laisser vide pour la génération automatique du code",
+        "STATUS": "Sélectionner le statut",
+        "DESCRIPTION": "Saisir la description",
+        "START_DATE": "Sélectionner la date de début",
+        "END_DATE": "Sélectionner la date de fin",
+        "VENDOR": "Sélectionner le fournisseur",
+        "STORE": "Sélectionner le magasin"
+      }
+    },
+    "WIDGETS": {
+      "ATTACHMENTS": "Pièces jointes",
+      "CUSTOMERS": "Clients",
+      "PROPERTIES": "Propriétés dynamiques",
+      "PRICES": "Prix"
+    },
+    "ATTACHMENTS": {
+      "TITLE": "Pièces jointes",
+      "EMPTY": "Aucune pièce jointe pour le moment",
+      "UPLOAD": "Téléverser",
+      "DOWNLOAD": "Télécharger",
+      "COPY_LINK": "Copier le lien"
+    },
+    "MEMBERS": {
+      "TITLE": "Clients",
+      "EMPTY": "Aucun client",
+      "TYPE": "Type",
+      "MANAGE": "Gérer"
+    },
+    "MEMBER_SELECT": {
+      "TITLE": "Contacts et organisations",
+      "ALL": "Tous",
+      "UP": "Niveau supérieur",
+      "IN_CONTRACT": "déjà dans le contrat",
+      "CONFIRM": "Ajouter la sélection ({count})"
+    },
+    "PROPERTIES": {
+      "LANGUAGE": "Langue",
+      "EMPTY": "Aucune propriété dynamique n'est définie pour les contrats"
+    },
+    "PRICES": {
+      "TITLE": "Prix du contrat",
+      "EMPTY": "Aucun prix",
+      "NOT_LINKED": "Il n'y a pas encore de listes de prix",
+      "LINK_PRICELIST": "Lier une liste de prix",
+      "RESTORE": "Restaurer",
+      "MODIFIED": "Modifié",
+      "COLUMNS": {
+        "IMAGE": "Image",
+        "NAME": "Nom de l'article",
+        "CODE": "Code de l'article",
+        "COUNT": "Nombre de prix",
+        "RANGE": "Fourchette de prix",
+        "STATE": "État"
+      }
+    },
+    "PRICELIST_SELECT": {
+      "TITLE": "Listes de prix disponibles",
+      "EMPTY": "Aucune liste de prix",
+      "CURRENCY": "Devise",
+      "CONFIRM": "Lier"
+    },
+    "PRODUCT_PICKER": {
+      "TITLE": "Sélectionner des articles",
+      "EMPTY": "Aucun article trouvé",
+      "ADD_SELECTED": "Ajouter la sélection"
+    },
+    "PRODUCT_PRICES": {
+      "TITLE": "Prix de {name}",
+      "CURRENCY": "Devise",
+      "LIST": "Prix catalogue",
+      "SALE": "Prix de vente",
+      "MIN_QTY": "Quantité minimale",
+      "STATE_NEW": "Nouveau",
+      "STATE_UPDATED": "Mis à jour"
+    },
+    "VALIDATION": {
+      "CODE": "Le code du contrat ne peut pas contenir de caractères spéciaux autres que les tirets et les traits de soulignement",
+      "LIST": "Le prix catalogue est obligatoire et ne peut pas être négatif",
+      "SALE": "Le prix de vente ne doit pas dépasser le prix catalogue",
+      "QTY": "La quantité minimale doit être un nombre positif",
+      "QTY_UNIQUE": "La quantité minimale doit être unique",
+      "SINGLE_ITEM": "Un prix doit avoir une quantité minimale de 1"
+    },
+    "ALERTS": {
+      "CLOSE_CONFIRMATION": "Des modifications ne sont pas enregistrées. Fermer quand même ?",
+      "DELETE": "Voulez-vous vraiment supprimer les contrats sélectionnés ({count}) ?",
+      "DELETE_MEMBERS": "Voulez-vous vraiment supprimer les membres sélectionnés ({count}) du contrat ?",
+      "DELETE_ATTACHMENTS": "Voulez-vous vraiment supprimer les pièces jointes sélectionnées ({count}) ?",
+      "RESTORE_PRODUCTS": "Voulez-vous vraiment restaurer l'état initial des prix des produits ({count}) ?",
+      "RESTORE_PRICES": "Les lignes de prix sélectionnées ({count}) vont être restaurées à leur état initial",
+      "COPIED": "Lien copié dans le presse-papiers",
+      "UNKNOWN_MEMBER_TYPE": "Type de membre inconnu : {type}",
+      "MEMBER_UNAVAILABLE": "Le membre ne peut pas être ouvert ici : l'interface du module Contacts n'est pas chargée",
+      "PRICELIST_NOT_LINKED": "La liste de prix n'a pas été liée : elle ou le contrat n'existe plus"
+    }
+  }
+}

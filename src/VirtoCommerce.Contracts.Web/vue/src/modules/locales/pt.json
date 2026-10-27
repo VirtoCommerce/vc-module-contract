@@ -1,0 +1,147 @@
+{
+  "CONTRACTS": {
+    "MENU": {
+      "TITLE": "Contratos"
+    },
+    "TOOLBAR": {
+      "REFRESH": "Atualizar",
+      "ADD": "Adicionar",
+      "DELETE": "Excluir",
+      "SAVE": "Salvar",
+      "CREATE": "Criar",
+      "RESET": "Redefinir",
+      "APPLY": "OK"
+    },
+    "FIELDS": {
+      "NAME": "Nome",
+      "CODE": "Código",
+      "STATUS": "Status",
+      "DESCRIPTION": "Descrição",
+      "START_DATE": "Data de início",
+      "END_DATE": "Data de término",
+      "VENDOR": "Fornecedor",
+      "STORE": "Loja"
+    },
+    "LIST": {
+      "TITLE": "Contratos",
+      "EMPTY": "Ainda não há contratos",
+      "SAVED_FILTERS": {
+        "PLACEHOLDER": "Selecionar filtro",
+        "NEW": "Adicionar novo filtro",
+        "EDIT": "Editar filtro"
+      }
+    },
+    "FILTER": {
+      "NEW_TITLE": "Novo filtro",
+      "NEW_SUBTITLE": "Criar novo filtro",
+      "SUBTITLE": "Editar filtro",
+      "UNNAMED": "Filtro sem nome",
+      "NAME": "Nome do filtro",
+      "ALL": "Não especificado",
+      "FROM": "Iniciado a partir de",
+      "TO": "Válido até",
+      "APPLY": "Aplicar filtro"
+    },
+    "DETAILS": {
+      "NEW_TITLE": "Criar novo contrato",
+      "SUBTITLE": "Editar contrato",
+      "EDIT_STATUSES": "Editar status de contrato",
+      "PLACEHOLDERS": {
+        "NAME": "Inserir nome",
+        "CODE": "Deixe em branco para geração automática de código",
+        "STATUS": "Selecionar status",
+        "DESCRIPTION": "Inserir descrição",
+        "START_DATE": "Selecionar data de início",
+        "END_DATE": "Selecionar data de término",
+        "VENDOR": "Selecionar fornecedor",
+        "STORE": "Selecionar loja"
+      }
+    },
+    "WIDGETS": {
+      "ATTACHMENTS": "Anexos",
+      "CUSTOMERS": "Clientes",
+      "PROPERTIES": "Propriedades dinâmicas",
+      "PRICES": "Preços"
+    },
+    "ATTACHMENTS": {
+      "TITLE": "Anexos",
+      "EMPTY": "Ainda não há anexos",
+      "UPLOAD": "Carregar",
+      "DOWNLOAD": "Baixar",
+      "COPY_LINK": "Copiar link"
+    },
+    "MEMBERS": {
+      "TITLE": "Clientes",
+      "EMPTY": "Nenhum cliente",
+      "TYPE": "Tipo",
+      "MANAGE": "Gerenciar"
+    },
+    "MEMBER_SELECT": {
+      "TITLE": "Contatos e organizações",
+      "ALL": "Todos",
+      "UP": "Subir um nível",
+      "IN_CONTRACT": "já está no contrato",
+      "CONFIRM": "Adicionar selecionados ({count})"
+    },
+    "PROPERTIES": {
+      "LANGUAGE": "Idioma",
+      "EMPTY": "Não há propriedades dinâmicas definidas para contratos"
+    },
+    "PRICES": {
+      "TITLE": "Preços do contrato",
+      "EMPTY": "Nenhum preço",
+      "NOT_LINKED": "Ainda não há listas de preços",
+      "LINK_PRICELIST": "Vincular lista de preços",
+      "RESTORE": "Restaurar",
+      "MODIFIED": "Modificado",
+      "COLUMNS": {
+        "IMAGE": "Imagem",
+        "NAME": "Nome do item",
+        "CODE": "Código do item",
+        "COUNT": "Contagem de preços",
+        "RANGE": "Faixa de preço",
+        "STATE": "Estado"
+      }
+    },
+    "PRICELIST_SELECT": {
+      "TITLE": "Listas de preços disponíveis",
+      "EMPTY": "Nenhuma lista de preços",
+      "CURRENCY": "Moeda",
+      "CONFIRM": "Vincular"
+    },
+    "PRODUCT_PICKER": {
+      "TITLE": "Selecionar itens",
+      "EMPTY": "Nenhum item encontrado",
+      "ADD_SELECTED": "Adicionar selecionados"
+    },
+    "PRODUCT_PRICES": {
+      "TITLE": "Preços de {name}",
+      "CURRENCY": "Moeda",
+      "LIST": "Preço de tabela",
+      "SALE": "Preço de venda",
+      "MIN_QTY": "Quantidade mínima",
+      "STATE_NEW": "Novo",
+      "STATE_UPDATED": "Atualizado"
+    },
+    "VALIDATION": {
+      "CODE": "O código do contrato não pode conter símbolos especiais além de hífens e sublinhados",
+      "LIST": "O preço de tabela é obrigatório e não pode ser negativo",
+      "SALE": "O preço de venda não deve exceder o preço de tabela",
+      "QTY": "A quantidade mínima deve ser um número positivo",
+      "QTY_UNIQUE": "A quantidade mínima deve ser única",
+      "SINGLE_ITEM": "Um preço deve ter quantidade mínima 1"
+    },
+    "ALERTS": {
+      "CLOSE_CONFIRMATION": "Há alterações não salvas. Fechar mesmo assim?",
+      "DELETE": "Tem certeza de que deseja excluir os contratos selecionados ({count})?",
+      "DELETE_MEMBERS": "Tem certeza de que deseja excluir os membros selecionados ({count}) do contrato?",
+      "DELETE_ATTACHMENTS": "Tem certeza de que deseja excluir os anexos selecionados ({count})?",
+      "RESTORE_PRODUCTS": "Tem certeza de que deseja restaurar os preços dos produtos ({count}) ao estado inicial?",
+      "RESTORE_PRICES": "As linhas de preço selecionadas ({count}) serão restauradas ao estado inicial",
+      "COPIED": "Link copiado para a área de transferência",
+      "UNKNOWN_MEMBER_TYPE": "Tipo de membro desconhecido: {type}",
+      "MEMBER_UNAVAILABLE": "Não é possível abrir o membro aqui: a interface do módulo Contatos não está carregada",
+      "PRICELIST_NOT_LINKED": "A lista de preços não foi vinculada: ela ou o contrato não existe mais"
+    }
+  }
+}

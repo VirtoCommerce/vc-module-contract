@@ -1,0 +1,16 @@
+{
+  "remote": { "name": "contracts_admin", "exposed": "./Module" },
+  "contributions": {
+    "menu": [
+      {
+        "id": "contracts",
+        "sectionId": "orders",
+        "title": "Contracts",
+        "icon": "lucide-file-signature",
+        "route": "/contracts",
+        "permission": "Contract:access",
+        "priority": 35
+      }
+    ]
+  }
+}

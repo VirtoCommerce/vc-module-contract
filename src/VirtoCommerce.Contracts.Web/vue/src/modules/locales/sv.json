@@ -1,0 +1,147 @@
+{
+  "CONTRACTS": {
+    "MENU": {
+      "TITLE": "Kontrakt"
+    },
+    "TOOLBAR": {
+      "REFRESH": "Uppdatera",
+      "ADD": "Lägg till",
+      "DELETE": "Radera",
+      "SAVE": "Spara",
+      "CREATE": "Skapa",
+      "RESET": "Återställ",
+      "APPLY": "OK"
+    },
+    "FIELDS": {
+      "NAME": "Namn",
+      "CODE": "Kod",
+      "STATUS": "Status",
+      "DESCRIPTION": "Beskrivning",
+      "START_DATE": "Startdatum",
+      "END_DATE": "Slutdatum",
+      "VENDOR": "Leverantör",
+      "STORE": "Butik"
+    },
+    "LIST": {
+      "TITLE": "Kontrakt",
+      "EMPTY": "Inga kontrakt ännu",
+      "SAVED_FILTERS": {
+        "PLACEHOLDER": "Välj filter",
+        "NEW": "Lägg till nytt filter",
+        "EDIT": "Redigera filter"
+      }
+    },
+    "FILTER": {
+      "NEW_TITLE": "Nytt filter",
+      "NEW_SUBTITLE": "Skapa nytt filter",
+      "SUBTITLE": "Redigera filter",
+      "UNNAMED": "Namnlöst filter",
+      "NAME": "Filternamn",
+      "ALL": "Ej specificerat",
+      "FROM": "Startat från",
+      "TO": "Giltigt till",
+      "APPLY": "Använd filter"
+    },
+    "DETAILS": {
+      "NEW_TITLE": "Skapa nytt kontrakt",
+      "SUBTITLE": "Redigera kontrakt",
+      "EDIT_STATUSES": "Redigera kontraktsstatusar",
+      "PLACEHOLDERS": {
+        "NAME": "Ange namn",
+        "CODE": "Lämna tomt för automatisk kodgenerering",
+        "STATUS": "Välj status",
+        "DESCRIPTION": "Ange beskrivning",
+        "START_DATE": "Välj startdatum",
+        "END_DATE": "Välj slutdatum",
+        "VENDOR": "Välj leverantör",
+        "STORE": "Välj butik"
+      }
+    },
+    "WIDGETS": {
+      "ATTACHMENTS": "Bilagor",
+      "CUSTOMERS": "Kunder",
+      "PROPERTIES": "Dynamiska egenskaper",
+      "PRICES": "Priser"
+    },
+    "ATTACHMENTS": {
+      "TITLE": "Bilagor",
+      "EMPTY": "Inga bilagor ännu",
+      "UPLOAD": "Ladda upp",
+      "DOWNLOAD": "Ladda ned",
+      "COPY_LINK": "Kopiera länk"
+    },
+    "MEMBERS": {
+      "TITLE": "Kunder",
+      "EMPTY": "Inga kunder",
+      "TYPE": "Typ",
+      "MANAGE": "Hantera"
+    },
+    "MEMBER_SELECT": {
+      "TITLE": "Kontakter och organisationer",
+      "ALL": "Alla",
+      "UP": "Upp",
+      "IN_CONTRACT": "finns redan i kontraktet",
+      "CONFIRM": "Lägg till valda ({count})"
+    },
+    "PROPERTIES": {
+      "LANGUAGE": "Språk",
+      "EMPTY": "Inga dynamiska egenskaper har definierats för kontrakt"
+    },
+    "PRICES": {
+      "TITLE": "Kontraktspriser",
+      "EMPTY": "Inga priser",
+      "NOT_LINKED": "Det finns ännu inga prislistor",
+      "LINK_PRICELIST": "Länka prislista",
+      "RESTORE": "Återställ",
+      "MODIFIED": "Ändrad",
+      "COLUMNS": {
+        "IMAGE": "Bild",
+        "NAME": "Artikelnamn",
+        "CODE": "Artikelkod",
+        "COUNT": "Antal priser",
+        "RANGE": "Prisintervall",
+        "STATE": "Status"
+      }
+    },
+    "PRICELIST_SELECT": {
+      "TITLE": "Tillgängliga prislistor",
+      "EMPTY": "Inga prislistor",
+      "CURRENCY": "Valuta",
+      "CONFIRM": "Länka"
+    },
+    "PRODUCT_PICKER": {
+      "TITLE": "Välj artiklar",
+      "EMPTY": "Inga artiklar hittades",
+      "ADD_SELECTED": "Lägg till valda"
+    },
+    "PRODUCT_PRICES": {
+      "TITLE": "Priser för {name}",
+      "CURRENCY": "Valuta",
+      "LIST": "Listpris",
+      "SALE": "Försäljningspris",
+      "MIN_QTY": "Minsta kvantitet",
+      "STATE_NEW": "Ny",
+      "STATE_UPDATED": "Uppdaterad"
+    },
+    "VALIDATION": {
+      "CODE": "Kontraktskoden får inte innehålla andra specialtecken än bindestreck och understreck",
+      "LIST": "Listpriset är obligatoriskt och får inte vara negativt",
+      "SALE": "Försäljningspriset får inte överstiga listpriset",
+      "QTY": "Minsta kvantitet måste vara ett positivt tal",
+      "QTY_UNIQUE": "Minsta kvantitet måste vara unik",
+      "SINGLE_ITEM": "Ett pris måste ha minsta kvantitet 1"
+    },
+    "ALERTS": {
+      "CLOSE_CONFIRMATION": "Det finns osparade ändringar. Stäng ändå?",
+      "DELETE": "Är du säker på att du vill radera de valda kontrakten ({count})?",
+      "DELETE_MEMBERS": "Är du säker på att du vill radera de valda medlemmarna ({count}) från kontraktet?",
+      "DELETE_ATTACHMENTS": "Är du säker på att du vill radera de valda bilagorna ({count})?",
+      "RESTORE_PRODUCTS": "Är du säker på att du vill återställa priserna för produkterna ({count}) till det ursprungliga tillståndet?",
+      "RESTORE_PRICES": "De valda prisraderna ({count}) återställs till det ursprungliga tillståndet",
+      "COPIED": "Länken har kopierats till urklipp",
+      "UNKNOWN_MEMBER_TYPE": "Okänd medlemstyp: {type}",
+      "MEMBER_UNAVAILABLE": "Medlemmen kan inte öppnas här: gränssnittet för modulen Kontakter är inte inläst",
+      "PRICELIST_NOT_LINKED": "Prislistan länkades inte: den eller kontraktet finns inte längre"
+    }
+  }
+}
