@@ -9,7 +9,7 @@
     <dependency id="VirtoCommerce.Customer" version="3.1028.0" />
     <dependency id="VirtoCommerce.Pricing" version="3.1008.0" />
     <dependency id="VirtoCommerce.Store" version="3.1009.0" />
-    <dependency id="VirtoCommerce.Xapi" version="3.1026.0" />
+    <dependency id="VirtoCommerce.Xapi" version="3.1031.0" />
   </dependencies>
 
   <title>Contracts</title>
