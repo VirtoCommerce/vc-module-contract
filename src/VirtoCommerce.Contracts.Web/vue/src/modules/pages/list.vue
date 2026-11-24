@@ -167,7 +167,7 @@ const globalFilters = computed(
     ] as unknown as GlobalFilterConfig[],
 );
 
-const list = (value: unknown) => {
+const asList = (value: unknown) => {
   const values = ([] as string[]).concat((value as string | string[] | undefined) ?? []);
   return values.length ? values : undefined;
 };
@@ -180,8 +180,8 @@ const localDay = (ymd: unknown, endOfDay = false) => {
 
 function onFilter(event: { filters: Record<string, unknown> }) {
   filters.value = {
-    statuses: list(event.filters.statuses),
-    storeIds: list(event.filters.storeIds),
+    statuses: asList(event.filters.statuses),
+    storeIds: asList(event.filters.storeIds),
     onlyActive: event.filters.onlyActive === true || undefined,
     activeStartDate: localDay(event.filters.activeStartDate),
     activeEndDate: localDay(event.filters.activeEndDate, true),
