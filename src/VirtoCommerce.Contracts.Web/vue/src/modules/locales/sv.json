@@ -25,22 +25,10 @@
     "LIST": {
       "TITLE": "Kontrakt",
       "EMPTY": "Inga kontrakt ännu",
-      "SAVED_FILTERS": {
-        "PLACEHOLDER": "Välj filter",
-        "NEW": "Lägg till nytt filter",
-        "EDIT": "Redigera filter"
+      "FILTERS": {
+        "ONLY_ACTIVE": "Aktiva nu",
+        "PERIOD": "Inom period"
       }
-    },
-    "FILTER": {
-      "NEW_TITLE": "Nytt filter",
-      "NEW_SUBTITLE": "Skapa nytt filter",
-      "SUBTITLE": "Redigera filter",
-      "UNNAMED": "Namnlöst filter",
-      "NAME": "Filternamn",
-      "ALL": "Ej specificerat",
-      "FROM": "Startat från",
-      "TO": "Giltigt till",
-      "APPLY": "Använd filter"
     },
     "DETAILS": {
       "NEW_TITLE": "Skapa nytt kontrakt",

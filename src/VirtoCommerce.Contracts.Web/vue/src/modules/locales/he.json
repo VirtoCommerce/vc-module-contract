@@ -25,22 +25,10 @@
     "LIST": {
       "TITLE": "חוזים",
       "EMPTY": "אין עדיין חוזים",
-      "SAVED_FILTERS": {
-        "PLACEHOLDER": "יש לבחור מסנן",
-        "NEW": "הוספת מסנן חדש",
-        "EDIT": "עריכת מסנן"
+      "FILTERS": {
+        "ONLY_ACTIVE": "פעילים כעת",
+        "PERIOD": "בתוך התקופה"
       }
-    },
-    "FILTER": {
-      "NEW_TITLE": "מסנן חדש",
-      "NEW_SUBTITLE": "יצירת מסנן חדש",
-      "SUBTITLE": "עריכת מסנן",
-      "UNNAMED": "מסנן ללא שם",
-      "NAME": "שם המסנן",
-      "ALL": "לא צוין",
-      "FROM": "התחיל מתאריך",
-      "TO": "בתוקף עד",
-      "APPLY": "החלת מסנן"
     },
     "DETAILS": {
       "NEW_TITLE": "יצירת חוזה חדש",

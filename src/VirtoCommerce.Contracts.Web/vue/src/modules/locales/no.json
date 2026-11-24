@@ -25,22 +25,10 @@
     "LIST": {
       "TITLE": "Kontrakter",
       "EMPTY": "Ingen kontrakter ennå",
-      "SAVED_FILTERS": {
-        "PLACEHOLDER": "Velg filter",
-        "NEW": "Legg til nytt filter",
-        "EDIT": "Rediger filter"
+      "FILTERS": {
+        "ONLY_ACTIVE": "Aktive nå",
+        "PERIOD": "Innenfor periode"
       }
-    },
-    "FILTER": {
-      "NEW_TITLE": "Nytt filter",
-      "NEW_SUBTITLE": "Opprett nytt filter",
-      "SUBTITLE": "Rediger filter",
-      "UNNAMED": "Navnløst filter",
-      "NAME": "Filternavn",
-      "ALL": "Ikke spesifisert",
-      "FROM": "Startet fra",
-      "TO": "Gyldig til",
-      "APPLY": "Bruk filter"
     },
     "DETAILS": {
       "NEW_TITLE": "Opprett ny kontrakt",

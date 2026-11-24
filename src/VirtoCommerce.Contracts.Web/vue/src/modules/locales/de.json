@@ -25,22 +25,10 @@
     "LIST": {
       "TITLE": "Verträge",
       "EMPTY": "Noch keine Verträge",
-      "SAVED_FILTERS": {
-        "PLACEHOLDER": "Filter auswählen",
-        "NEW": "Neuen Filter hinzufügen",
-        "EDIT": "Filter bearbeiten"
+      "FILTERS": {
+        "ONLY_ACTIVE": "Jetzt aktiv",
+        "PERIOD": "Im Zeitraum"
       }
-    },
-    "FILTER": {
-      "NEW_TITLE": "Neuer Filter",
-      "NEW_SUBTITLE": "Neuen Filter erstellen",
-      "SUBTITLE": "Filter bearbeiten",
-      "UNNAMED": "Unbenannter Filter",
-      "NAME": "Filtername",
-      "ALL": "Nicht angegeben",
-      "FROM": "Begonnen ab",
-      "TO": "Gültig bis",
-      "APPLY": "Filter anwenden"
     },
     "DETAILS": {
       "NEW_TITLE": "Neuen Vertrag erstellen",
