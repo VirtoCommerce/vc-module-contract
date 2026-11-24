@@ -25,22 +25,10 @@
     "LIST": {
       "TITLE": "契約",
       "EMPTY": "契約はまだありません",
-      "SAVED_FILTERS": {
-        "PLACEHOLDER": "フィルターを選択",
-        "NEW": "新しいフィルターを追加",
-        "EDIT": "フィルターを編集"
+      "FILTERS": {
+        "ONLY_ACTIVE": "現在有効",
+        "PERIOD": "期間内"
       }
-    },
-    "FILTER": {
-      "NEW_TITLE": "新規フィルター",
-      "NEW_SUBTITLE": "新しいフィルターを作成",
-      "SUBTITLE": "フィルターを編集",
-      "UNNAMED": "名称未設定のフィルター",
-      "NAME": "フィルター名",
-      "ALL": "指定なし",
-      "FROM": "開始日（以降）",
-      "TO": "有効期限",
-      "APPLY": "フィルターを適用"
     },
     "DETAILS": {
       "NEW_TITLE": "新規契約を作成",

@@ -2,38 +2,6 @@ import { ref, watch, type Ref } from "vue";
 import { DynamicPropertiesClient, useApiClient, type DynamicProperty } from "@vc-shell/framework";
 import { http } from "./api";
 
-// Saved contract filters of the AngularJS list ($localStorage.contractSearchFilters), shared by the list and filter blades.
-export interface SavedContractFilter {
-  id: string;
-  name: string;
-  statuses?: string[];
-  vendorId?: string;
-  storeIds?: string[];
-  activeStartDate?: string;
-  activeEndDate?: string;
-}
-
-const KEY = "vc-contracts.savedFilters";
-const CURRENT_KEY = "vc-contracts.savedFilterId";
-
-function read<T>(key: string, fallback: T): T {
-  try {
-    return (JSON.parse(localStorage.getItem(key) ?? "") as T) ?? fallback;
-  } catch {
-    return fallback;
-  }
-}
-
-const filters = ref<SavedContractFilter[]>(read(KEY, []));
-const currentId = ref<string | undefined>(read<string | undefined>(CURRENT_KEY, undefined));
-watch(filters, (v) => localStorage.setItem(KEY, JSON.stringify(v)), { deep: true });
-watch(currentId, (v) => (v ? localStorage.setItem(CURRENT_KEY, JSON.stringify(v)) : localStorage.removeItem(CURRENT_KEY)));
-
-export function useSavedFilters() {
-  const find = (id?: string) => (id ? filters.value.find((f) => f.id === id) : undefined);
-  return { filters, currentId, find };
-}
-
 /** Allowed values of the Contract.Status dictionary setting as select options; `load` re-reads them. */
 export function useStatuses() {
   const statuses = ref<{ id: string; title: string }[]>([]);

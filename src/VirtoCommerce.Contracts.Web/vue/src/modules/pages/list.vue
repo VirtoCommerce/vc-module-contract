@@ -15,7 +15,9 @@
       :total-count="totalCount"
       :pagination="pagination"
       :searchable="true"
+      search-bar
       state-key="CONTRACTS"
+      :global-filters="globalFilters"
       :active-item-id="activeItemId"
       :show-all-columns="!activeItemId"
       :row-actions="rowActions"
@@ -24,26 +26,8 @@
       :empty-state="{ icon: 'lucide-file-signature', title: $t('CONTRACTS.LIST.EMPTY') }"
       @row-click="(e: { data: Contract }) => openDetails(e.data.id)"
       @pagination-click="pagination.goToPage"
+      @filter="onFilter"
     >
-      <template #search-header-actions>
-        <div class="contracts-saved-filter">
-          <VcSelect
-            :model-value="currentId"
-            :options="savedFilterOptions"
-            :placeholder="$t('CONTRACTS.LIST.SAVED_FILTERS.PLACEHOLDER')"
-            size="small"
-            @update:model-value="onSavedFilterPicked"
-          />
-          <VcButton
-            v-if="currentFilter"
-            icon="lucide-pencil"
-            variant="ghost"
-            size="sm"
-            :aria-label="$t('CONTRACTS.LIST.SAVED_FILTERS.EDIT')"
-            @click="openFilter(currentFilter.id)"
-          />
-        </div>
-      </template>
       <VcColumn
         id="name"
         :title="$t('CONTRACTS.FIELDS.NAME')"
@@ -110,13 +94,14 @@ import {
   usePermissions,
   usePopup,
   useTableSearch,
+  type GlobalFilterConfig,
   type IBladeToolbar,
 } from "@vc-shell/framework";
-import { VcBlade, VcButton, VcColumn, VcDataTable, VcSelect, VcStatus } from "@vc-shell/framework/ui";
+import { VcBlade, VcColumn, VcDataTable, VcStatus } from "@vc-shell/framework/ui";
 import { computed, ref, watch } from "vue";
 import { useI18n } from "vue-i18n";
 import { errorMessage, searchStoreOptions, useContractsClient } from "../api";
-import { useSavedFilters } from "../composables";
+import { useStatuses } from "../composables";
 import type { Contract } from "../../api_client/virtocommerce.contracts";
 
 defineBlade({
@@ -153,38 +138,62 @@ const { sortField, sortOrder, sortExpression } = useDataTableSort({ stateKey: "C
 const { searchValue } = useTableSearch({ stateKey: "CONTRACTS" });
 const pagination = useDataTablePagination({ stateKey: "CONTRACTS", pageSize: PAGE_SIZE, totalCount });
 
-// saved filters (the AngularJS filter dropdown): the user's filters and "new filter"
-const { filters: savedFilters, currentId, find } = useSavedFilters();
-const NEW_FILTER = "__new";
-const currentFilter = computed(() => find(currentId.value));
-const savedFilterOptions = computed(() => [
-  ...savedFilters.value.map((f) => ({ id: f.id, title: f.name })),
-  { id: NEW_FILTER, title: t("CONTRACTS.LIST.SAVED_FILTERS.NEW") },
-]);
+// The AngularJS saved filters (status, store, vendor, period) become the search bar: an account manager narrows
+// the list to a store's contracts, to a status (e.g. pending approval) or to the contracts in force today.
+// Vendor is left out: the bar takes fixed options and any contact or organization can be a vendor.
+const { statuses } = useStatuses();
+const filters = ref<{ statuses?: string[]; storeIds?: string[]; onlyActive?: boolean; activeStartDate?: Date; activeEndDate?: Date }>({});
+// the search bar takes toggle fields, which vc-shell 2.13 does not yet type in GlobalFilterConfig
+const globalFilters = computed(
+  () =>
+    [
+      {
+        id: "statuses",
+        label: t("CONTRACTS.FIELDS.STATUS"),
+        filter: { multiple: true, options: statuses.value.map((s) => ({ value: s.id, label: s.title })) },
+      },
+      {
+        id: "storeIds",
+        label: t("CONTRACTS.FIELDS.STORE"),
+        filter: {
+          multiple: true,
+          options: Object.entries(storeNames.value)
+            .map(([value, label]) => ({ value, label }))
+            .sort((a, b) => a.label.localeCompare(b.label)),
+        },
+      },
+      { id: "onlyActive", label: t("CONTRACTS.LIST.FILTERS.ONLY_ACTIVE"), filter: { toggle: true } },
+      { id: "period", label: t("CONTRACTS.LIST.FILTERS.PERIOD"), filter: { range: ["activeStartDate", "activeEndDate"] } },
+    ] as unknown as GlobalFilterConfig[],
+);
 
-async function onSavedFilterPicked(id: unknown) {
-  if (id === NEW_FILTER) {
-    openFilter();
-    return;
-  }
-  // as the AngularJS list, another filter closes the filter editor (the only child while no contract is open)
-  if (!activeItemId.value) await closeChildren();
-  currentId.value = (id as string) || undefined;
+const asList = (value: unknown) => {
+  const values = ([] as string[]).concat((value as string | string[] | undefined) ?? []);
+  return values.length ? values : undefined;
+};
+// the search bar sends days (YYYY-MM-DD, both ends included); the API compares times, so the end is that day's last moment
+const localDay = (ymd: unknown, endOfDay = false) => {
+  if (typeof ymd !== "string" || !ymd) return undefined;
+  const day = new Date(`${ymd}T00:00`);
+  return endOfDay ? new Date(day.getFullYear(), day.getMonth(), day.getDate() + 1, 0, 0, 0, -1) : day;
+};
+
+function onFilter(event: { filters: Record<string, unknown> }) {
+  filters.value = {
+    statuses: asList(event.filters.statuses),
+    storeIds: asList(event.filters.storeIds),
+    onlyActive: event.filters.onlyActive === true || undefined,
+    activeStartDate: localDay(event.filters.activeStartDate),
+    activeEndDate: localDay(event.filters.activeEndDate, true),
+  };
   reloadFirstPage();
 }
 
-const openFilter = (filterId?: string) => openBlade({ name: "ContractFilterDetails", options: { filterId } });
-
 const { loading, action: load } = useAsync(async () => {
-  const f = currentFilter.value;
   const result = await latest.latest(
     (await client()).searchContracts({
       keyword: searchValue.value || undefined,
-      statuses: f?.statuses?.length ? f.statuses : undefined,
-      storeIds: f?.storeIds?.length ? f.storeIds : undefined,
-      vendorId: f?.vendorId || undefined,
-      activeStartDate: f?.activeStartDate ? new Date(f.activeStartDate) : undefined,
-      activeEndDate: f?.activeEndDate ? new Date(f.activeEndDate) : undefined,
+      ...filters.value,
       sort: sortExpression.value,
       skip: pagination.skip,
       take: PAGE_SIZE,
@@ -273,7 +282,6 @@ function statusVariant(status?: string) {
 
 exposeToChildren({
   reload: () => load(),
-  reloadFirstPage,
   // a contract was created in the "new contract" blade: show it in place of that blade
   created: async (id: unknown) => {
     await load();
@@ -282,11 +290,3 @@ exposeToChildren({
 });
 </script>
 
-<style lang="scss">
-.contracts-saved-filter {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  min-width: 200px;
-}
-</style>

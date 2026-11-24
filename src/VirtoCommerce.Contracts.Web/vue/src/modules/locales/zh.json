@@ -25,22 +25,10 @@
     "LIST": {
       "TITLE": "合同",
       "EMPTY": "暂无合同",
-      "SAVED_FILTERS": {
-        "PLACEHOLDER": "选择筛选器",
-        "NEW": "添加新筛选器",
-        "EDIT": "编辑筛选器"
+      "FILTERS": {
+        "ONLY_ACTIVE": "当前有效",
+        "PERIOD": "期间内"
       }
-    },
-    "FILTER": {
-      "NEW_TITLE": "新筛选器",
-      "NEW_SUBTITLE": "创建新筛选器",
-      "SUBTITLE": "编辑筛选器",
-      "UNNAMED": "未命名筛选器",
-      "NAME": "筛选器名称",
-      "ALL": "未指定",
-      "FROM": "开始时间不早于",
-      "TO": "有效期至",
-      "APPLY": "应用筛选器"
     },
     "DETAILS": {
       "NEW_TITLE": "创建新合同",

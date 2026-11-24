@@ -25,22 +25,10 @@
     "LIST": {
       "TITLE": "Umowy",
       "EMPTY": "Brak umów",
-      "SAVED_FILTERS": {
-        "PLACEHOLDER": "Wybierz filtr",
-        "NEW": "Dodaj nowy filtr",
-        "EDIT": "Edytuj filtr"
+      "FILTERS": {
+        "ONLY_ACTIVE": "Aktywne teraz",
+        "PERIOD": "W okresie"
       }
-    },
-    "FILTER": {
-      "NEW_TITLE": "Nowy filtr",
-      "NEW_SUBTITLE": "Utwórz nowy filtr",
-      "SUBTITLE": "Edytuj filtr",
-      "UNNAMED": "Nienazwany filtr",
-      "NAME": "Nazwa filtra",
-      "ALL": "Nie określono",
-      "FROM": "Rozpoczęte od",
-      "TO": "Ważne do",
-      "APPLY": "Zastosuj filtr"
     },
     "DETAILS": {
       "NEW_TITLE": "Utwórz nową umowę",

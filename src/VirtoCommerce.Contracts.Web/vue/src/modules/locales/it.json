@@ -25,22 +25,10 @@
     "LIST": {
       "TITLE": "Contratti",
       "EMPTY": "Ancora nessun contratto",
-      "SAVED_FILTERS": {
-        "PLACEHOLDER": "Seleziona filtro",
-        "NEW": "Aggiungi nuovo filtro",
-        "EDIT": "Modifica filtro"
+      "FILTERS": {
+        "ONLY_ACTIVE": "Attivi ora",
+        "PERIOD": "Nel periodo"
       }
-    },
-    "FILTER": {
-      "NEW_TITLE": "Nuovo filtro",
-      "NEW_SUBTITLE": "Crea nuovo filtro",
-      "SUBTITLE": "Modifica filtro",
-      "UNNAMED": "Filtro senza nome",
-      "NAME": "Nome del filtro",
-      "ALL": "Non specificato",
-      "FROM": "Iniziato da",
-      "TO": "Valido fino a",
-      "APPLY": "Applica filtro"
     },
     "DETAILS": {
       "NEW_TITLE": "Crea nuovo contratto",

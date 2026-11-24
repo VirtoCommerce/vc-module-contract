@@ -25,22 +25,10 @@
     "LIST": {
       "TITLE": "Sopimukset",
       "EMPTY": "Ei vielä sopimuksia",
-      "SAVED_FILTERS": {
-        "PLACEHOLDER": "Valitse suodatin",
-        "NEW": "Lisää uusi suodatin",
-        "EDIT": "Muokkaa suodatinta"
+      "FILTERS": {
+        "ONLY_ACTIVE": "Voimassa nyt",
+        "PERIOD": "Ajanjakson sisällä"
       }
-    },
-    "FILTER": {
-      "NEW_TITLE": "Uusi suodatin",
-      "NEW_SUBTITLE": "Luo uusi suodatin",
-      "SUBTITLE": "Muokkaa suodatinta",
-      "UNNAMED": "Nimetön suodatin",
-      "NAME": "Suodattimen nimi",
-      "ALL": "Ei määritelty",
-      "FROM": "Alkaen",
-      "TO": "Voimassa asti",
-      "APPLY": "Käytä suodatinta"
     },
     "DETAILS": {
       "NEW_TITLE": "Luo uusi sopimus",
